@@ -1,0 +1,139 @@
+/* Maybe I should've used SCSS... */
+.animation-wrapper {
+    perspective-origin: 50% 50%;
+}
+
+.svg{
+    position:absolute;
+    bottom: -25vh;
+    transform-style: preserve-3d;
+  }
+
+.svg:nth-child(1) {
+    left: -30%;
+    animation: raise1 9s linear infinite;
+    animation-delay: -1s;
+    transform: scale(0.2) rotate(149deg);
+    z-index: -1;
+    filter: blur(-5px);
+}
+@keyframes raise1 {
+    from { opacity: 0.5; }
+    to {
+        opacity: 2;
+        bottom: 150vh;
+        transform: scale(0.2) rotate(338deg);
+   }
+}
+.svg:nth-child(2) {
+    left: -3%;
+    animation: raise2 8s linear infinite;
+    animation-delay: 0s;
+    transform: scale(0.3) rotate(330deg);
+    z-index: -1;
+    filter: blur(-4px);
+}
+@keyframes raise2 {
+    from { opacity: 0.5; }
+    to {
+        opacity: 2;
+        bottom: 150vh;
+        transform: scale(0.3) rotate(208deg);
+   }
+}
+.svg:nth-child(3) {
+    left: 30%;
+    animation: raise3 12s linear infinite;
+    animation-delay: -2s;
+    transform: scale(0.3) rotate(254deg);
+    z-index: -1;
+    filter: blur(-3px);
+}
+@keyframes raise3 {
+    from { opacity: 0.5; }
+    to {
+        opacity: 2;
+        bottom: 150vh;
+        transform: scale(0.3) rotate(27deg);
+   }
+}
+.svg:nth-child(4) {
+    left: 35%;
+    animation: raise4 20s linear infinite;
+    animation-delay: -4s;
+    transform: scale(0.2) rotate(41deg);
+    z-index: -1;
+    filter: blur(-2px);
+}
+@keyframes raise4 {
+    from { opacity: 0.5; }
+    to {
+        opacity: 2;
+        bottom: 150vh;
+        transform: scale(0.2) rotate(189deg);
+   }
+}
+.svg:nth-child(5) {
+    left: 20%;
+    animation: raise5 8s linear infinite;
+    animation-delay: -3s;
+    transform: scale(0.2) rotate(89deg);
+    z-index: -1;
+    filter: blur(-1px);
+}
+@keyframes raise5 {
+    from { opacity: 0.5; }
+    to {
+        opacity: 2;
+        bottom: 150vh;
+        transform: scale(0.2) rotate(32deg);
+   }
+}
+.svg:nth-child(6) {
+    left: 5%;
+    animation: raise6 8s linear infinite;
+    animation-delay: -4s;
+    transform: scale(0.1) rotate(58deg);
+    z-index: -1;
+    filter: blur(0px);
+}
+@keyframes raise6 {
+    from { opacity: 0.5; }
+    to {
+        opacity: 2;
+        bottom: 150vh;
+        transform: scale(0.2) rotate(144deg);
+   }
+}
+.svg:nth-child(7) {
+    left: -16%;
+    animation: raise7 17s linear infinite;
+    animation-delay: -2s;
+    transform: scale(0.1) rotate(95deg);
+    z-index: -1;
+    filter: blur(1px);
+}
+@keyframes raise7 {
+    from { opacity: 0.5; }
+    to {
+        opacity: 2;
+        bottom: 150vh;
+        transform: scale(0.2) rotate(276deg);
+   }
+}
+.svg:nth-child(8) {
+    left: -35%;
+    animation: raise8 15s linear infinite;
+    animation-delay: -2s;
+    transform: scale(0.2) rotate(224deg);
+    z-index: -1;
+    filter: blur(2px);
+}
+@keyframes raise8 {
+    from { opacity: 0.5; }
+    to {
+        opacity: 2;
+        bottom: 150vh;
+        transform: scale(0.2) rotate(56deg);
+   }
+}
