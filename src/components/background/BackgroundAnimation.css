@@ -10,7 +10,7 @@
   }
 
 .svg:nth-child(1) {
-    left: -30%;
+    left: -27%;
     animation: raise1 9s linear infinite;
     animation-delay: -1s;
     transform: scale(0.2) rotate(149deg);
@@ -58,7 +58,7 @@
    }
 }
 .svg:nth-child(4) {
-    left: 35%;
+    left: 32%;
     animation: raise4 20s linear infinite;
     animation-delay: -4s;
     transform: scale(0.2) rotate(41deg);

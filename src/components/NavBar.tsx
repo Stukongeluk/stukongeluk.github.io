@@ -13,7 +13,9 @@ class NavBar extends React.Component {
         return <nav className='sticky top-0 z-10 bg-slate-500 bg-opacity-30 border-b border-gray-200 backdrop-filter backdrop-blur-lg'>
             <div className="max-w-5xl mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
-                <span><img src={logo}/></span>
+                <span>
+                    <img alt="logo" src={logo}/>
+                </span>
                 <div className='flex space-x-4 text-white'>
                     {navigationElements}
                 </div>

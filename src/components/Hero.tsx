@@ -6,9 +6,9 @@ class Hero extends React.Component {
         return <section className="flex flex-col justify-center h-screen sm:text-center lg:text-center">
               <p className='text-red-400 text-lg'>Hi! My name is</p>
               <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
-                <span className="block  text-white xl:inline">Jimmy Nguyen</span>
+                <span className="block text-white xl:inline">Jimmy Nguyen</span>
               </h1>
-              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl">
+              <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl">
                 <span className='xl:inline'>I am a </span>
                 <span className='text-white xl:inline'>software engineer </span>
                 <span>who likes to create </span>
