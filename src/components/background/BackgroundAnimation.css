@@ -3,11 +3,11 @@
     perspective-origin: 50% 50%;
 }
 
-.svg{
+.svg {
     position:absolute;
-    bottom: -25vh;
+    bottom: -150vh;
     transform-style: preserve-3d;
-  }
+}
 
 .svg:nth-child(1) {
     left: -27%;
