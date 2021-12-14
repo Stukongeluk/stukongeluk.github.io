@@ -1,11 +1,8 @@
 /* Maybe I should've used SCSS... */
-.animation-wrapper {
-    perspective-origin: 50% 50%;
-}
 
 .svg {
     position:absolute;
-    bottom: -150vh;
+    bottom: -200vh;
     transform-style: preserve-3d;
 }
 
@@ -42,7 +39,7 @@
    }
 }
 .svg:nth-child(3) {
-    left: 30%;
+    left: 25%;
     animation: raise3 12s linear infinite;
     animation-delay: -2s;
     transform: scale(0.3) rotate(254deg);
@@ -58,7 +55,7 @@
    }
 }
 .svg:nth-child(4) {
-    left: 32%;
+    left: 28%;
     animation: raise4 20s linear infinite;
     animation-delay: -4s;
     transform: scale(0.2) rotate(41deg);

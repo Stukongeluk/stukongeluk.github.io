@@ -32,31 +32,31 @@ class About extends React.Component<any, AboutInterfaceState> {
     return (
       <div className="my-2 grid grid-cols-3 grid-rows-3 gap-2 items-center place-items-center">
         <div className="bg-white ring rounded-full ring-red-400 overflow-hidden">
-          <img alt="aws" src={aws} className="h-40 w-40" />
+          <img alt="aws" src={aws} className="h-40 w-40" title="AWS"/>
         </div>
         <div className="bg-white ring rounded-full ring-red-400 overflow-hidden">
-          <img alt="java" src={java} className="h-40 w-50" />
+          <img alt="java" src={java} className="h-40 w-50" title="Java 8/11/17" />
         </div>
         <div className="bg-white ring rounded-full ring-red-400 overflow-hidden">
-          <img alt="docker" src={docker} className="h-40 w-40" />
+          <img alt="docker" src={docker} className="h-40 w-40" title="Docker" />
         </div>
         <div className="bg-white ring rounded-full ring-red-400 overflow-hidden">
-          <img alt="elasticsearch" src={elasticSearch} className="h-40 w-50" />
+          <img alt="elasticsearch" src={elasticSearch} className="h-40 w-50" title="ElasticSearch" />
         </div>
         <div className="bg-white ring rounded-full ring-red-400 overflow-hidden">
-          <img alt="angular" src={angular} className="h-40 w-50" />
+          <img alt="angular" src={angular} className="h-40 w-50" title="Angular" />
         </div>
         <div className="bg-white ring rounded-full ring-red-400 overflow-hidden">
-          <img alt="react" src={react} className="h-40 w-40" />
+          <img alt="react" src={react} className="h-40 w-40" title="React" />
         </div>
         <div className="bg-white ring rounded-full ring-red-400 overflow-hidden">
-          <img alt="gitlab" src={gitlab} className="h-40 w-40" />
+          <img alt="gitlab" src={gitlab} className="h-40 w-40" title="Gitlab" />
         </div>
         <div className="bg-white ring rounded-full ring-red-400 overflow-hidden">
-          <img alt="Spring framework" src={spring} className="h-40 w-40" />
+          <img alt="Spring framework" src={spring} className="h-40 w-40" title="Spring framework" />
         </div>
         <div className="bg-white ring rounded-full ring-red-400 overflow-hidden">
-          <img alt="python" src={python} className="h-40 w-40" />
+          <img alt="python" src={python} className="h-40 w-40" title="Python 3" />
         </div>
       </div>
     )
@@ -85,7 +85,7 @@ class About extends React.Component<any, AboutInterfaceState> {
           </p>
           <p>
             Having experienced multiple projects in different kind of industries,
-            I'm sure I can help your business and team <span className="text-red-400 font-bold">getting things done!</span>
+            I'm sure I can help your business and team <span className="text-red-400 font-bold">get things done!</span>
           </p>
           <br />
           <p>
@@ -97,26 +97,31 @@ class About extends React.Component<any, AboutInterfaceState> {
       return (
         <div className="order-2 sm:order-1 text-gray-300 my-8">
           <p>
-            I do cool stuff with computers and code.
+            Hello! I am a Software Engineer/Full-stack Developer/Cloud Engineer who has a lot of experience in creating <span className="text-white font-bold">quality software</span> for different kinds of businesses!
+          </p>
+          <br/>
+          <p>
+            In 3+ years as a Software Engineer, I've experienced different kinds of projects where I've learned different skills and technologies. Most of my current skills were acquired by fulfilling multiple positions like <span className="text-white font-bold">Front-end Developer, Back-end Developer, Full-stack Developer and Cloud engineer.</span>
+          </p>
+          <p>
+            Because of my experience, I'm confident I can help businesses and teams <span className="text-red-400 font-bold">get things done!</span>
+          </p>
+          <br/>
+          <p>
+            In my spare time, I like to work on side projects (like automating my home), playing some games like Valorant and also Skateboarding when the weather is nice. Having a chill and fun night with some snacks and beer with friends is also something I really enjoy!
+          </p>
+          <br/>
+          <p>
+            My favourite Tech-stack contains: <span className="text-white font-bold">Java, AWS and Angular</span>, but there are other technologies where I'm proficient in which you can find below :) (You can ask for my resume or check my <a href="https://www.linkedin.com/in/jimmy-nguyen-software-engineer/" target="_blank" rel="noreferrer" className='font-extrabold underline'>LinkedIn</a> for the rest).
           </p>
         </div>
-
       )
     }
   }
 
   render(): React.ReactNode {
     return (
-      <section id="About">
-        <div className="grid grid-cols-3 divide-x-3 text-center">
-          <hr className="my-8 border-white" />
-          <h2 className="text-white text-base font-extrabold">
-            <span className="text-4xl">
-              About me
-            </span>
-          </h2>
-          <hr className="my-8 border-white" />
-        </div>
+      <section>
         <div className="grid grid-cols-3 divide-x-3 text-center">
           <button className={"about-button bg-gray-700 hover:bg-red-500 active:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded-l " + (this.state.textType === AboutTextType.Short ? "active" : null)} onClick={() => this.handleTextChange(AboutTextType.Short)}>
             <span className="text-white">Short version</span>
@@ -130,8 +135,8 @@ class About extends React.Component<any, AboutInterfaceState> {
         </div>
         <div className="grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 md:divide-x-2 border-none sm:grid-cols-1 sm:grid-rows-2">
           {this.getText(this.state.textType)}
-          <div className="w-60 h-60 border-none justify-center my-8 justify-self-center order-1 sm:order-2">
-            <img alt="me" src={mySelf} className="object-cover object-top w-60 h-60 rounded-full ring ring-offset-2 ring-1 ring-red-500 hover:ring-offset-4 hover:animate-spin" />
+          <div className="w-65 h-65 border-none my-6 justify-self-center self-center	 order-1 sm:order-2">
+            <img alt="me" src={mySelf} className="object-cover object-top w-60 h-60 rounded-full ring ring-offset-2 ring-1 ring-red-500 hover:animate-spin" />
           </div>
         </div>
         {this.getSkillImagesElement()}

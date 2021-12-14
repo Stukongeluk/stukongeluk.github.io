@@ -3,7 +3,11 @@ module.exports = {
     "./src/**/*.{tsx,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxHeight: {
+        '256': '64rem'
+      }
+    },
   },
   plugins: [],
 }
