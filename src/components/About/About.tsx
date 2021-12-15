@@ -32,7 +32,7 @@ class About extends React.Component<any, AboutInterfaceState> {
     return (
       <div className="my-2 grid grid-cols-3 grid-rows-3 gap-2 items-center place-items-center">
         <div className="bg-white ring rounded-full ring-red-400 overflow-hidden">
-          <img alt="aws" src={aws} className="h-40 w-40" title="AWS"/>
+          <img alt="aws" src={aws} className="h-40 w-40" title="AWS" />
         </div>
         <div className="bg-white ring rounded-full ring-red-400 overflow-hidden">
           <img alt="java" src={java} className="h-40 w-50" title="Java 8/11/17" />
@@ -97,20 +97,20 @@ class About extends React.Component<any, AboutInterfaceState> {
       return (
         <div className="order-2 sm:order-1 text-gray-300 my-8">
           <p>
-            Hello! I am a Software Engineer/Full-stack Developer/Cloud Engineer who has a lot of experience in creating <span className="text-white font-bold">quality software</span> for different kinds of businesses!
+            Hello! I am a Software Engineer/Full-stack Developer/Cloud Engineer, living in the Netherlands, who has a lot of experience in creating <span className="text-white font-bold">quality software</span> for different kinds of businesses!
           </p>
-          <br/>
+          <br />
           <p>
             In 3+ years as a Software Engineer, I've experienced different kinds of projects where I've learned different skills and technologies. Most of my current skills were acquired by fulfilling multiple positions like <span className="text-white font-bold">Front-end Developer, Back-end Developer, Full-stack Developer and Cloud engineer.</span>
           </p>
           <p>
             Because of my experience, I'm confident I can help businesses and teams <span className="text-red-400 font-bold">get things done!</span>
           </p>
-          <br/>
+          <br />
           <p>
             In my spare time, I like to work on side projects (like automating my home), playing some games like Valorant and also Skateboarding when the weather is nice. Having a chill and fun night with some snacks and beer with friends is also something I really enjoy!
           </p>
-          <br/>
+          <br />
           <p>
             My favourite Tech-stack contains: <span className="text-white font-bold">Java, AWS and Angular</span>, but there are other technologies where I'm proficient in which you can find below :) (You can ask for my resume or check my <a href="https://www.linkedin.com/in/jimmy-nguyen-software-engineer/" target="_blank" rel="noreferrer" className='font-extrabold underline'>LinkedIn</a> for the rest).
           </p>
@@ -135,7 +135,7 @@ class About extends React.Component<any, AboutInterfaceState> {
         </div>
         <div className="grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 md:divide-x-2 border-none sm:grid-cols-1 sm:grid-rows-2">
           {this.getText(this.state.textType)}
-          <div className="w-65 h-65 border-none my-6 justify-self-center self-center	 order-1 sm:order-2">
+          <div className="w-65 h-65 border-none my-6 justify-self-center self-center order-1 sm:order-2">
             <img alt="me" src={mySelf} className="object-cover object-top w-60 h-60 rounded-full ring ring-offset-2 ring-1 ring-red-500 hover:animate-spin" />
           </div>
         </div>

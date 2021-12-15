@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import './components/About/About.css';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import Hero from './components/Hero';
 import BackgroundAnimation from "./components/Background/BackgroundAnimation";
 import SectionSplit from "./components/SectionSplit";
 import About from './components/About/About';
-import Setup from './components/Setup/Setup';
+import Setup from './components/Setup';
 import Contact from './components/Contact';
 
 class App extends React.Component {
@@ -22,6 +22,15 @@ class App extends React.Component {
         <Setup />
         <SectionSplit title="Contact" />
         <Contact />
+        <br/>
+        <div className='my-24 text-center'>
+          <a href="https://github.com/Stukongeluk/stukongeluk.github.io" target="_blank" rel="noreferrer">
+            <p className="text-gray-300">
+            ☕Created by Jimmy Nguyen (Check it on Github!)☕
+            </p>
+          </a>
+        </div>
+        <br></br>
       </main>
     </div>
 

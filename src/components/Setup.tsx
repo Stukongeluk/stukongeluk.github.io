@@ -1,8 +1,8 @@
 import React from 'react';
-import setupImg from '../../assets/setup.jpg';
-import server from '../../assets/server.svg';
-import tools from '../../assets/tools.svg';
-import cat from '../../assets/cat.svg';
+import setupImg from '../assets/setup.jpg';
+import server from '../assets/server.svg';
+import tools from '../assets/tools.svg';
+import cat from '../assets/cat.svg';
 
 class Setup extends React.Component {
     render(): React.ReactNode {
@@ -10,7 +10,7 @@ class Setup extends React.Component {
             <section id="Setup" className="text-gray-300 text-center ">
                 <img src={setupImg} alt="setup" className="rounded-3xl border border-red-400" />
                 <div className="grid grid-cols-3 gap-3">
-                    <div className="max-h-256 min-h-64">
+                    <div className="min-h-256">
                         <br/>
                         <img src={server} alt="hardware" className="m-auto h-30 w-40"/>
                         <br/>
@@ -30,7 +30,7 @@ class Setup extends React.Component {
                             <li>A MSI Windows laptop :) </li>
                         </ul>
                     </div>
-                    <div className="max-h-256 min-h-64 ">
+                    <div className="min-h-256">
                         <br/>
                         <img src={tools} alt="tools" className="m-auto h-30 w-40"/>
                         <br/>
@@ -50,7 +50,7 @@ class Setup extends React.Component {
                         </ul>
 
                     </div>
-                    <div className="max-h-256 min-h-64">
+                    <div className="min-h-256">
                         <br/>
                         <img src={cat} alt="cat" className="m-auto h-30 w-40"/>
                         <br/>
@@ -58,6 +58,7 @@ class Setup extends React.Component {
                         <p>The newest member of the household!</p>
                         <br/>
                         <ul className="text-white font-extrabold list-disc list-inside">
+                            <li>Name: Woody</li>
                             <li>1+ years old</li>
                             <li>~7 Kilograms</li>
                             <li>Maine Coon</li>
