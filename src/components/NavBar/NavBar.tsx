@@ -8,6 +8,7 @@ class NavBar extends React.Component<{}, NavBarState> {
     this.state = { screenWidth: window.innerWidth, isOpen: false };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
+    this.navigateToSection = this.navigateToSection.bind(this);
   }
 
   componentDidMount() {
@@ -18,13 +19,17 @@ class NavBar extends React.Component<{}, NavBarState> {
     window.removeEventListener("resize", this.updateWindowDimensions)
   }
 
-  updateWindowDimensions() {
+  private updateWindowDimensions() {
     this.setState({ screenWidth: window.innerWidth });
   }
 
-  handleToggle() {
+  public handleToggle() {
     this.setState({ isOpen: !this.state.isOpen })
-    console.log(this.state.isOpen)
+  }
+
+  public navigateToSection(section: string) {
+    this.handleToggle()
+    return window.location.href = section;
   }
 
   private renderHamburgerItems(navigationElements: JSX.Element[]) {
@@ -43,11 +48,11 @@ class NavBar extends React.Component<{}, NavBarState> {
     let navigationElements = navigationItems.map(item => {
       return (
         <div key={item} className="border w-full h-20 text-center">
-          <a key={item} className="w-full h-full block" href={`#${item}`}>
+          <button key={item} className="w-full h-full block" onClick={() => this.navigateToSection(`#${item}`)}>
             <p className="font-extrabold text-white text-4xl">
               {item}
             </p>
-          </a>
+          </button>
         </div>
       )
     });

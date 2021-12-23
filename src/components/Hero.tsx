@@ -11,6 +11,8 @@ class Hero extends React.Component {
       <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl">
         <span className='xl:inline'>I am a </span>
         <span className='text-white xl:inline'>Freelance Software Engineer </span>
+        <span className='xl:inline'>living in </span>
+        <span className='text-white xl:inline'>the Netherlands </span>
         <span>who likes to create </span>
         <span className='text-white xl:inline'>fully-functional </span>
         <span className='xl:inline'>and </span>
