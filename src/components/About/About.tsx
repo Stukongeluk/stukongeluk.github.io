@@ -123,13 +123,13 @@ class About extends React.Component<any, AboutInterfaceState> {
     return (
       <section>
         <div className="grid grid-cols-3 divide-x-3 text-center">
-          <button className={"about-button bg-gray-700 hover:bg-red-500 active:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded-l " + (this.state.textType === AboutTextType.Short ? "active" : null)} onClick={() => this.handleTextChange(AboutTextType.Short)}>
+          <button role="tab" className={"about-button bg-gray-700 hover:bg-red-500 active:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded-l"} aria-selected={(this.state.textType === AboutTextType.Short ? true : false)} onClick={() => this.handleTextChange(AboutTextType.Short)}>
             <span className="text-white">Short version</span>
           </button>
-          <button className={"about-button bg-gray-700 hover:bg-red-500 active:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded-l " + (this.state.textType === AboutTextType.Medium ? "active" : null)} onClick={() => this.handleTextChange(AboutTextType.Medium)}>
+          <button role="tab" className={"about-button bg-gray-700 hover:bg-red-500 active:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded-l"} aria-selected={(this.state.textType === AboutTextType.Medium ? true : false)} onClick={() => this.handleTextChange(AboutTextType.Medium)}>
             <span className="text-white">Medium version</span>
           </button>
-          <button className={"about-button bg-gray-700 hover:bg-red-500 active:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded-l " + (this.state.textType === AboutTextType.Long ? "active" : null)} onClick={() => this.handleTextChange(AboutTextType.Long)}>
+          <button role="tab" className={"about-button bg-gray-700 hover:bg-red-500 active:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded-l"} aria-selected={(this.state.textType === AboutTextType.Long ? true : false)} onClick={() => this.handleTextChange(AboutTextType.Long)}>
             <span className="text-white">Long version</span>
           </button>
         </div>

@@ -58,12 +58,11 @@ class NavBar extends React.Component<{}, NavBarState> {
     });
 
     return (
-      <nav className='sticky top-0 z-10 bg-slate-500 bg-opacity-30 border-b border-gray-200 backdrop-filter backdrop-blur-lg'>
+      <nav className='mobile-navbar sticky top-0 z-10 bg-slate-500 bg-opacity-30 border-b border-gray-200 backdrop-filter backdrop-blur-lg'>
         <div className="md:hidden flex items-center flex justify-end">
           <button className="border" onClick={this.handleToggle}>
             <svg
               className="w-20 h-20 text-white"
-              x-show="!showMenu"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -86,7 +85,7 @@ class NavBar extends React.Component<{}, NavBarState> {
       return <a key={item} className="font-extrabold py-2 px-4" href={`#${item}`}>{item}</a>
     });
 
-    return <nav className='sticky top-0 z-10 bg-slate-500 bg-opacity-30 border-b border-gray-200 backdrop-filter backdrop-blur-lg'>
+    return <nav className='default-navbar sticky top-0 z-10 bg-slate-500 bg-opacity-30 border-b border-gray-200 backdrop-filter backdrop-blur-lg'>
       <div className="max-w-4xl mx-auto px-1">
         <div className="flex items-center justify-between h-16">
           <span>
