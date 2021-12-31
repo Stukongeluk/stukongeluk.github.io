@@ -3,7 +3,7 @@ import React from 'react';
 class Hero extends React.Component {
 
   render(): React.ReactNode {
-    return <section className="flex flex-col justify-center h-screen sm:text-center md:text-center">
+    return <section className="hero flex flex-col justify-center h-screen sm:text-center md:text-center">
       <p className='text-red-400 text-lg'>Hi! My name is</p>
       <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
         <span className="big_name block text-white xl:inline">Jimmy Nguyen</span>
