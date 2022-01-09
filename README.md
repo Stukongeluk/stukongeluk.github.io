@@ -3,6 +3,7 @@
 Hello everyone! This is just a small static site created using:
 - React.js
 - Tailwind
+- Cypress
 
 ## TODO:
 1. Write tests for components
@@ -23,6 +24,10 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn e2e`
+
+Runs the e2e tests with Cypress. Requires you to run the local server first with `yarn start`.
 
 ### `yarn build`
 

@@ -122,18 +122,18 @@ class About extends React.Component<any, AboutInterfaceState> {
   render(): React.ReactNode {
     return (
       <section>
-        <div className="grid grid-cols-3 divide-x-3 text-center">
-          <button role="tab" className={"about-button bg-gray-700 hover:bg-red-500 active:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded-l"} aria-selected={(this.state.textType === AboutTextType.Short ? true : false)} onClick={() => this.handleTextChange(AboutTextType.Short)}>
+        <div className="about-buttons grid grid-cols-3 divide-x-3 text-center">
+          <button role="tab" id="short-version-button" className={"about-button bg-gray-700 hover:bg-red-500 active:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded-l"} aria-selected={(this.state.textType === AboutTextType.Short ? true : false)} onClick={() => this.handleTextChange(AboutTextType.Short)}>
             <span className="text-white">Short version</span>
           </button>
-          <button role="tab" className={"about-button bg-gray-700 hover:bg-red-500 active:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded-l"} aria-selected={(this.state.textType === AboutTextType.Medium ? true : false)} onClick={() => this.handleTextChange(AboutTextType.Medium)}>
+          <button role="tab" id="medium-version-button" className={"about-button bg-gray-700 hover:bg-red-500 active:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded-l"} aria-selected={(this.state.textType === AboutTextType.Medium ? true : false)} onClick={() => this.handleTextChange(AboutTextType.Medium)}>
             <span className="text-white">Medium version</span>
           </button>
-          <button role="tab" className={"about-button bg-gray-700 hover:bg-red-500 active:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded-l"} aria-selected={(this.state.textType === AboutTextType.Long ? true : false)} onClick={() => this.handleTextChange(AboutTextType.Long)}>
+          <button role="tab" id="long-version-button" className={"about-button bg-gray-700 hover:bg-red-500 active:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded-l"} aria-selected={(this.state.textType === AboutTextType.Long ? true : false)} onClick={() => this.handleTextChange(AboutTextType.Long)}>
             <span className="text-white">Long version</span>
           </button>
         </div>
-        <div className="grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 md:divide-x-2 border-none sm:grid-cols-1 sm:grid-rows-2">
+        <div className="about-text grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 md:divide-x-2 border-none sm:grid-cols-1 sm:grid-rows-2">
           {this.getText(this.state.textType)}
           <div className="w-65 h-65 border-none my-6 justify-self-center self-center order-1 sm:order-2">
             <img alt="me" src={mySelf} className="object-cover object-top w-60 h-60 rounded-full ring ring-offset-2 ring-1 ring-red-500 hover:animate-spin" />
