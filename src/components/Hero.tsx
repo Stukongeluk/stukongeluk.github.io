@@ -19,7 +19,7 @@ class Hero extends React.Component {
         <span className='text-white xl:inline'>maintainable software solutions. </span>
         <span className='xl:inline'>Currently doing a project at DPG Media. </span>
         <br></br>
-        <span className='availability text-green-400'>Available for work in March 2022!</span>
+        <span className='availability text-red-400'>Currently not available for work.</span>
       </p>
     </section>
   }
