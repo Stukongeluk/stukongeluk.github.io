@@ -7,7 +7,7 @@ describe("Homepage", () => {
 
     it("should display hero section with a small introduction.", () => {
         cy.get(".hero")
-            .should('have.text', 'Hi! My name is Jimmy Nguyen I am a Freelance Software Engineer living in the Netherlands who likes to create fully-functional and maintainable software solutions. Currently doing a project at DPG Media. Currently not available for work.')
+            .should('have.text', 'Hi! My name is Jimmy Nguyen I am a Freelance Software Engineer living in the Netherlands who likes to create fully-functional and maintainable software solutions. Currently not available for work.')
         cy.get(".availability").should("exist")
     })
 
