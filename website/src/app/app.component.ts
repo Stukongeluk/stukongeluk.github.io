@@ -2,11 +2,13 @@ import { Component, OnInit, WritableSignal, effect, signal } from '@angular/core
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { initFlowbite } from 'flowbite';
+import { HeroComponent } from './hero/hero.component';
+import { AboutComponent } from './about/about.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule],
+  imports: [RouterOutlet, FormsModule, HeroComponent, AboutComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
