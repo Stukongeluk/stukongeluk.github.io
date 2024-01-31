@@ -1,5 +1,8 @@
 # Personal website
-I don't think this will be a portfolio or some kind but more of something I just wanted to create.
+Just to brush up my front-end skills.
 
 ## Tech
 - Angular
+- Tailwind
+- Cypress (Not working yet in combination with Tailwind)
+- Spline
