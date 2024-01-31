@@ -1,99 +1,296 @@
 <section class="bg-white dark:bg-gray-900">
-    <div class="w-full  max-w-screen-xl px-4 py-8 mx-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800"
-            id="defaultTab" data-tabs-toggle="#defaultTabContent" role="tablist">
-            <li class="me-2">
+    <div
+        class="w-full  max-w-screen-xl px-4 py-8 mx-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <ul class="text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg sm:flex dark:divide-gray-600 dark:text-gray-400 rtl:divide-x-reverse"
+            id="fullWidthTab" data-tabs-toggle="#fullWidthTabContent" role="tablist">
+            <li class="w-full">
                 <button id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about"
                     aria-selected="true"
-                    class="inline-block p-4 text-blue-600 rounded-ss-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-blue-500">About</button>
+                    class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">About</button>
             </li>
-            <li class="me-2">
-                <button id="services-tab" data-tabs-target="#services" type="button" role="tab" aria-controls="services"
+            <li class="w-full">
+                <button id="skills-tab" data-tabs-target="#skills" type="button" role="tab" aria-controls="skills"
                     aria-selected="false"
-                    class="inline-block p-4 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300">Services</button>
+                    class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">Skills</button>
             </li>
-            <li class="me-2">
-                <button id="statistics-tab" data-tabs-target="#statistics" type="button" role="tab"
-                    aria-controls="statistics" aria-selected="false"
-                    class="inline-block p-4 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300">Facts</button>
+            <li class="w-full">
+                <button id="hobbies-tab" data-tabs-target="#hobbies" type="button" role="tab" aria-controls="hobbies"
+                    aria-selected="false"
+                    class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">Hobbies</button>
             </li>
         </ul>
-        <div id="defaultTabContent">
-            <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel"
-                aria-labelledby="about-tab">
-                <h2 class="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Powering
-                    innovation & trust at 200,000+ companies worldwide</h2>
-                <p class="mb-3 text-gray-500 dark:text-gray-400">Empower Developers, IT Ops, and business teams to
-                    collaborate at high velocity. Respond to changes and deliver great customer and employee service
-                    experiences fast.</p>
-                <a href="#"
-                    class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">
-                    Learn more
-                    <svg class=" w-2.5 h-2.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 9 4-4-4-4" />
-                    </svg>
-                </a>
-            </div>
-            <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="services" role="tabpanel"
-                aria-labelledby="services-tab">
-                <h2 class="mb-5 text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">We invest in the
-                    world’s potential</h2>
-                <!-- List -->
-                <ul role="list" class="space-y-4 text-gray-500 dark:text-gray-400">
-                    <li class="flex space-x-2 rtl:space-x-reverse items-center">
-                        <svg class="flex-shrink-0 w-3.5 h-3.5 text-blue-600 dark:text-blue-500" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                        </svg>
-                        <span class="leading-tight">Dynamic reports and dashboards</span>
-                    </li>
-                    <li class="flex space-x-2 rtl:space-x-reverse items-center">
-                        <svg class="flex-shrink-0 w-3.5 h-3.5 text-blue-600 dark:text-blue-500" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                        </svg>
-                        <span class="leading-tight">Templates for everyone</span>
-                    </li>
-                    <li class="flex space-x-2 rtl:space-x-reverse items-center">
-                        <svg class="flex-shrink-0 w-3.5 h-3.5 text-blue-600 dark:text-blue-500" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                        </svg>
-                        <span class="leading-tight">Development workflow</span>
-                    </li>
-                    <li class="flex space-x-2 rtl:space-x-reverse items-center">
-                        <svg class="flex-shrink-0 w-3.5 h-3.5 text-blue-600 dark:text-blue-500" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                        </svg>
-                        <span class="leading-tight">Limitless business automation</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="statistics" role="tabpanel"
-                aria-labelledby="statistics-tab">
-                <dl
-                    class="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-6 dark:text-white sm:p-8">
-                    <div class="flex flex-col">
-                        <dt class="mb-2 text-3xl font-extrabold">73M+</dt>
-                        <dd class="text-gray-500 dark:text-gray-400">Developers</dd>
+        <div id="fullWidthTabContent">
+            <section class="bg-white dark:bg-gray-800" id="about" role="tabpanel">
+                <div
+                    class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+                    <img class="rounded-full" src="../../assets/profile.jpeg" alt="dashboard image">
+                    <div class="mt-4 md:mt-0">
+                        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">More about
+                            myself</h2>
+                        <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
+                            Hello there! I'm Jimmy Nguyen, a 29-year-old tech enthusiast who embarked on his journey
+                            into the world of computer science back in 2014. My passion for programming led me to dive
+                            into languages like Java and Python during my academic years.
+                        </p>
+                        <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
+                            In 2016, I kickstarted my professional career as a Junior Developer, marking the beginning
+                            of a dynamic and rewarding journey. Over the years, my roles have evolved, and I've embraced
+                            diverse responsibilities, transitioning seamlessly between IT Consultant, Software Engineer,
+                            Cloud Engineer, Full-stack Developer, and DevOps Engineer.
+                        </p>
+                        <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
+                            This multifaceted career has not only honed my technical skills but also equipped me with a
+                            holistic understanding of the IT landscape. From crafting intricate code to orchestrating
+                            seamless cloud infrastructures, I thrive on the versatility demanded by today's technology
+                            landscape.
+                        </p>
+                        <hr>
+                        <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
+                            <a class="pr-4" href="https://www.linkedin.com/in/jimmy-nguyen-software-engineer/">
+                                <i class="fa fa-linkedin-square" style="font-size:48px"></i>
+                            </a>
+                            <a href="https://github.com/Stukongeluk">
+                                <i class="fa fa-github-square" style="font-size:48px"></i>
+                            </a>
+                        </p>
                     </div>
-                    <div class="flex flex-col">
-                        <dt class="mb-2 text-3xl font-extrabold">100M+</dt>
-                        <dd class="text-gray-500 dark:text-gray-400">Public repositories</dd>
+                </div>
+            </section>
+            <section class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="skills" role="tabpanel"
+                aria-labelledby="skills-tab">
+                <div id="accordion-flush" data-accordion="collapse"
+                    data-active-classes="bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                    data-inactive-classes="text-gray-500 dark:text-gray-400">
+                    <h2 id="accordion-flush-heading-1">
+                        <button type="button"
+                            class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                            data-accordion-target="#accordion-flush-body-1" aria-expanded="true"
+                            aria-controls="accordion-flush-body-1">
+                            <span>Full-stack development</span>
+                            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M9 5 5 1 1 5" />
+                            </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
+                        <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                            <p>
+                                <span
+                                    class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Java</span>
+                                <span
+                                    class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">Angular</span>
+                                <span
+                                    class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">PostgreSQL</span>
+                                <span
+                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Spring</span>
+                            </p>
+                            <p>
+                                <span
+                                    class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">JUnit</span>
+                                <span
+                                    class="bg-indigo-100 text-indigo-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">Jasmine</span>
+                                <span
+                                    class="bg-purple-100 text-purple-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">React</span>
+                                <span
+                                    class="bg-pink-100 text-pink-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-pink-900 dark:text-pink-300">REST
+                                </span>
+                            </p>
+                            <p class="mb-2 text-gray-500 dark:text-gray-400">
+                                In the exciting realm of full-stack development, I've found my sweet spot – a perfect
+                                harmony of Java, Angular, and PostgreSQL. Picture it as a dynamic trio, each bringing
+                                its A-game to create robust and seamless web experiences.
+                            </p>
+                            <p class="mb-2 text-gray-500 dark:text-gray-400">
+                                On the server-side, I wield Java like a coding wizard, crafting powerful and efficient
+                                applications. Pair that with PostgreSQL, and you've got a reliable and scalable database
+                                foundation that ensures data management is as smooth as a well-oiled machine.
+                            </p>
+                            <p class="mb-2 text-gray-500 dark:text-gray-400">
+                                For the frontend spectacle, Angular steps into the spotlight, transforming ideas into
+                                visually stunning and user-friendly interfaces. It's the showstopper that keeps users
+                                engaged and coming back for more.
+                            </p>
+                            <p class="mb-2 text-gray-500 dark:text-gray-400">
+                                But that's not all in my toolkit. I've danced with databases beyond the relational world
+                                – MongoDB for flexible document storage, adding a touch of adaptability to my coding
+                                adventures. And when it comes to testing, JUnit for the backend and Karma + Jasmine for
+                                the frontend ensure that everything runs like a finely-tuned symphony.
+                            </p>
+                            <p class="mb-2 text-gray-500 dark:text-gray-400">
+                                So, whether I'm orchestrating Java with Angular and PostgreSQL for a favorite stack
+                                performance or diving into the nuances of diverse databases, rest assured, I've got the
+                                full-stack covered, ready to turn ideas into digital masterpieces! 🚀✨
+                            </p>
+                        </div>
                     </div>
-                    <div class="flex flex-col">
-                        <dt class="mb-2 text-3xl font-extrabold">1000s</dt>
-                        <dd class="text-gray-500 dark:text-gray-400">Open source projects</dd>
+                    <h2 id="accordion-flush-heading-2">
+                        <button type="button"
+                            class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                            data-accordion-target="#accordion-flush-body-2" aria-expanded="false"
+                            aria-controls="accordion-flush-body-2">
+                            <span>DevOps</span>
+                            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M9 5 5 1 1 5" />
+                            </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
+                        <p>
+                            <span
+                                class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Elasticsearch</span>
+                            <span
+                                class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">Grafana</span>
+                            <span
+                                class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Prometheus</span>
+                        </p>
+                        <p>
+                            <span
+                                class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">CI/CD</span>
+                            <span
+                                class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Jenkins</span>
+                            <span
+                                class="bg-indigo-100 text-indigo-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">Gitlab
+                                CI</span>
+                            <span
+                                class="bg-purple-100 text-purple-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">Tekton</span>
+                            <span
+                                class="bg-pink-100 text-pink-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-pink-900 dark:text-pink-300">YAML
+                            </span>
+                        </p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">
+                            In the world of DevOps, I don my cape as a seasoned maestro, orchestrating seamless
+                            operations and ensuring your applications run like a well-oiled machine. Picture this – I
+                            wield the power of Docker, containerizing applications with finesse. It's like magic,
+                            encapsulating the essence of your software into portable, efficient containers that dance
+                            effortlessly across environments.
+                        </p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">
+                            But that's just the beginning of the spectacle. Enter the stage of continuous integration
+                            and delivery (CI/CD), where I craft pipelines that are as reliable as clockwork. Jenkins,
+                            Gitlab CI, and Tekton are my trusted companions, ensuring that every line of code takes a
+                            journey from conception to production with precision and efficiency.
+
+                        </p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">
+                            And what's a performance without lights, camera, and action? In the realm of monitoring and
+                            logging, I turn to Prometheus, Elasticsearch, and Grafana. Prometheus keeps a vigilant eye
+                            on the heartbeat of your applications, while Elasticsearch captures the intricate details.
+                            Grafana, the virtuoso of visualization, then transforms data into insightful dashboards,
+                            ensuring you're always in the know.
+
+                        </p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">
+                            In the symphony of DevOps, I bring the tools, the expertise, and a touch of magic to ensure
+                            your applications not only thrive but dazzle in the spotlight of the digital stage. Let's
+                            transform your development process into an orchestrated masterpiece! 🎩✨
+                        </p>
                     </div>
-                </dl>
-            </div>
+                    <h2 id="accordion-flush-heading-3">
+                        <button type="button"
+                            class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
+                            data-accordion-target="#accordion-flush-body-3" aria-expanded="false"
+                            aria-controls="accordion-flush-body-3">
+                            <span>Public/Private Cloud</span>
+                            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M9 5 5 1 1 5" />
+                            </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
+                        <p>
+                            <span
+                                class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">AWS</span>
+                            <span
+                                class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">Openshift</span>
+                            <span
+                                class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Docker</span>
+                                <span
+                                class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Kubernetes</span>
+                        </p>
+                        <p>
+                            <span
+                                class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Networking</span>
+                            <span
+                                class="bg-indigo-100 text-indigo-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">IaC
+                                CI</span>
+                            <span
+                                class="bg-purple-100 text-purple-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">AWS CDK</span>
+                            <span
+                                class="bg-pink-100 text-pink-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-pink-900 dark:text-pink-300">Cloudformation
+                            </span>
+                        </p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">
+                            In the vast expanse of the cloud, I emerge as a maverick, seamlessly navigating AWS and
+                            Openshift landscapes, bringing unparalleled agility to your applications. Picture this –
+                            Dockerized applications taking flight on AWS, orchestrated with the precision of Kubernetes.
+                            It's a harmonious dance in the cloud, where scalability and efficiency reign supreme.
+                        </p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">
+                            But I don't just stop at deployment. I'm your go-to guide for application migration to AWS,
+                            ensuring a smooth transition that retains the essence of your software. Think of it as a
+                            digital relocation orchestrated to perfection, with minimal downtime and maximum impact.
+                        </p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">
+                            Now, the stage is set for infrastructure design, and I enter with Infrastructure as Code
+                            (IaC) as my trusted wand. I not only conceptualize robust architectures for your
+                            applications on AWS but also breathe life into them through IaC implementation. It's a
+                            symphony of automation, ensuring that your infrastructure evolves as effortlessly as your
+                            applications.
+                        </p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">
+                            In this cloud adventure, I bring the perfect blend of technical finesse and strategic
+                            thinking, transforming your digital landscape into a dynamic, scalable, and resilient
+                            environment. Let's soar to new heights in the cloud together! ☁️🚀
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="hobbies" role="tabpanel"
+                aria-labelledby="hobbies-tab">
+                
+
+<div id="gallery" class="relative w-full" data-carousel="slide">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+         <!-- Item 1 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="../../assets/skate.gif" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+        </div>
+        <!-- Item 2 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+            <img src="../../assets/boulder.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+        </div>
+        <!-- Item 3 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="../../assets/Screenshot 2024-01-31 at 18.30.07.png" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+        </div>
+    </div>
+    <!-- Slider controls -->
+    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+            </svg>
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            </svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+</div>
+
+            </section>
         </div>
     </div>
 </section>
