@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -6,11 +6,6 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   imports: [],
   templateUrl: './about.component.html',
 })
-export class AboutComponent implements OnInit {
-  public constructor() {
-  }
-
-  public ngOnInit(): void {
-
-  }
+export class AboutComponent {
+  // No Flowbite initialization needed - using static sections now
 }
