@@ -1,7 +1,6 @@
 import { Component, OnInit, WritableSignal, effect, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-import { initFlowbite } from 'flowbite';
 import { HeroComponent } from './hero/hero.component';
 import { AboutComponent } from './about/about.component';
 import { ProjectsComponent } from './projects/projects.component';
@@ -16,14 +15,14 @@ import { ContactComponent } from './contact/contact.component';
 })
 export class AppComponent implements OnInit {
   title = 'website';
-  isDarkTheme: WritableSignal<boolean> = signal(true ? localStorage.getItem('color-theme') === 'dark' : false)
+  isDarkTheme: WritableSignal<boolean> = signal(localStorage.getItem('color-theme') === 'dark')
 
   constructor() {
     effect(() => this.setTheme(this.isDarkTheme()))
   }
 
   ngOnInit(): void {
-    initFlowbite();
+    // Theme is set via effect in constructor - no other initialization needed
   }
 
   changeTheme() {

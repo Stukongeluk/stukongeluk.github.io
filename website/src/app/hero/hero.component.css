@@ -1,12 +1,100 @@
-/* Hero profile image styles */
-.hero-profile-img {
-    border-radius: 1.5rem;
-    filter: drop-shadow(0 20px 40px rgba(16, 185, 129, 0.15));
-    transition: filter 0.4s ease, transform 0.4s ease;
+/* Hero profile image container */
+.hero-profile-container {
+    position: relative;
+    cursor: pointer;
+    width: 320px;
+    height: 320px;
 }
 
-.hero-profile-img:hover {
-    filter: drop-shadow(0 0 30px rgba(16, 185, 129, 0.5)) drop-shadow(0 0 60px rgba(16, 185, 129, 0.3)) drop-shadow(0 25px 50px rgba(16, 185, 129, 0.25));
+/* Base image styles */
+.hero-profile-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 1.5rem;
+    transition: opacity 0.5s ease, filter 0.4s ease, transform 0.4s ease;
+}
+
+/* Normal state - first image visible */
+.hero-profile-img.normal {
+    opacity: 1;
+    filter: drop-shadow(0 20px 40px rgba(16, 185, 129, 0.15));
+}
+
+.hero-profile-img.super {
+    opacity: 0;
+    filter: drop-shadow(0 0 50px rgba(255, 215, 0, 0.8));
+}
+
+/* Transformed state - swap visibility */
+.hero-profile-container.transformed .hero-profile-img.normal {
+    opacity: 0;
+}
+
+.hero-profile-container.transformed .hero-profile-img.super {
+    opacity: 1;
+}
+
+/* Super Saiyan transformation effect */
+.hero-profile-container.transforming {
+    animation: powerUp 0.6s ease-out;
+}
+
+@keyframes powerUp {
+    0% {
+        filter: brightness(1);
+    }
+
+    25% {
+        filter: brightness(2) drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
+    }
+
+    50% {
+        filter: brightness(3) drop-shadow(0 0 60px rgba(255, 215, 0, 1));
+        transform: scale(1.05);
+    }
+
+    75% {
+        filter: brightness(2) drop-shadow(0 0 40px rgba(255, 215, 0, 0.8));
+    }
+
+    100% {
+        filter: brightness(1);
+        transform: scale(1);
+    }
+}
+
+/* Golden aura glow for super state */
+.hero-profile-container.transformed .hero-profile-img.super {
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 60px rgba(255, 165, 0, 0.4)) drop-shadow(0 0 90px rgba(255, 215, 0, 0.2));
+}
+
+/* Revert animation (smooth fade) */
+.hero-profile-container.reverting {
+    animation: powerDown 0.5s ease-in-out;
+}
+
+@keyframes powerDown {
+    0% {
+        filter: brightness(1.5) drop-shadow(0 0 30px rgba(255, 215, 0, 0.6));
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+
+/* Hover effects */
+.hero-profile-container:hover .hero-profile-img.normal {
+    filter: drop-shadow(0 0 30px rgba(16, 185, 129, 0.5)) drop-shadow(0 0 60px rgba(16, 185, 129, 0.3));
+    transform: scale(1.02);
+}
+
+.hero-profile-container.transformed:hover .hero-profile-img.super {
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 80px rgba(255, 165, 0, 0.5));
     transform: scale(1.02);
 }
 
@@ -29,8 +117,8 @@
 
 /* Responsive sizing */
 @media (max-width: 1024px) {
-    .hero-profile-img {
+    .hero-profile-container {
         width: 240px;
-        height: auto;
+        height: 240px;
     }
 }

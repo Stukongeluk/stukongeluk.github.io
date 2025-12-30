@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
+import { NgOptimizedImage, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage, NgClass],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
@@ -14,6 +15,10 @@ export class HeroComponent implements OnInit {
   currentWordLength: number = 0;
   currentWord: string = "";
   isDeleting: boolean = false;
+
+  // Super Saiyan transformation state
+  isTransformed = signal(false);
+  isAnimating = signal(false);
 
   ngOnInit(): void {
     this.updateDisplayRole();
@@ -43,5 +48,20 @@ export class HeroComponent implements OnInit {
   private scheduleUpdateDisplayedRole() {
     const delay = this.currentWordLength === this.currentWord.length ? 1000 : 100;
     setTimeout(() => this.updateDisplayRole(), delay);
+  }
+
+  // Toggle Super Saiyan transformation
+  toggleTransformation(): void {
+    if (this.isAnimating()) return; // Prevent spam clicking
+
+    this.isAnimating.set(true);
+
+    // Toggle the transformed state
+    this.isTransformed.update(v => !v);
+
+    // Reset animation state after animation completes
+    setTimeout(() => {
+      this.isAnimating.set(false);
+    }, 600);
   }
 }
