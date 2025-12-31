@@ -1,6 +1,6 @@
 # Jimmy Nguyen - Personal Website 🚀
 
-Welcome to my personal portfolio website! This project showcases my journey, skills, and hobbies as a versatile developer with nearly a decade of experience.
+Welcome to my personal portfolio website! This project showcases my journey, skills, and hobbies as a versatile developer.
 
 ## ✨ Features
 
