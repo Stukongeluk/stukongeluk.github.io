@@ -441,3 +441,188 @@ html {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* =====================
+   SUPER SAIYAN MODE
+   Transforms all emerald colors to gold/yellow
+   ===================== */
+
+/* Smooth transition for all color changes */
+body {
+  transition: --ss-primary 0.5s ease, --ss-glow 0.5s ease;
+}
+
+/* Super Saiyan Gradient Text */
+body.super-saiyan-mode .gradient-text {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #eab308) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Super Saiyan Blinking Cursor */
+body.super-saiyan-mode .animate-blink {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #eab308) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Super Saiyan Scrollbar */
+body.super-saiyan-mode ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #fbbf24, #f59e0b) !important;
+}
+
+body.super-saiyan-mode ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #fcd34d, #fbbf24) !important;
+}
+
+/* Super Saiyan Skill Cards */
+body.super-saiyan-mode .skill-card:hover {
+  border-color: #fbbf24 !important;
+  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.25) !important;
+}
+
+body.super-saiyan-mode .dark .skill-card:hover {
+  box-shadow: 0 10px 40px rgba(251, 191, 36, 0.35) !important;
+}
+
+/* Super Saiyan Skill Tags */
+body.super-saiyan-mode .skill-tag {
+  background: #fef3c7 !important;
+  border: 1px solid #fcd34d !important;
+  color: #b45309 !important;
+}
+
+body.super-saiyan-mode .dark .skill-tag {
+  background: rgba(251, 191, 36, 0.15) !important;
+  border-color: rgba(251, 191, 36, 0.3) !important;
+  color: #fcd34d !important;
+}
+
+body.super-saiyan-mode .skill-tag:hover {
+  background: #fbbf24 !important;
+  border-color: #fbbf24 !important;
+  color: white !important;
+}
+
+/* Super Saiyan Hobby Cards */
+body.super-saiyan-mode .hobby-card:hover {
+  border-color: #fbbf24 !important;
+  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.25) !important;
+}
+
+body.super-saiyan-mode .dark .hobby-card:hover {
+  box-shadow: 0 10px 40px rgba(251, 191, 36, 0.35) !important;
+}
+
+/* Super Saiyan Profile Glow */
+body.super-saiyan-mode .profile-glow::before {
+  background: linear-gradient(135deg, #fcd34d, #fbbf24, #f59e0b) !important;
+}
+
+body.super-saiyan-mode .glow-red {
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.5) !important;
+}
+
+/* Super Saiyan Buttons */
+body.super-saiyan-mode .btn-modern {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b) !important;
+}
+
+body.super-saiyan-mode .btn-modern:hover {
+  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.5) !important;
+}
+
+/* Super Saiyan Social Icons */
+body.super-saiyan-mode .social-icon {
+  color: #f59e0b !important;
+}
+
+body.super-saiyan-mode .dark .social-icon {
+  color: #fbbf24 !important;
+}
+
+body.super-saiyan-mode .social-icon:hover {
+  background: #fbbf24 !important;
+  border-color: #fbbf24 !important;
+  color: white !important;
+  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.5) !important;
+}
+
+/* Super Saiyan Modern Cards */
+body.super-saiyan-mode .modern-card:hover {
+  border-color: #fbbf24 !important;
+  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.25) !important;
+}
+
+/* Super Saiyan Tab Active */
+body.super-saiyan-mode .tab-active::after {
+  background: linear-gradient(90deg, #fbbf24, #fcd34d) !important;
+}
+
+/* Super Saiyan Skill Badge */
+body.super-saiyan-mode .skill-badge {
+  background: #fef3c7 !important;
+  border: 1px solid #fcd34d !important;
+  color: #b45309 !important;
+}
+
+body.super-saiyan-mode .dark .skill-badge {
+  background: rgba(251, 191, 36, 0.15) !important;
+  border-color: rgba(251, 191, 36, 0.3) !important;
+  color: #fcd34d !important;
+}
+
+body.super-saiyan-mode .skill-badge:hover {
+  background: #fbbf24 !important;
+  color: white !important;
+}
+
+/* Super Saiyan Accordion */
+body.super-saiyan-mode .accordion-modern:hover {
+  border-color: #fbbf24 !important;
+}
+
+/* Super Saiyan Nav Links */
+body.super-saiyan-mode .nav-link:hover {
+  color: #fbbf24 !important;
+}
+
+body.super-saiyan-mode .nav-link span:last-child {
+  background: linear-gradient(to right, #fbbf24, #fcd34d) !important;
+}
+
+/* Super Saiyan Theme Toggle */
+body.super-saiyan-mode input:checked+div {
+  background: linear-gradient(to right, #fbbf24, #f59e0b) !important;
+}
+
+/* Super Saiyan Text Accents */
+body.super-saiyan-mode .text-emerald-400,
+body.super-saiyan-mode .dark .text-emerald-400 {
+  color: #fbbf24 !important;
+}
+
+body.super-saiyan-mode .text-emerald-600 {
+  color: #f59e0b !important;
+}
+
+/* Super Saiyan Focus Rings */
+body.super-saiyan-mode *:focus {
+  --tw-ring-color: rgba(251, 191, 36, 0.5) !important;
+}
+
+/* Super Saiyan Hover Backgrounds */
+body.super-saiyan-mode .hover\:bg-emerald-50:hover {
+  background-color: #fef3c7 !important;
+}
+
+body.super-saiyan-mode .dark .hover\:bg-emerald-900\/20:hover {
+  background-color: rgba(251, 191, 36, 0.2) !important;
+}
+
+/* Super Saiyan Hero Section Accent */
+body.super-saiyan-mode .from-red-900\/20 {
+  --tw-gradient-from: rgba(251, 191, 36, 0.2) !important;
+}

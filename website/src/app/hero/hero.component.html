@@ -31,16 +31,16 @@
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex lg:items-center lg:justify-center animate-float">
             <!-- Hero profile illustration with Super Saiyan toggle -->
             <div class="hero-profile-container" [ngClass]="{
-                    'transformed': isTransformed(),
-                    'transforming': isAnimating() && isTransformed(),
-                    'reverting': isAnimating() && !isTransformed()
+                    'transformed': superSaiyan.isTransformed(),
+                    'transforming': superSaiyan.isAnimating() && superSaiyan.isTransformed(),
+                    'reverting': superSaiyan.isAnimating() && !superSaiyan.isTransformed()
                  }" (click)="toggleTransformation()">
                 <!-- Normal state image -->
                 <img ngSrc="assets/hero_profile.webp" alt="Jimmy Nguyen illustration" class="hero-profile-img normal"
-                    width="320" height="320" priority />
+                    width="280" height="320" priority />
                 <!-- Super Saiyan state image -->
                 <img ngSrc="assets/hero_profile2.webp" alt="Jimmy Nguyen Super Saiyan illustration"
-                    class="hero-profile-img super" width="320" height="320" />
+                    class="hero-profile-img super" width="280" height="320" />
             </div>
         </div>
     </div>

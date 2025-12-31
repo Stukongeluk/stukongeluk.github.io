@@ -1,5 +1,6 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgOptimizedImage, NgClass } from '@angular/common';
+import { SuperSaiyanService } from '../services/super-saiyan.service';
 
 @Component({
   selector: 'app-hero',
@@ -16,9 +17,7 @@ export class HeroComponent implements OnInit {
   currentWord: string = "";
   isDeleting: boolean = false;
 
-  // Super Saiyan transformation state
-  isTransformed = signal(false);
-  isAnimating = signal(false);
+  constructor(public superSaiyan: SuperSaiyanService) { }
 
   ngOnInit(): void {
     this.updateDisplayRole();
@@ -50,18 +49,8 @@ export class HeroComponent implements OnInit {
     setTimeout(() => this.updateDisplayRole(), delay);
   }
 
-  // Toggle Super Saiyan transformation
+  // Toggle Super Saiyan transformation using the shared service
   toggleTransformation(): void {
-    if (this.isAnimating()) return; // Prevent spam clicking
-
-    this.isAnimating.set(true);
-
-    // Toggle the transformed state
-    this.isTransformed.update(v => !v);
-
-    // Reset animation state after animation completes
-    setTimeout(() => {
-      this.isAnimating.set(false);
-    }, 600);
+    this.superSaiyan.toggle();
   }
 }
