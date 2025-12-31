@@ -16,6 +16,11 @@ import { ContactComponent } from './contact/contact.component';
 export class AppComponent implements OnInit {
   title = 'website';
   isDarkTheme: WritableSignal<boolean> = signal(localStorage.getItem('color-theme') === 'dark')
+  isMenuOpen: WritableSignal<boolean> = signal(false)
+
+  toggleMenu() {
+    this.isMenuOpen.set(!this.isMenuOpen())
+  }
 
   constructor() {
     effect(() => this.setTheme(this.isDarkTheme()))
