@@ -72,6 +72,39 @@
     filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 60px rgba(255, 165, 0, 0.4)) drop-shadow(0 0 90px rgba(255, 215, 0, 0.2));
 }
 
+/* === SUPER SAIYAN SPIKY AURA === */
+/* Use the provided aura image as the background */
+.hero-profile-container.transformed::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    width: 180%;
+    height: 200%;
+    transform: translate(-50%, -50%);
+    background-image: url('/assets/super-saiyan-aura.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.9;
+    animation: aura-pulse 0.8s ease-in-out infinite alternate;
+}
+
+/* Aura pulse animation */
+@keyframes aura-pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.05);
+        opacity: 1;
+    }
+}
+
 /* Revert animation (smooth fade) */
 .hero-profile-container.reverting {
     animation: powerDown 0.5s ease-in-out;

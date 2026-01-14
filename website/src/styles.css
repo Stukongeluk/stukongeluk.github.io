@@ -626,3 +626,166 @@ body.super-saiyan-mode .dark .hover\:bg-emerald-900\/20:hover {
 body.super-saiyan-mode .from-red-900\/20 {
   --tw-gradient-from: rgba(251, 191, 36, 0.2) !important;
 }
+
+/* Super Saiyan Trembling Text Animation */
+@keyframes saiyan-tremble {
+
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+
+  10% {
+    transform: translateX(-2px) translateY(1px);
+  }
+
+  20% {
+    transform: translateX(2px) translateY(-1px);
+  }
+
+  30% {
+    transform: translateX(-1px) translateY(2px);
+  }
+
+  40% {
+    transform: translateX(1px) translateY(-2px);
+  }
+
+  50% {
+    transform: translateX(-2px) translateY(-1px);
+  }
+
+  60% {
+    transform: translateX(2px) translateY(1px);
+  }
+
+  70% {
+    transform: translateX(-1px) translateY(-2px);
+  }
+
+  80% {
+    transform: translateX(1px) translateY(2px);
+  }
+
+  90% {
+    transform: translateX(-2px) translateY(-1px);
+  }
+}
+
+/* Power-up transformation trembling - intense shake during transformation */
+@keyframes power-up-tremble {
+
+  0%,
+  100% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+
+  10% {
+    transform: translateX(-4px) translateY(2px) scale(1.01);
+  }
+
+  20% {
+    transform: translateX(4px) translateY(-2px) scale(1.02);
+  }
+
+  30% {
+    transform: translateX(-3px) translateY(3px) scale(1.01);
+  }
+
+  40% {
+    transform: translateX(3px) translateY(-3px) scale(1.03);
+  }
+
+  50% {
+    transform: translateX(-5px) translateY(-2px) scale(1.02);
+  }
+
+  60% {
+    transform: translateX(5px) translateY(2px) scale(1.04);
+  }
+
+  70% {
+    transform: translateX(-3px) translateY(-4px) scale(1.02);
+  }
+
+  80% {
+    transform: translateX(3px) translateY(4px) scale(1.03);
+  }
+
+  90% {
+    transform: translateX(-4px) translateY(-2px) scale(1.01);
+  }
+}
+
+/* Apply trembling to saiyan-tremble class */
+.saiyan-tremble {
+  animation: power-up-tremble 0.15s ease-in-out infinite;
+}
+
+/* Continuous subtle shake for transformed state text */
+body.super-saiyan-mode h1,
+body.super-saiyan-mode .gradient-text {
+  animation: saiyan-tremble 0.3s ease-in-out infinite;
+}
+
+/* === SUPER SAIYAN FLOATING CARDS === */
+/* Float animation for cards in super saiyan mode */
+@keyframes saiyan-float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Skill cards float with staggered delays */
+body.super-saiyan-mode .skill-card {
+  animation: saiyan-float 3s ease-in-out infinite;
+}
+
+body.super-saiyan-mode .skill-card:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+body.super-saiyan-mode .skill-card:nth-child(3) {
+  animation-delay: 1s;
+}
+
+body.super-saiyan-mode .skill-card:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+/* Hobby cards float */
+body.super-saiyan-mode .hobby-card {
+  animation: saiyan-float 3.5s ease-in-out infinite;
+}
+
+body.super-saiyan-mode .hobby-card:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+body.super-saiyan-mode .hobby-card:nth-child(3) {
+  animation-delay: 1.4s;
+}
+
+/* Modern cards (sectors, etc.) float */
+body.super-saiyan-mode .modern-card {
+  animation: saiyan-float 3.2s ease-in-out infinite;
+}
+
+body.super-saiyan-mode .modern-card:nth-child(odd) {
+  animation-delay: 0.4s;
+}
+
+/* Skill badges float slightly */
+body.super-saiyan-mode .skill-badge {
+  animation: saiyan-float 2.5s ease-in-out infinite;
+}
+
+body.super-saiyan-mode .skill-tag {
+  animation: saiyan-float 2.8s ease-in-out infinite;
+}
