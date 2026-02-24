@@ -1,0 +1,264 @@
+<article class="blog-article bg-white dark:bg-gray-950 min-h-screen transition-colors duration-300">
+    <!-- Hero Header -->
+    <header class="relative py-24 bg-blue-50/50 dark:bg-blue-900/10 border-b border-blue-100 dark:border-blue-800/50">
+        <div class="max-w-screen-xl px-4 mx-auto">
+            <a routerLink="/"
+                class="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium mb-8 hover:underline">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Home
+            </a>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6">
+                CapyDrive: <span class="text-blue-600 dark:text-blue-400">Modernizing Theory Learning</span>
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
+                Driving theory shouldn't be expensive or boring. I built CapyDrive to solve the high costs and outdated
+                interfaces of traditional theory platforms using <span
+                    class="font-bold text-blue-600 dark:text-blue-400">Angular 21+</span> and serverless technology.
+            </p>
+
+            <div class="flex flex-wrap gap-4 mt-8">
+                @for (tech of techStack; track tech.name) {
+                <span
+                    class="tech-tag px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-semibold border border-blue-100 dark:border-blue-800/50">
+                    {{ tech.name }}
+                </span>
+                }
+                <!-- Super Saiyan Toggle -->
+                <button (click)="superSaiyan.toggle()"
+                    class="px-4 py-2 rounded-full border-2 border-amber-400 text-sm font-bold transition-all flex items-center gap-2 group"
+                    [ngClass]="superSaiyan.isTransformed() 
+                            ? 'bg-amber-600 text-white border-amber-600 hover:bg-amber-700' 
+                            : 'text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/30'">
+                    <svg class="w-4 h-4 transition-transform group-hover:scale-125"
+                        [class.animate-pulse]="superSaiyan.isTransformed()" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z">
+                        </path>
+                    </svg>
+                    {{ superSaiyan.isTransformed() ? 'UNLEASHED' : 'ASCEND' }}
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-screen-xl px-4 mx-auto py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Main Content -->
+            <div class="lg:col-span-2 prose prose-lg dark:prose-invert max-w-none text-gray-800 dark:text-gray-200">
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">The Spark: Why build CapyDrive?
+                    </h2>
+                    <p>
+                        The idea for CapyDrive didn't come from a market analysis. It started when my girlfriend was
+                        looking for a modern way to learn for her Dutch driving theory exam online. When we searched for
+                        options together, I was shocked at what we found. Most platforms felt like relics from the early
+                        2010s. They were sluggish, non-responsive, and surprisingly expensive for what they offered.
+                    </p>
+                    <p>
+                        I realized there was a massive gap for a tech-first learning experience. I wanted to build
+                        something that would actually be enjoyable to use. Something fast, beautiful, and affordable.
+                        That search for a better way to learn became the blueprint for CapyDrive.
+                    </p>
+                </section>
+
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white text-blue-600 dark:text-blue-400">
+                        The AWS Engineer's Perspective: The Power of Serverless</h2>
+                    <p>
+                        In my day job as an experienced AWS Cloud Engineer, I live and breathe complex infrastructure. I
+                        love AWS for its granular control, from VPC peering to multi-region failover. However, for a
+                        solo startup venture, that level of control can sometimes be more of a distraction than a
+                        benefit.
+                    </p>
+                    <div
+                        class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border-l-4 border-blue-500 mb-6 font-medium">
+                        <p class="text-blue-800 dark:text-blue-200 m-0">
+                            "I chose Firebase because it allowed me to bypass the 'Infrastructure Tax' of my time. The
+                            setup was incredibly easy and allowed me to focus purely on the code."
+                        </p>
+                    </div>
+                    <p>
+                        One of the best decisions was leaning into <strong>Serverless Cloud Functions</strong>. They are
+                        remarkably easy to deploy and test. Since they follow a pay-as-you-go model, there are no fixed
+                        costs. The system only scales (and costs money) when users are actually learning. This makes it
+                        perfect for a product like CapyDrive, where I want to keep overhead low while ensuring high
+                        availability.
+                    </p>
+                </section>
+
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Why Angular 21? My Comfort
+                        Framework</h2>
+                    <p>
+                        When it came to the frontend, Angular was my natural choice. Over the years, it has become my
+                        comfort framework. When you are managing complex exam logic and state, you can't afford
+                        "undefined is not a function." Angular 21+ provides the architectural rigor and type-safety
+                        needed to build a reliable platform.
+                    </p>
+                    <p>
+                        The shift to standalone components and modern signals has made Angular feel lighter than ever
+                        without losing its core strengths. It gives the platform a premium feel. The interactions are
+                        snappy, the state is predictable, and the developer experience is second to none.
+                    </p>
+                </section>
+
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white text-blue-600 dark:text-blue-400">
+                        Technical Architecture</h2>
+                    <!-- Mermaid Diagram -->
+                    <div
+                        class="mermaid-container bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-x-auto mb-8 shadow-inner transition-all duration-500">
+                        <pre class="mermaid text-center">
+graph TD
+    User([fa:fa-user User/Browser]) --> Hosting[fa:fa-globe Firebase Hosting]
+    Hosting --> Angular[fa:fa-code Angular 21+]
+    
+    subgraph "fa:fa-fire Google Cloud / Firebase (europe-west4)"
+        Angular --> Auth[fa:fa-lock Firebase Auth]
+        Angular --> Storage[fa:fa-file-image-o Firebase Storage]
+        
+        subgraph "fa:fa-bolt 20+ Cloud Functions"
+            Angular --> Functions[fa:fa-gears Backend Services]
+            Functions --> SC[Score Calculation]
+            Functions --> PM[Payment Manager]
+            Functions --> US[User Sync]
+            Functions --> AM[Admin Manager]
+        end
+        
+        SC --> Firestore[(fa:fa-database Cloud Firestore)]
+        PM --> Firestore
+        US --> Firestore
+        AM --> Firestore
+        
+        PM --> Mollie[fa:fa-credit-card Mollie API]
+    end
+
+    classDef default fill:#ffffff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a;
+    classDef highlight fill:#eff6ff,stroke:#2563eb,stroke-width:2px,color:#1d4ed8;
+    classDef database fill:#dbeafe,stroke:#1d4ed8,stroke-width:2px,color:#1e40af;
+    classDef firebase fill:#fff7ed,stroke:#f59e0b,stroke-width:2px,color:#9a3412;
+    
+    class Hosting,Angular,Functions,SC,PM,US,AM highlight;
+    class Firestore,Storage database;
+    class Auth firebase;
+                        </pre>
+                    </div>
+                </section>
+
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">The 70/30 Reality: Beyond the Code
+                    </h2>
+                    <p>
+                        One of the most interesting learnings from this journey was the time distribution. As engineers,
+                        we often get caught up in the perfect feature. But building a successful product is about much
+                        more than just the code.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div
+                            class="p-6 bg-blue-50 dark:bg-blue-900/20 rounded-2xl border border-blue-100 dark:border-blue-800/50">
+                            <span class="text-3xl font-bold text-blue-600 dark:text-blue-400">70%</span>
+                            <span
+                                class="block text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mt-2">Content,
+                                Marketing & SEO</span>
+                            <p class="text-sm mt-4 text-gray-700 dark:text-gray-300">Writing lessons, creating
+                                questions, optimizing for search engines, and building an audience.</p>
+                        </div>
+                        <div
+                            class="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800">
+                            <span class="text-3xl font-bold text-gray-400">30%</span>
+                            <span
+                                class="block text-sm font-semibold uppercase tracking-wider text-gray-500 mt-2">Product
+                                Development</span>
+                            <p class="text-sm mt-4">Building the app core, backend functions, and essential features.
+                            </p>
+                        </div>
+                    </div>
+                    <p>
+                        I eventually spent about <strong>70% of my time on content, marketing, and SEO</strong>, and
+                        only 30% on actual feature development. It was a fascinating pivot. It taught me that technical
+                        excellence is only the baseline. Growing the platform and serving the right content is what
+                        truly drives value.
+                    </p>
+                </section>
+
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Ecological & Digital Sovereignty:
+                        Why Eemshaven?</h2>
+                    <p>
+                        Where your data lives matters. Hosting in europe-west4 (Eemshaven) was a deliberate choice for
+                        several reasons.
+                    </p>
+                    <ul class="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-300">
+                        <li><strong>Latency:</strong> Unbeatable response times for our core Dutch user base.</li>
+                        <li><strong>Sustainability:</strong> The Eemshaven data center is powered by 100% renewable
+                            energy.</li>
+                        <li><strong>Privacy:</strong> Strict adherence to local privacy standards and GDPR within the
+                            Netherlands.</li>
+                    </ul>
+                    <p class="mt-6">
+                        It's about resilience and responsibility. It's knowing that the infrastructure behind the
+                        product is as solid and as local as the advice we give.
+                    </p>
+                </section>
+
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">The New Frontier: Scaling Growth
+                    </h2>
+                    <p>
+                        Now that the technical foundations are rock-solid, my focus is shifting. I've realized that
+                        being a builder is only one part of the equation.
+                    </p>
+                    <p>
+                        My next mission is to broaden my skills in marketing and SEO. It's a completely different
+                        challenge: studying search intent, analyzing conversion funnels, and building a brand. It's the
+                        second phase of CapyDrive, and I'm just as excited for it as I was for the first line of code.
+                    </p>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="lg:col-span-1">
+                <div class="sticky top-24 space-y-8">
+                    <!-- Project CTA -->
+                    <div class="p-8 rounded-3xl bg-blue-600 text-white shadow-xl shadow-blue-600/20">
+                        <h3 class="text-2xl font-bold mb-4 font-extrabold tracking-tight">Try CapyDrive</h3>
+                        <p class="text-blue-100 mb-8 leading-relaxed opacity-90">
+                            Experience the modern way of learning for your driving theory exam. Cheap, fun, and
+                            effective.
+                        </p>
+                        <a href="https://capydrive.eu" target="_blank"
+                            class="block w-full text-center py-4 px-6 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all hover:-translate-y-1 hover:shadow-lg">
+                            Visit CapyDrive.eu
+                        </a>
+                    </div>
+
+                    <!-- Tech Details -->
+                    <div
+                        class="p-8 rounded-3xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 shadow-sm">
+                        <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">Project Philosophy</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 mt-1.5"></span>
+                                <div><strong>Swift Setup:</strong> From idea to production in minutes.</div>
+                            </li>
+                            <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 mt-1.5"></span>
+                                <div><strong>Secure & GDPR:</strong> Data sovereignty in Eemshaven.</div>
+                            </li>
+                            <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 mt-1.5"></span>
+                                <div><strong>Beautiful & Fun:</strong> A fast, engaging educational UX.</div>
+                            </li>
+                            <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 mt-1.5"></span>
+                                <div><strong>Low Maintenance:</strong> Zero fixed costs with serverless.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</article>

@@ -600,12 +600,82 @@ body.super-saiyan-mode input:checked+div {
 
 /* Super Saiyan Text Accents */
 body.super-saiyan-mode .text-emerald-400,
-body.super-saiyan-mode .dark .text-emerald-400 {
+body.super-saiyan-mode .dark .text-emerald-400,
+body.super-saiyan-mode .text-blue-400,
+body.super-saiyan-mode .dark .text-blue-400 {
   color: #fbbf24 !important;
 }
 
-body.super-saiyan-mode .text-emerald-600 {
+body.super-saiyan-mode .text-emerald-600,
+body.super-saiyan-mode .text-blue-600 {
   color: #f59e0b !important;
+}
+
+/* Blog Specific Super Saiyan Overrides */
+body.super-saiyan-mode .blog-article header {
+  background: radial-gradient(circle at center, rgba(255, 215, 0, 0.15), rgba(255, 165, 0, 0.05)) !important;
+  border-color: rgba(255, 215, 0, 0.3) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+body.super-saiyan-mode .blog-article header::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  background: url('/assets/super-saiyan-aura.png') no-repeat center;
+  background-size: contain;
+  opacity: 0.15;
+  pointer-events: none;
+  animation: saiyan-aura-pulse-slow 4s infinite alternate ease-in-out;
+}
+
+@keyframes saiyan-aura-pulse-slow {
+  from {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 0.1;
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+    opacity: 0.2;
+  }
+}
+
+body.super-saiyan-mode .bg-blue-600 {
+  background-color: #d97706 !important;
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.4);
+}
+
+body.super-saiyan-mode .bg-blue-50,
+body.super-saiyan-mode .dark .bg-blue-900\/30 {
+  background-color: rgba(251, 191, 36, 0.1) !important;
+  border-color: rgba(251, 191, 36, 0.3) !important;
+  color: #d97706 !important;
+}
+
+body.super-saiyan-mode .mermaid-container {
+  animation: saiyan-aura-pulse 2s infinite alternate;
+  border-color: rgba(251, 191, 36, 0.4) !important;
+}
+
+@keyframes saiyan-aura-pulse {
+  from {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+  }
+
+  to {
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.5);
+  }
+}
+
+body.super-saiyan-mode .tech-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
 }
 
 /* Super Saiyan Focus Rings */
@@ -773,7 +843,9 @@ body.super-saiyan-mode .hobby-card:nth-child(3) {
 }
 
 /* Modern cards (sectors, etc.) float */
-body.super-saiyan-mode .modern-card {
+body.super-saiyan-mode .modern-card,
+body.super-saiyan-mode .project-card,
+body.super-saiyan-mode .blog-article {
   animation: saiyan-float 3.2s ease-in-out infinite;
 }
 
