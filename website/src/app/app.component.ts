@@ -1,10 +1,7 @@
-import { Component, OnInit, WritableSignal, effect, signal } from '@angular/core';
+import { Component, OnInit, WritableSignal, effect, signal, Inject, PLATFORM_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-import { HeroComponent } from './hero/hero.component';
-import { AboutComponent } from './about/about.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { ContactComponent } from './contact/contact.component';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -15,19 +12,29 @@ import { ContactComponent } from './contact/contact.component';
 })
 export class AppComponent implements OnInit {
   title = 'website';
-  isDarkTheme: WritableSignal<boolean> = signal(localStorage.getItem('color-theme') === 'dark')
+  isDarkTheme: WritableSignal<boolean> = signal(false)
   isMenuOpen: WritableSignal<boolean> = signal(false)
 
   toggleMenu() {
     this.isMenuOpen.set(!this.isMenuOpen())
   }
 
-  constructor() {
-    effect(() => this.setTheme(this.isDarkTheme()))
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    effect(() => {
+      const isDark = this.isDarkTheme();
+      if (isPlatformBrowser(this.platformId)) {
+        this.setTheme(isDark);
+      }
+    })
   }
 
   ngOnInit(): void {
-    // Theme is set via effect in constructor - no other initialization needed
+    if (isPlatformBrowser(this.platformId)) {
+      const savedTheme = localStorage.getItem('color-theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        this.isDarkTheme.set(true);
+      }
+    }
   }
 
   changeTheme() {
@@ -35,11 +42,13 @@ export class AppComponent implements OnInit {
   }
 
   private setTheme(isDarkTheme: boolean) {
-    localStorage.setItem('color-theme', isDarkTheme ? 'dark' : 'light')
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark')
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('color-theme', isDarkTheme ? 'dark' : 'light')
+      if (isDarkTheme) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
     }
   }
 }

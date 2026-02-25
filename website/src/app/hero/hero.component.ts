@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NgOptimizedImage, NgClass } from '@angular/common';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { NgOptimizedImage, NgClass, isPlatformBrowser } from '@angular/common';
 import { SuperSaiyanService } from '../services/super-saiyan.service';
 
 @Component({
@@ -17,10 +17,15 @@ export class HeroComponent implements OnInit {
   currentWord: string = "";
   isDeleting: boolean = false;
 
-  constructor(public superSaiyan: SuperSaiyanService) { }
+  constructor(
+    public superSaiyan: SuperSaiyanService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
 
   ngOnInit(): void {
-    this.updateDisplayRole();
+    if (isPlatformBrowser(this.platformId)) {
+      this.updateDisplayRole();
+    }
   }
 
   public updateDisplayRole() {

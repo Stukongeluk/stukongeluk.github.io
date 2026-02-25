@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://stukongeluk.github.io/sitemap.xml

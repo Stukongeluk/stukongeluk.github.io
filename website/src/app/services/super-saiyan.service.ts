@@ -1,4 +1,5 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
     providedIn: 'root'
@@ -12,9 +13,9 @@ export class SuperSaiyanService {
     private transformationSound: HTMLAudioElement | null = null;
     private backgroundMusic: HTMLAudioElement | null = null;
 
-    constructor() {
+    constructor(@Inject(PLATFORM_ID) private platformId: Object) {
         // Initialize audio elements
-        if (typeof window !== 'undefined') {
+        if (isPlatformBrowser(this.platformId)) {
             this.transformationSound = new Audio('assets/super-sa-yan-1.wav');
             this.backgroundMusic = new Audio('assets/15. Solid State Scouter(Dynamite Battle).mp3');
             this.backgroundMusic.loop = true;

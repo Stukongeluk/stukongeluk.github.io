@@ -1,5 +1,5 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, AfterViewInit, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { SuperSaiyanService } from '../../services/super-saiyan.service';
@@ -15,10 +15,14 @@ export class CapyDriveDetailComponent implements OnInit, AfterViewInit {
     constructor(
         private titleService: Title,
         private metaService: Meta,
-        public superSaiyan: SuperSaiyanService
+        public superSaiyan: SuperSaiyanService,
+        @Inject(PLATFORM_ID) private platformId: Object
     ) { }
 
     ngOnInit() {
+        if (isPlatformBrowser(this.platformId)) {
+            window.scrollTo(0, 0);
+        }
         this.titleService.setTitle('CapyDrive: Modernizing Theory Learning | Jimmy Nguyen');
         this.metaService.addTags([
             { name: 'description', content: 'A deep dive into CapyDrive, a modern SaaS for Dutch driving theory built with Angular 21+ and Firebase Serverless architecture in europe-west4.' },
@@ -26,28 +30,34 @@ export class CapyDriveDetailComponent implements OnInit, AfterViewInit {
             { name: 'author', content: 'Jimmy Nguyen' },
             { property: 'og:title', content: 'CapyDrive: Modernizing Theory Learning' },
             { property: 'og:description', content: 'How I built a scalable, affordable theory platform using serverless tech and Angular 21+.' },
-            { property: 'og:image', content: 'assets/logo.png' }
+            { property: 'og:image', content: 'assets/logo.png' },
+            { property: 'og:url', content: 'https://stukongeluk.github.io/projects/capydrive' },
+            { property: 'og:type', content: 'article' },
+            { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'robots', content: 'index, follow' }
         ]);
     }
 
     async ngAfterViewInit() {
-        try {
-            // Re-adding the import as it worked before and we have the package installed now
-            const mermaid = (await import('mermaid')).default;
-            mermaid.initialize({
-                startOnLoad: false,
-                theme: 'neutral',
-                securityLevel: 'loose',
-                fontFamily: 'Inter, sans-serif'
-            });
-            // Use the new mermaid.run() API or init() depending on the version
-            if (mermaid.run) {
-                await mermaid.run();
-            } else {
-                mermaid.init(undefined, '.mermaid');
+        if (isPlatformBrowser(this.platformId)) {
+            try {
+                // Re-adding the import as it worked before and we have the package installed now
+                const mermaid = (await import('mermaid')).default;
+                mermaid.initialize({
+                    startOnLoad: false,
+                    theme: 'neutral',
+                    securityLevel: 'loose',
+                    fontFamily: 'Inter, sans-serif'
+                });
+                // Use the new mermaid.run() API or init() depending on the version
+                if (mermaid.run) {
+                    await mermaid.run();
+                } else {
+                    mermaid.init(undefined, '.mermaid');
+                }
+            } catch (e) {
+                console.error('Error initializing mermaid from module', e);
             }
-        } catch (e) {
-            console.error('Error initializing mermaid from module', e);
         }
     }
 

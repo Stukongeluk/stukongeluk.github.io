@@ -12,6 +12,25 @@
     content="Jimmy Nguyen, Developer, Software Engineer, Freelance, IT, Cloud Engineer, DevOps engineer, Full-stack Developer, AWS, Angular, Java">
   <meta name="author" content="Jimmy Nguyen">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script type="text/javascript">
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // https://github.com/rafgraph/spa-github-pages
+    // This script checks to see if a redirect is present in the query string,
+    // converts it back into the correct url and adds it to the
+    // browser's history using window.history.replaceState(...),
+    // which causes the browser to load the correct page without a page refresh.
+    (function(l) {
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) {
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
   <!-- Preload LCP image -->
   <link rel="preload" as="image" href="assets/hero_profile.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
