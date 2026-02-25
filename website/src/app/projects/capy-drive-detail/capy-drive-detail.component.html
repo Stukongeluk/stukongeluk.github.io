@@ -28,8 +28,8 @@
                 <!-- Super Saiyan Toggle -->
                 <button (click)="superSaiyan.toggle()"
                     class="px-4 py-2 rounded-full border-2 border-amber-400 text-sm font-bold transition-all flex items-center gap-2 group"
-                    [ngClass]="superSaiyan.isTransformed() 
-                            ? 'bg-amber-600 text-white border-amber-600 hover:bg-amber-700' 
+                    [ngClass]="superSaiyan.isTransformed()
+                            ? 'bg-amber-600 text-white border-amber-600 hover:bg-amber-700'
                             : 'text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/30'">
                     <svg class="w-4 h-4 transition-transform group-hover:scale-125"
                         [class.animate-pulse]="superSaiyan.isTransformed()" fill="currentColor" viewBox="0 0 20 20">
@@ -114,11 +114,11 @@
 graph TD
     User([fa:fa-user User/Browser]) --> Hosting[fa:fa-globe Firebase Hosting]
     Hosting --> Angular[fa:fa-code Angular 21+]
-    
+
     subgraph "fa:fa-fire Google Cloud / Firebase (europe-west4)"
         Angular --> Auth[fa:fa-lock Firebase Auth]
         Angular --> Storage[fa:fa-file-image-o Firebase Storage]
-        
+
         subgraph "fa:fa-bolt 20+ Cloud Functions"
             Angular --> Functions[fa:fa-gears Backend Services]
             Functions --> SC[Score Calculation]
@@ -126,12 +126,12 @@ graph TD
             Functions --> US[User Sync]
             Functions --> AM[Admin Manager]
         end
-        
+
         SC --> Firestore[(fa:fa-database Cloud Firestore)]
         PM --> Firestore
         US --> Firestore
         AM --> Firestore
-        
+
         PM --> Mollie[fa:fa-credit-card Mollie API]
     end
 
@@ -139,7 +139,7 @@ graph TD
     classDef highlight fill:#eff6ff,stroke:#2563eb,stroke-width:2px,color:#1d4ed8;
     classDef database fill:#dbeafe,stroke:#1d4ed8,stroke-width:2px,color:#1e40af;
     classDef firebase fill:#fff7ed,stroke:#f59e0b,stroke-width:2px,color:#9a3412;
-    
+
     class Hosting,Angular,Functions,SC,PM,US,AM highlight;
     class Firestore,Storage database;
     class Auth firebase;
@@ -223,12 +223,18 @@ graph TD
                 <div class="sticky top-24 space-y-8">
                     <!-- Project CTA -->
                     <div class="p-8 rounded-3xl bg-blue-600 text-white shadow-xl shadow-blue-600/20">
+                        <a href="https://capydrive.eu" target="_blank" rel="noopener" class="block mb-6 group/logo">
+                            <img src="assets/logo.png" alt="CapyDrive - Modern Dutch Driving Theory Learning Platform"
+                                 title="Visit CapyDrive.eu"
+                                 class="w-full h-auto rounded-2xl shadow-lg transition-transform duration-300 group-hover/logo:scale-[1.02]">
+                        </a>
                         <h3 class="text-2xl font-bold mb-4 font-extrabold tracking-tight">Try CapyDrive</h3>
                         <p class="text-blue-100 mb-8 leading-relaxed opacity-90">
                             Experience the modern way of learning for your driving theory exam. Cheap, fun, and
                             effective.
                         </p>
-                        <a href="https://capydrive.eu" target="_blank"
+                        <a href="https://capydrive.eu" target="_blank" rel="noopener"
+                            title="Visit CapyDrive.eu"
                             class="block w-full text-center py-4 px-6 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all hover:-translate-y-1 hover:shadow-lg">
                             Visit CapyDrive.eu
                         </a>
