@@ -235,36 +235,21 @@ graph TD
                 </section>
 
                 <section class="mb-16">
-                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">The Docker Compose Blueprint</h2>
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Docker Setup & Synology Configuration</h2>
                     <p>
-                        Deploying Hermes Agent on Synology Container Manager is lightweight, declarative, and isolated:
+                        For the container installation itself, refer to the <a href="https://nousresearch.com" target="_blank" rel="noopener" class="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">official Hermes Agent Docker documentation</a>.
+                        On Synology Container Manager, the setup centers around a few key environment variables and a persistent storage mount:
                     </p>
-                    <div class="code-block">
-<pre>services:
-  hermes-agent:
-    image: nousresearch/hermes-agent:latest
-    container_name: hermes-agent
-    restart: unless-stopped
-    volumes:
-      - /volume1/docker/hermes/data:/app/data
-      - /volume1/docker/hermes/config:/app/config
-    environment:
-      # Free Hermes model endpoints via OpenRouter
-      - OPENROUTER_API_BASE_URL=https://openrouter.ai/api/v1
-      - OPENROUTER_API_KEY=your_openrouter_api_key_here
-      # Discord dispatch webhooks
-      - DISCORD_WEBHOOK_RADAR=your_discord_radar_webhook_here
-      - DISCORD_WEBHOOK_CAPYDRIVE=your_discord_capydrive_webhook_here
-      # Automated daily schedule
-      - CRON_SCHEDULE="0 7 * * *"
-      - TARGET_HOURLY_RATE_MIN=95
-    networks:
-      - bot-net
-
-networks:
-  bot-net:
-    driver: bridge</pre>
-                    </div>
+                    <ul class="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-300 mb-6">
+                        <li><strong>Discord BOT Token:</strong> Configured via environment variables (such as <code>DISCORD_BOT_TOKEN</code>) so Hermes authenticates directly as a standalone bot in your Discord server.</li>
+                        <li><strong>Always-On Dashboard:</strong> Set <code>DASHBOARD=1</code> so the agent boots with its native web dashboard enabled, making it easy to monitor active skills, logs, and task queues from any browser on the LAN.</li>
+                        <li><strong>Free OpenRouter Endpoints:</strong> Configured API credentials to query free Hermes model endpoints without requiring local GPU compute.</li>
+                        <li><strong>Persistent NAS Volume Mount:</strong> Mapped a persistent volume on the Synology storage pool (e.g. <code>/volume1/docker/hermes/data</code>) so skills, scraped cache, and conversation context are safely preserved across container updates and NAS reboots.</li>
+                    </ul>
+                    <p>
+                        This makes lifecycle management on DSM effortless: when a new Hermes image is published, the container can simply be updated and restarted without losing any accumulated skills or historical data.
+                    </p>
+                    
                 </section>
             </div>
 
@@ -327,3 +312,4 @@ networks:
         </div>
     </div>
 </article>
+
