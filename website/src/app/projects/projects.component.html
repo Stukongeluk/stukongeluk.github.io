@@ -15,7 +15,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @for (project of projects(); track project.title) {
             <article [routerLink]="project.route ? project.route : null"
-                [style.cursor]="project.route ? 'pointer' : 'default'"
+                [style.cursor]="project.route || project.link ? 'pointer' : 'default'"
                 class="project-card group relative bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 hover:-translate-y-1 flex flex-col h-full">
                 <!-- Image Placeholder / Gradient -->
                 <div
@@ -56,7 +56,7 @@
                     </p>
 
                     <div class="flex items-center text-sm font-medium text-emerald-600 dark:text-emerald-400">
-                        <span>View Details</span>
+                        <span>{{ project.route ? 'View Write-up' : 'View Experience' }}</span>
                         <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

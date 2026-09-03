@@ -11,7 +11,7 @@ import { SuperSaiyanService } from '../services/super-saiyan.service';
 })
 export class HeroComponent implements OnInit {
   displayedRole: string = "";
-  roles: string[] = ['Cloud Engineer', 'DevOps Engineer', 'Full-stack Developer', 'Software Engineer'];
+  roles: string[] = ['Senior DevOps Engineer', 'Full-stack Developer', 'Cloud Engineer', 'Forward Deploy Engineer'];
   roleIndex: number = 0;
   currentWordLength: number = 0;
   currentWord: string = "";

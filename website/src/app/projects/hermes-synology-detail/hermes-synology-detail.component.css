@@ -1,0 +1,72 @@
+:host {
+    display: block;
+}
+
+/* Sidebar Sticky */
+.sticky {
+    top: 6rem;
+}
+
+/* Ensure the prose class from Tailwind Typography or manual styles work in dark mode */
+.prose {
+    max-width: none;
+}
+
+.prose p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.prose strong {
+    color: #10b981;
+}
+
+.dark .prose strong {
+    color: #34d399;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #10b981, #34d399, #6ee7b7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Code styling */
+.code-block {
+    background: #111827;
+    color: #e5e7eb;
+    border: 1px solid #374151;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+/* Base styles for the mermaid diagram */
+.mermaid {
+    font-family: 'Inter', sans-serif !important;
+    background: transparent !important;
+}
+
+/* Fix mermaid coloring for dark mode */
+.dark .mermaid {
+    filter: invert(0.9) hue-rotate(180deg);
+}
+
+/* Responsive media */
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .prose {
+        font-size: 1rem;
+    }
+}

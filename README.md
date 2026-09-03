@@ -1,7 +1,7 @@
 [![pages-build-deployment](https://github.com/Stukongeluk/stukongeluk.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Stukongeluk/stukongeluk.github.io/actions/workflows/pages/pages-build-deployment)
 # Jimmy Nguyen - Personal Website 🚀
 
-Welcome to my personal portfolio website! This project showcases my journey, skills, and hobbies as a versatile developer.
+Welcome to my personal portfolio website! This project showcases my journey, skills, and projects as a Senior DevOps Engineer & Full-Stack Developer with 10 years of software craftsmanship and Forward Deploy capabilities.
 
 ## ✨ Features
 

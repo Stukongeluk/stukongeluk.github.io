@@ -11,6 +11,5 @@ mv docs/browser/* ../docs
 echo jimmynguyen.nl > ../docs/CNAME
 
 # Cleanup
-rmdir docs/browser
-rm docs/3rdpartylicenses.txt
-rmdir docs
+rm -rf docs
+# done
