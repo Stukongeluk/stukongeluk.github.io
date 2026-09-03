@@ -35,7 +35,7 @@ export class ProjectsComponent {
     },
     {
       title: 'Autonomous Ops: Hermes Agent on Synology NAS',
-      description: 'A 24/7 autonomous AI agent in Docker on my Synology NAS using free models on OpenRouter and Discord. Powers daily freelance contract scanning with CV match scoring, and automated daily CBR exam question generation for CapyDrive.',
+      description: 'A 24/7 autonomous AI agent in Docker on my Synology NAS using free models on OpenRouter and Discord. Powers daily freelance contract scanning with CV match scoring, and automated daily CBR TikTok marketing content for CapyDrive.',
       image: 'assets/hermes-synology.jpg',
       route: '/projects/hermes-synology',
       tags: ['Docker', 'Synology NAS', 'Hermes Agent', 'Discord Bot', 'CapyDrive', 'Automation'],

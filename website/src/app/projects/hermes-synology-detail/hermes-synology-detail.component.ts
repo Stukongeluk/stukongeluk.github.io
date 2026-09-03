@@ -66,9 +66,9 @@ export class HermesSynologyDetailComponent implements OnInit, AfterViewInit {
             icon: '🎯'
         },
         {
-            title: 'CapyDrive Daily Exam Engine',
-            description: 'Autonomously generates fresh, unique CBR-compliant driving theory questions, scenarios, and explanations daily, dispatching them straight to Discord.',
-            icon: '🚗'
+            title: 'CapyDrive TikTok Marketing Engine',
+            description: 'Autonomously generates fresh CBR quiz dilemmas, viral hooks, and scenario scripts daily, dispatching them to Discord for quick TikTok video creation.',
+            icon: '🎬'
         },
         {
             title: 'Hermes Agent vs. OpenClaw',
