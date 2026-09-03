@@ -60,7 +60,7 @@
                         Two tasks were consuming unnecessary headspace every single day:
                     </p>
                     <ol class="list-decimal pl-6 space-y-3 text-gray-700 dark:text-gray-300">
-                        <li><strong>Freelance Market Vigilance:</strong> Sifting through Freelance.nl, LinkedIn, and contractor boards every morning, filtering out low-ball rates and irrelevant keywords.</li>
+                        <li><strong>Freelance Market Vigilance:</strong> Sifting through Freelance.nl, LinkedIn, and contractor boards every morning for roles aligned with my core priorities—specifically <strong>Java</strong>, <strong>AWS</strong>, <strong>Angular</strong>, and <strong>AI agentic work</strong>—while filtering out low-ball rates and irrelevant noise.</li>
                         <li><strong>CapyDrive Content Velocity:</strong> Generating authentic, high-quality Dutch driving theory (CBR) practice questions with fresh scenarios, distractors, and legal explanations.</li>
                     </ol>
                     <p class="mt-4">
@@ -128,7 +128,7 @@ graph TD
     Cron[⏰ Daily Morning Cron : 07:00 AM] --> Agent[fa:fa-robot Hermes Agent on Synology NAS]
 
     subgraph "Synology NAS (Docker Container Manager)"
-        Agent --> CV[(fa:fa-file-text Jimmy's CV & Preferences)]
+        Agent --> CV[(fa:fa-file-text Jimmy's Priorities: Java, AWS, Angular, AI Agents)]
         Agent --> CBR[(fa:fa-book CBR Driving Theory Syllabus)]
     end
 
@@ -138,7 +138,7 @@ graph TD
 
     subgraph "Pipeline A: Freelance Contract Radar"
         Agent -->|Scrape & Search| Boards[fa:fa-globe Freelance.nl & Tech Boards]
-        Boards --> Scorer[fa:fa-sliders Rate & CV Match Evaluator]
+        Boards --> Scorer[fa:fa-sliders Scorer: Java, AWS, Angular & AI Agents]
         Scorer -->|Match &ge; 80% & Rate &ge; €95/hr| DiscordA[fa:fa-bell Discord: #freelance-radar]
     end
 
@@ -170,7 +170,8 @@ graph TD
                     </p>
                     <ul class="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-300">
                         <li><strong>Hard Compensation Thresholds:</strong> Immediately discards roles below €95/hr ZZP or non-senior listings.</li>
-                        <li><strong>Objective CV Match Scoring:</strong> Cross-references requirements against my 10 years of experience, prioritizing Kubernetes (CKAD), AWS (DevOps Pro), Terraform, Golang DevEx, Angular Signals, and Auth0 migrations.</li>
+                        <li><strong>Priority Pillars:</strong> Heavily weights opportunities centering around <strong>Java</strong> (Spring Boot, Quarkus, microservices), <strong>AWS</strong> (CDK, Serverless Lambda, DevOps Pro architecture), <strong>Angular</strong> (v17–21, Signals, TypeScript), and <strong>AI Agentic Work</strong> (autonomous agent loops, tool calling, MCP integrations).</li>
+                        <li><strong>Objective CV Match Scoring:</strong> Cross-references requirements against my 10 years of software craftsmanship (including CKAD Kubernetes, Terraform, and zero-downtime identity migrations).</li>
                         <li><strong>Chance to Apply Metric:</strong> Delivers an honest percentage score with concise rationale explaining why the opportunity is worth applying for.</li>
                     </ul>
 
@@ -180,8 +181,8 @@ graph TD
                             <span class="text-emerald-400 font-bold text-base">🟢 HIGH MATCH FOUND (94%)</span>
                             <span class="text-xs text-gray-400">#freelance-radar • 07:15 AM</span>
                         </div>
-                        <div class="text-lg font-bold text-white mb-1">Senior Cloud & DevOps Engineer (Interim ZZP)</div>
-                        <div class="text-gray-300 mb-4">Client: Energy Scale-up (Amsterdam / Hybrid) • 6 Months (Extensible)</div>
+                        <div class="text-lg font-bold text-white mb-1">Senior Full-Stack Cloud Engineer: Java, AWS & Angular (Interim ZZP)</div>
+                        <div class="text-gray-300 mb-4">Client: Energy & Utilities Scale-up (Amsterdam / Hybrid) • 6 Months (Extensible)</div>
                         <div class="grid grid-cols-2 gap-4 mb-4 bg-[#1e1f22] p-4 rounded-xl">
                             <div>
                                 <div class="text-xs text-gray-400 uppercase tracking-wider">Hourly Rate</div>
@@ -189,11 +190,18 @@ graph TD
                             </div>
                             <div>
                                 <div class="text-xs text-gray-400 uppercase tracking-wider">Chance to Apply</div>
-                                <div class="text-blue-400 font-bold text-base">Exceptional Match ⭐</div>
+                                <div class="text-blue-400 font-bold text-base">Exceptional Match ⭐ (96%)</div>
                             </div>
                         </div>
                         <div class="text-gray-200">
-                            <strong class="text-gray-100">Why it matches your CV:</strong> Client requires multi-account Terraform with CKAD Kubernetes governance and serverless API bridges — exact match with your Essent and HeadFirst Group track record.
+                            <strong class="text-gray-100">Why it matches your CV:</strong> Direct hit on your 4 priority pillars: building robust Java microservices on AWS Serverless with an Angular frontend, plus automating internal operations with AI agentic workflows. 100% alignment with your Essent and HeadFirst Group track record.
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-4 pt-3 border-t border-[#383a40]">
+                            <span class="text-xs px-2.5 py-1 rounded bg-[#383a40] text-gray-300">#java</span>
+                            <span class="text-xs px-2.5 py-1 rounded bg-[#383a40] text-gray-300">#aws</span>
+                            <span class="text-xs px-2.5 py-1 rounded bg-[#383a40] text-gray-300">#angular</span>
+                            <span class="text-xs px-2.5 py-1 rounded bg-[#383a40] text-gray-300">#ai-agents</span>
+                            <span class="text-xs px-2.5 py-1 rounded bg-[#383a40] text-gray-300">#freelance</span>
                         </div>
                     </div>
                 </section>
