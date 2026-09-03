@@ -29,7 +29,7 @@ export class HermesSynologyDetailComponent implements OnInit, AfterViewInit {
             { name: 'keywords', content: 'Hermes Agent, NousResearch, Synology NAS, Docker, Discord Bot, CapyDrive, Freelance DevOps, OpenClaw, Content Generation, CBR Exam' },
             { name: 'author', content: 'Jimmy Nguyen' },
             { property: 'og:title', content: 'Autonomous Ops: Hermes Agent on Synology NAS' },
-            { property: 'og:description', content: 'Containerized Hermes Agent on Synology NAS, free Hermes models, and Discord bot notifications for daily freelance radar and CapyDrive exam content.' },
+            { property: 'og:description', content: 'Containerized Hermes Agent on Synology NAS, free OpenRouter models, and Discord bot notifications for daily freelance radar and CapyDrive exam content.' },
             { property: 'og:image', content: 'assets/hermes-synology.jpg' },
             { property: 'og:url', content: 'https://stukongeluk.github.io/projects/hermes-synology' },
             { property: 'og:type', content: 'article' },
@@ -82,12 +82,12 @@ export class HermesSynologyDetailComponent implements OnInit, AfterViewInit {
         },
         {
             title: 'Zero Operating Costs',
-            description: 'Runs lightly inside Docker on Synology Container Manager (<200MB RAM), routing reasoning through free Hermes model endpoints without API fees.',
+            description: 'Runs lightly inside Docker on Synology Container Manager (<200MB RAM), routing reasoning through free models on OpenRouter with multi-model agility and zero API fees.',
             icon: '💰'
         },
         {
-            title: 'Strict JSON & Schema Safety',
-            description: 'Hermes native function calling guarantees structured JSON payloads for both contract parsing and CBR multiple-choice question validation.',
+            title: 'Docker Sandboxing & Security',
+            description: 'Containerized isolation ensures autonomous web scraping and agent tool executions remain strictly sandboxed from NAS shared folders, DSM root, and LAN subnets.',
             icon: '🛡️'
         }
     ];
@@ -97,7 +97,7 @@ export class HermesSynologyDetailComponent implements OnInit, AfterViewInit {
         { name: 'Synology DSM', description: 'Host OS & 24/7 Storage' },
         { name: 'Hermes Agent', description: 'Self-Improving Autonomous Agent' },
         { name: 'Discord Webhooks', description: 'Notification & Content Feeds' },
-        { name: 'Free Hermes Models', description: 'Zero-Cost Inference' },
+        { name: 'OpenRouter Free Models', description: 'Multi-Model Inference' },
         { name: 'CapyDrive Pipeline', description: 'EdTech Content Engine' }
     ];
 }

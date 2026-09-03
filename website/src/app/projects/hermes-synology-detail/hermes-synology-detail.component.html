@@ -13,7 +13,7 @@
                 Autonomous Ops: <span class="gradient-text">Hermes Agent</span> on Synology NAS
             </h1>
             <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
-                How I containerized Hermes Agent in Docker on my Synology NAS, powered by free Hermes models on OpenRouter, to run
+                How I containerized Hermes Agent in Docker on my Synology NAS, leveraging free models on OpenRouter, to run
                 two daily automated operations: scanning freelance contracts with CV match scoring, and generating daily CBR driving theory questions for CapyDrive straight into Discord.
             </p>
 
@@ -70,13 +70,13 @@
                 </section>
 
                 <section class="mb-16">
-                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">The Setup: Synology NAS + Free Hermes Models</h2>
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">The Setup: Synology NAS + Multi-Model Flexibility</h2>
                     <p>
                         The infrastructure is intentionally lightweight and cost-efficient:
                     </p>
                     <ul class="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-300">
                         <li><strong>Synology DSM Container Manager:</strong> Runs the Hermes Agent container with persistent volume mounts on the local Btrfs storage pool. The container sits at &lt;200MB RAM with 0% idle CPU.</li>
-                        <li><strong>Zero GPU Tax with Free Hermes Models:</strong> Rather than forcing heavy local LLM inference onto the NAS CPU (which leads to 1–3 tokens/sec and thermal throttling), Hermes Agent offloads reasoning to <strong>free Hermes model endpoints via OpenRouter</strong>. It provides rapid token generation, structured tool calling, and multi-step reasoning at zero marginal cost.</li>
+                        <li><strong>Multi-Model Flexibility with Zero GPU Tax:</strong> Rather than forcing heavy local LLM inference onto the NAS CPU (which leads to 1–3 tokens/sec and thermal throttling), Hermes Agent is inherently multi-model. It offloads reasoning to <strong>free models available on OpenRouter</strong>, giving the flexibility to select and switch between different models for scraping, reasoning, and synthesis with zero local hardware tax and zero API fees.</li>
                         <li><strong>Discord Webhooks & Bot API:</strong> Serves as the universal notification interface. Discord mobile and desktop apps deliver push notifications with rich embeds, eliminating the need to build a custom frontend.</li>
                     </ul>
                 </section>
@@ -132,8 +132,8 @@ graph TD
         Agent --> CBR[(fa:fa-book CBR Driving Theory Syllabus)]
     end
 
-    subgraph "Cognitive Layer (Free Hermes Models)"
-        Agent -->|Inference & Tool Calls| OpenRouter[fa:fa-cloud Free Hermes Models on OpenRouter]
+    subgraph "Cognitive Layer (Multi-Model Support)"
+        Agent -->|Inference & Tool Calls| OpenRouter[fa:fa-cloud Free Models on OpenRouter]
     end
 
     subgraph "Pipeline A: Freelance Contract Radar"
@@ -209,7 +209,7 @@ graph TD
                     </p>
                     <ul class="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-300">
                         <li><strong>Rotating CBR Syllabus Topics:</strong> Every morning, the agent cycles through core CBR categories: <em>Voorrang (Right of Way)</em>, <em>Verkeersborden (Traffic Signs)</em>, <em>Gevaarherkenning (Hazard Perception)</em>, and <em>Milieu & Techniek</em>.</li>
-                        <li><strong>CBR Exam Authenticity:</strong> Prompts free Hermes models to generate tricky edge-case traffic scenarios, plausible distractor options, and official explanations citing Dutch traffic legislation (RVV 1990).</li>
+                        <li><strong>CBR Exam Authenticity:</strong> Uses free models via OpenRouter to generate tricky edge-case traffic scenarios, plausible distractor options, and official explanations citing Dutch traffic legislation (RVV 1990).</li>
                         <li><strong>1-Click Review in Discord:</strong> Delivers the question into <code>#capydrive-content</code> with multiple-choice buttons or approval reactions for instant sync into CapyDrive's Firebase Firestore database.</li>
                     </ul>
 
@@ -243,13 +243,47 @@ graph TD
                     <ul class="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-300 mb-6">
                         <li><strong>Discord BOT Token:</strong> Configured via environment variables (such as <code>DISCORD_BOT_TOKEN</code>) so Hermes authenticates directly as a standalone bot in your Discord server.</li>
                         <li><strong>Always-On Dashboard:</strong> Set <code>DASHBOARD=1</code> so the agent boots with its native web dashboard enabled, making it easy to monitor active skills, logs, and task queues from any browser on the LAN.</li>
-                        <li><strong>Free OpenRouter Endpoints:</strong> Configured API credentials to query free Hermes model endpoints without requiring local GPU compute.</li>
+                        <li><strong>Free OpenRouter Endpoints:</strong> Configured API credentials to query free models on OpenRouter, taking advantage of Hermes's multi-model flexibility without local GPU compute.</li>
                         <li><strong>Persistent NAS Volume Mount:</strong> Mapped a persistent volume on the Synology storage pool (e.g. <code>/volume1/docker/hermes/data</code>) so skills, scraped cache, and conversation context are safely preserved across container updates and NAS reboots.</li>
                     </ul>
                     <p>
                         This makes lifecycle management on DSM effortless: when a new Hermes image is published, the container can simply be updated and restarted without losing any accumulated skills or historical data.
                     </p>
                     
+                </section>
+
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Security & Sandboxing: Why Docker on Synology is Crucial</h2>
+                    <p>
+                        Allowing an autonomous agent to scrape external job portals, parse third-party web content, and execute Python tool chains requires a strict security perimeter.
+                        Running Hermes Agent containerized in Docker provides essential defense-in-depth layers:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
+                            <h3 class="text-lg font-bold text-emerald-600 dark:text-emerald-400 mb-2">🛡️ Filesystem Sandboxing</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">
+                                The container is strictly constrained to its mounted volume (<code>/app/data</code>). It has zero read or write access to the Synology DSM root OS, system configurations, or private family and backup shares across the NAS storage pool.
+                            </p>
+                        </div>
+                        <div class="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
+                            <h3 class="text-lg font-bold text-emerald-600 dark:text-emerald-400 mb-2">🌐 Bridge Network Isolation</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">
+                                Sandboxed on an isolated Docker bridge network. The agent can only reach external APIs (OpenRouter, Discord) and cannot probe internal NAS administrative management ports (DSM 5000/5001) or other private LAN subnets.
+                            </p>
+                        </div>
+                        <div class="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
+                            <h3 class="text-lg font-bold text-emerald-600 dark:text-emerald-400 mb-2">🔒 Least-Privilege Execution</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">
+                                Runs as a dedicated non-root container user with dropped Linux capabilities and disabled root escalation, preventing privilege breakout from untrusted scraped HTML.
+                            </p>
+                        </div>
+                        <div class="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
+                            <h3 class="text-lg font-bold text-emerald-600 dark:text-emerald-400 mb-2">⚙️ Resource Quotas & DoS Guard</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300">
+                                Hard memory and CPU limits ensure that even if a recursive scraping loop occurs, it cannot starve vital NAS workloads like automated RAID scrubbing, Time Machine backups, or media streaming.
+                            </p>
+                        </div>
+                    </div>
                 </section>
             </div>
 
@@ -278,7 +312,7 @@ graph TD
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-emerald-200">Inference Engine:</span>
-                                <span class="font-bold">Free Hermes Models</span>
+                                <span class="font-bold">Free OpenRouter Models</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-emerald-200">Delivery Channel:</span>
