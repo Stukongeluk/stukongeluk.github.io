@@ -1,0 +1,203 @@
+/* ==========================================================================
+   OCEANIC BLUE-TEAL ANIME THEME & FLOWY MOTION
+   ========================================================================== */
+
+:host {
+  display: block;
+  background-color: #041b24;
+}
+
+.convention-ocean {
+  background: radial-gradient(circle at 50% 8%, #0d4659 0%, #082d3b 45%, #031720 100%);
+  min-height: 100vh;
+}
+
+/* Glowing White Question Mark in Corgi Silhouette */
+.corgi-white-q {
+  filter: drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #38bdf8) drop-shadow(0 0 30px #06b6d4);
+  animation: pulseWhiteQ 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseWhiteQ {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Wiggle animation when poking the mascot */
+@keyframes pokeWiggle {
+  0% { transform: scale(1) rotate(0deg); }
+  20% { transform: scale(1.1) rotate(-8deg); }
+  40% { transform: scale(1.1) rotate(8deg); }
+  60% { transform: scale(1.05) rotate(-5deg); }
+  80% { transform: scale(1.02) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.animate-wiggle {
+  animation: pokeWiggle 0.75s ease-in-out;
+}
+
+/* Gentle float animations */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(3deg); }
+}
+
+.animate-float {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.animate-float-delay {
+  animation: floatGentle 6s ease-in-out infinite 2s;
+}
+
+.animate-bounce-gentle {
+  animation: bounceGentle 3s ease-in-out infinite;
+}
+
+@keyframes bounceGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Audio Visualizer Bars on Karaoke Card */
+@keyframes barBounce1 {
+  0%, 100% { height: 6px; }
+  50% { height: 16px; }
+}
+
+@keyframes barBounce2 {
+  0%, 100% { height: 14px; }
+  50% { height: 5px; }
+}
+
+@keyframes barBounce3 {
+  0%, 100% { height: 8px; }
+  50% { height: 18px; }
+}
+
+.animate-bar-1 {
+  animation: barBounce1 0.7s ease-in-out infinite;
+}
+
+.animate-bar-2 {
+  animation: barBounce2 0.85s ease-in-out infinite 0.15s;
+}
+
+.animate-bar-3 {
+  animation: barBounce3 0.65s ease-in-out infinite 0.3s;
+}
+
+/* Holographic Pass Shimmer */
+.convention-ticket {
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.35);
+}
+
+.convention-ticket::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(56, 189, 248, 0.3) 50%,
+    transparent 75%
+  );
+  transform: skewX(-20deg);
+  animation: ticketShimmer 5s infinite;
+  pointer-events: none;
+}
+
+@keyframes ticketShimmer {
+  0% { left: -150%; }
+  35%, 100% { left: 200%; }
+}
+
+/* Confetti Burst */
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 16px;
+  background: #38bdf8;
+  top: -20px;
+  opacity: 0.9;
+  border-radius: 3px;
+  animation: confettiFall 2.5s ease-in forwards;
+}
+
+.confetti-piece:nth-child(2n) { background: #22d3ee; width: 8px; height: 14px; }
+.confetti-piece:nth-child(3n) { background: #ffffff; width: 12px; height: 12px; border-radius: 50%; }
+.confetti-piece:nth-child(4n) { background: #06b6d4; width: 14px; height: 8px; }
+.confetti-piece:nth-child(5n) { background: #fbbf24; }
+
+.confetti-piece:nth-child(1) { left: 5%; animation-delay: 0s; }
+.confetti-piece:nth-child(2) { left: 10%; animation-delay: 0.2s; }
+.confetti-piece:nth-child(3) { left: 15%; animation-delay: 0.1s; }
+.confetti-piece:nth-child(4) { left: 20%; animation-delay: 0.4s; }
+.confetti-piece:nth-child(5) { left: 25%; animation-delay: 0.15s; }
+.confetti-piece:nth-child(6) { left: 30%; animation-delay: 0.3s; }
+.confetti-piece:nth-child(7) { left: 40%; animation-delay: 0.05s; }
+.confetti-piece:nth-child(8) { left: 50%; animation-delay: 0.25s; }
+.confetti-piece:nth-child(9) { left: 60%; animation-delay: 0.1s; }
+.confetti-piece:nth-child(10) { left: 70%; animation-delay: 0.35s; }
+.confetti-piece:nth-child(11) { left: 75%; animation-delay: 0.05s; }
+.confetti-piece:nth-child(12) { left: 80%; animation-delay: 0.2s; }
+.confetti-piece:nth-child(13) { left: 85%; animation-delay: 0.4s; }
+.confetti-piece:nth-child(14) { left: 90%; animation-delay: 0.15s; }
+.confetti-piece:nth-child(15) { left: 95%; animation-delay: 0.3s; }
+
+@keyframes confettiFall {
+  0% {
+    top: -20px;
+    transform: rotate(0deg) rotateY(0deg);
+  }
+  100% {
+    top: 100vh;
+    transform: rotate(720deg) rotateY(360deg);
+  }
+}
+
+/* Floating background decals */
+.floating-decal {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Custom Scrollbar for Oceanic Teal */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #031720;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #084c61;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}

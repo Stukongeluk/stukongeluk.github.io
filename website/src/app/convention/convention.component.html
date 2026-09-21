@@ -1,0 +1,403 @@
+<div class="convention-ocean relative min-h-screen text-white font-sans overflow-x-hidden selection:bg-cyan-400 selection:text-slate-900 pb-20">
+
+  <!-- Floating Confetti Burst -->
+  <div *ngIf="showConfetti()" class="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+    <div class="confetti-piece" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]"></div>
+  </div>
+
+  <!-- Ambient Blue-Teal Floating Lights & Orbs -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute -top-32 -left-32 w-[34rem] h-[34rem] bg-cyan-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute top-1/4 -right-32 w-[30rem] h-[30rem] bg-sky-500/20 rounded-full blur-3xl animate-float-slow"></div>
+    <div class="absolute top-2/3 left-1/4 w-[28rem] h-[28rem] bg-teal-400/15 rounded-full blur-3xl animate-float-delay"></div>
+    <div class="absolute -bottom-32 right-1/4 w-[32rem] h-[32rem] bg-blue-600/15 rounded-full blur-3xl"></div>
+
+    <!-- Floating Kawaii Decorative Symbols -->
+    <span class="floating-decal text-2xl text-cyan-300/25 top-20 left-12 animate-float">✦</span>
+    <span class="floating-decal text-xl text-sky-300/25 top-44 right-20 animate-float-delay">★</span>
+    <span class="floating-decal text-3xl text-teal-300/20 top-96 left-1/4 animate-float-slow">✧</span>
+    <span class="floating-decal text-2xl text-cyan-400/20 bottom-96 right-16 animate-float">✦</span>
+    <span class="floating-decal text-xl text-sky-400/25 bottom-40 left-16 animate-float-delay">★</span>
+  </div>
+
+  <!-- Main Content Container -->
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+
+    <!-- HERO SECTION -->
+    <section class="text-center py-6 lg:py-10 relative">
+
+      <!-- Hero Main Title -->
+      <div class="mb-8">
+        <!-- UNREVEALED MYSTERY STATE (Before Sept 27th, 13:00 GMT+2) -->
+        <div *ngIf="!isRevealed()" class="space-y-4">
+          <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white drop-shadow-2xl">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-teal-300">???</span>
+            ANIME CONVENTION
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-sky-200 to-cyan-300">???</span>
+          </h1>
+
+          <p class="text-lg sm:text-2xl text-sky-100 max-w-2xl mx-auto font-medium leading-relaxed">
+            An anime convention dedicated to celebrating Rosalief and Niels their birthdays!
+            <span class="block text-cyan-300 font-extrabold mt-2">Revealing on September 27th at 13:00 GMT+2!</span>
+          </p>
+
+          <!-- Organic Flowing Countdown Timer to 13:00 GMT+2 -->
+          <div class="flex items-center justify-center gap-3 sm:gap-4 mt-8">
+            <div class="countdown-bubble bg-[#082d3b]/90 border border-cyan-400/40 rounded-3xl p-4 sm:p-5 min-w-[85px] sm:min-w-[105px] shadow-2xl backdrop-blur-md transform -rotate-1 hover:rotate-0 transition-transform">
+              <span class="text-3xl sm:text-4xl font-black text-white block">{{ daysRemaining }}</span>
+              <span class="text-[11px] uppercase tracking-wider text-cyan-300 font-extrabold">Days</span>
+            </div>
+            <span class="text-2xl font-black text-cyan-400 animate-pulse">:</span>
+            <div class="countdown-bubble bg-[#082d3b]/90 border border-cyan-400/40 rounded-3xl p-4 sm:p-5 min-w-[85px] sm:min-w-[105px] shadow-2xl backdrop-blur-md transform rotate-1 hover:rotate-0 transition-transform">
+              <span class="text-3xl sm:text-4xl font-black text-white block">{{ hoursRemaining }}</span>
+              <span class="text-[11px] uppercase tracking-wider text-cyan-300 font-extrabold">Hours</span>
+            </div>
+            <span class="text-2xl font-black text-cyan-400 animate-pulse">:</span>
+            <div class="countdown-bubble bg-[#082d3b]/90 border border-cyan-400/40 rounded-3xl p-4 sm:p-5 min-w-[85px] sm:min-w-[105px] shadow-2xl backdrop-blur-md transform -rotate-1 hover:rotate-0 transition-transform">
+              <span class="text-3xl sm:text-4xl font-black text-white block">{{ minutesRemaining }}</span>
+              <span class="text-[11px] uppercase tracking-wider text-cyan-300 font-extrabold">Mins</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVEALED STATE (RoNi-con - First edition!) -->
+        <div *ngIf="isRevealed()" class="space-y-4 animate-slide-up">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-sky-500 text-slate-950 font-black text-xs uppercase tracking-widest shadow-lg shadow-cyan-400/30">
+            <span>🎉</span> Rosalief & Niels Birthday Edition
+          </div>
+          <h1 class="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-white drop-shadow-2xl">
+            RoNi-con <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-teal-300 block sm:inline">- First edition!</span>
+          </h1>
+          <p class="text-lg sm:text-2xl text-sky-100 max-w-2xl mx-auto font-medium leading-relaxed">
+            Welcome to the inaugural edition of <strong class="text-white font-black underline decoration-cyan-400 underline-offset-4">RoNi-con</strong>! An anime convention dedicated to celebrating Rosalief and Niels their birthdays!
+          </p>
+        </div>
+      </div>
+
+      <!-- MASCOT EXPERIENCE: Exact Sticker Silhouette (Mystery) vs Full Sticker (Revealed) -->
+      <div class="mt-8 flex flex-col items-center">
+        <div class="relative cursor-pointer select-none group max-w-sm sm:max-w-md w-full flex justify-center" (click)="pokeMascot()">
+
+          <!-- Ambient Glowing Blue-Teal Aura behind the sticker -->
+          <div class="absolute -inset-4 bg-gradient-to-r from-cyan-400 via-sky-500 to-teal-400 rounded-full blur-3xl opacity-35 group-hover:opacity-60 transition duration-700 animate-pulse-slow"></div>
+
+          <!-- STICKER CONTAINER: Exact Same Shape & Clean Floating Presentation -->
+          <div class="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center transition-transform duration-300"
+               [ngClass]="{ 'animate-wiggle': isMascotPoked(), 'hover:scale-105': !isMascotPoked() }">
+
+            <!-- STATE 1: MYSTERY (Before Sept 27th, 13:00 GMT+2) -> Exact Same Die-Cut Silhouette of the Sticker with White '?' Inside -->
+            <div *ngIf="!isRevealed()" class="w-full h-full flex items-center justify-center animate-fade-in">
+              <img
+                src="assets/roni-con-mystery.png"
+                alt="Mystery Anime Convention Mascot Sticker"
+                class="w-full h-full object-contain filter drop-shadow-2xl transition-all duration-500"
+              />
+            </div>
+
+            <!-- STATE 2: REVEALED (On Sept 27th, 13:00 GMT+2) -> Official Full-Color Die-Cut Sticker -->
+            <div *ngIf="isRevealed()" class="w-full h-full flex items-center justify-center animate-fade-in">
+              <img
+                src="assets/roni-con-sticker.png"
+                alt="RoNi-con 1st Edition Sticker"
+                class="w-full h-full object-contain filter drop-shadow-2xl transition-all duration-500"
+              />
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Mascot Subtitle Caption -->
+        <p class="mt-5 text-sm sm:text-base text-sky-100 font-medium">
+          <span *ngIf="!isRevealed()">Tap to peek! The full convention sticker & mascot reveal on September 27th at 13:00 GMT+2.</span>
+          <span *ngIf="isRevealed()" class="text-white font-bold">RoNi-con First Edition • September 27th!</span>
+        </p>
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- Flowy Wave Divider 1 -->
+  <div class="relative w-full overflow-hidden leading-none my-8">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-12 text-[#082a38] fill-current">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,121.31,192,106,236.75,94.79,279.4,70.52,321.39,56.44Z"></path>
+    </svg>
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- ACTIVITIES SECTION: 4 Activities including Secret Prize Activity -->
+    <section class="py-6">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Convention Activities</h2>
+        <p class="text-sky-100 text-base sm:text-lg mt-2">
+          Celebrating Rosalief & Niels with music, Dutch snacks, surprise challenges, and great times with friends!
+        </p>
+      </div>
+
+      <!-- Activities Grid (2x2) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div *ngFor="let act of activities"
+             class="pavilion-card bg-gradient-to-br from-[#083040]/90 to-[#05212c]/90 border-2 border-cyan-400/40 hover:border-cyan-300 rounded-3xl p-6 shadow-xl hover:shadow-cyan-500/20 backdrop-blur-xl transition-all duration-300 hover:rotate-0 hover:-translate-y-2 group"
+             [ngClass]="act.rotationClass">
+
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition-transform"
+                 [ngClass]="act.accentColor">
+              {{ act.icon }}
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-cyan-400 text-slate-950 text-[11px] font-black tracking-wider uppercase shadow">
+              {{ act.badge }}
+            </span>
+          </div>
+
+          <h3 class="text-xl sm:text-2xl font-black text-white group-hover:text-cyan-300 transition-colors mb-1">
+            {{ act.title }}
+          </h3>
+          <h4 class="text-xs uppercase tracking-wider text-cyan-300 font-extrabold mb-3">
+            {{ act.tagline }}
+          </h4>
+          <p class="text-sky-100 text-sm leading-relaxed">
+            {{ isRevealed() ? act.revealedDescription : act.description }}
+          </p>
+
+          <!-- Animated Audio Visualizer on Karaoke -->
+          <div *ngIf="act.id === 'karaoke'" class="flex items-end gap-1 mt-4 h-4">
+            <span class="w-1 bg-cyan-300 rounded-full h-3 animate-bar-1"></span>
+            <span class="w-1 bg-cyan-400 rounded-full h-4 animate-bar-2"></span>
+            <span class="w-1 bg-sky-300 rounded-full h-2 animate-bar-3"></span>
+            <span class="w-1 bg-cyan-300 rounded-full h-4 animate-bar-1"></span>
+            <span class="w-1 bg-sky-400 rounded-full h-3 animate-bar-2"></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONVENTION NOTES / GOOD TO KNOW SECTION -->
+    <section class="py-8">
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight">Good to Know</h2>
+        <p class="text-sky-100 text-sm sm:text-base mt-1.5">
+          Helpful tips & info for your visit:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div *ngFor="let note of conventionNotes"
+             class="bg-gradient-to-br from-[#083040]/80 to-[#041d26]/80 border border-cyan-400/30 hover:border-cyan-300/60 rounded-2xl p-5 text-center shadow-lg transition-all hover:-translate-y-1 backdrop-blur-md">
+          <div class="w-12 h-12 rounded-xl bg-cyan-400/20 border border-cyan-400/40 flex items-center justify-center text-2xl mx-auto mb-3">
+            {{ note.icon }}
+          </div>
+          <h3 class="text-base font-black text-white mb-1">{{ note.title }}</h3>
+          <p class="text-xs text-sky-100 font-medium leading-relaxed">{{ note.text }}</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Flowy Wave Divider 2 -->
+  <div class="relative w-full overflow-hidden leading-none my-8">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-12 text-[#082a38] fill-current transform rotate-180">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,121.31,192,106,236.75,94.79,279.4,70.52,321.39,56.44Z"></path>
+    </svg>
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- TIMETABLE SECTION: 14:00 Start -> 14:30 Opening Ceremony -> Free For All -> 21:00 Concludes -->
+    <section class="py-6">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">September 27th Schedule</h2>
+        <p class="text-sky-100 text-base sm:text-lg mt-2">Here is the timeline for the day:</p>
+      </div>
+
+      <!-- Schedule Card -->
+      <div class="max-w-3xl mx-auto bg-gradient-to-b from-[#093342]/90 to-[#06232e]/95 border-2 border-cyan-400/40 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl">
+        <div class="space-y-6">
+
+          <div *ngFor="let item of timetable; let last = last" class="relative pl-9 sm:pl-12 pb-6" [class.pb-0]="last">
+            <!-- Glowing Connecting Line -->
+            <div *ngIf="!last" class="absolute left-4 top-6 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 to-sky-600/40"></div>
+
+            <!-- Flowy Node Badge -->
+            <div class="absolute left-0 top-1 w-8 h-8 rounded-full flex items-center justify-center border-2 text-base shadow-lg transition-transform hover:scale-125"
+                 [ngClass]="item.isSpecial ? 'bg-gradient-to-tr from-cyan-400 to-sky-400 border-white text-slate-950 shadow-cyan-400/50' : 'bg-[#0a3547] border-cyan-400/60 text-cyan-200'">
+              {{ item.icon }}
+            </div>
+
+            <!-- Content Tile -->
+            <div class="bg-[#083040]/70 hover:bg-[#0b3c50]/80 border border-cyan-400/30 hover:border-cyan-300/60 rounded-2xl p-5 transition-all shadow-md">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="text-lg sm:text-xl font-black text-white">{{ item.title }}</span>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-mono font-black px-3 py-1 rounded-xl bg-[#041a22] border border-cyan-400/50 text-cyan-300">
+                    {{ item.time }}
+                  </span>
+                  <span *ngIf="item.duration" class="text-xs font-bold text-sky-200/80">
+                    ({{ item.duration }})
+                  </span>
+                </div>
+              </div>
+              <p class="text-sky-100 text-sm sm:text-base leading-relaxed">
+                {{ isRevealed() ? item.revealedSubtitle : item.subtitle }}
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Summary Footer Banner -->
+        <div class="mt-8 pt-6 border-t border-cyan-400/25 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-cyan-100">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">⏰</span>
+            <span>Doors open at <strong>14:00</strong> • Opening Ceremony at <strong>14:30</strong>!</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg">🌙</span>
+            <span>The convention concludes at <strong>21:00</strong>.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QR PASS GENERATOR: Centered Pass with Large Mobile QR Code -->
+    <section class="py-12 mt-6">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Generate Your Convention Pass</h2>
+        <p class="text-sky-100 text-base sm:text-lg mt-2">
+          The Crew/staff at the event will scan your code and is required for entrance. You may scan it yourself.
+        </p>
+      </div>
+
+      <!-- Centered Generator & Pass Container -->
+      <div class="max-w-xl mx-auto space-y-10">
+
+        <!-- Input Form (Centered) -->
+        <div class="bg-gradient-to-br from-[#093547]/95 to-[#05222e]/95 border-2 border-cyan-400/40 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
+          <form (submit)="onGenerateTicket(); $event.preventDefault();" class="space-y-4">
+            <div>
+              <label for="attendee-input" class="block text-xs uppercase tracking-wider text-cyan-300 font-black mb-2 text-center sm:text-left">
+                Badge Name / Nickname
+              </label>
+              <input
+                id="attendee-input"
+                type="text"
+                [(ngModel)]="attendeeInput"
+                name="attendeeName"
+                maxlength="35"
+                placeholder="Your name, or something funny"
+                class="w-full px-4 py-3.5 rounded-2xl bg-[#062430]/90 border-2 border-cyan-400/50 text-white placeholder-cyan-300/40 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-cyan-300 transition-all text-base text-center sm:text-left"
+              />
+              <span class="block text-[11px] text-cyan-300/70 mt-1.5 font-medium text-center sm:text-left">
+                Hint: "Your name, or something funny"
+              </span>
+            </div>
+
+            <!-- Error message if URL detected -->
+            <div *ngIf="qrErrorMessage" class="p-3.5 rounded-2xl bg-rose-950/90 border-2 border-rose-500/60 text-rose-200 text-xs flex items-start gap-2 shadow-lg animate-wiggle">
+              <span class="text-base">⚠️</span>
+              <span>{{ qrErrorMessage }}</span>
+            </div>
+
+            <!-- Success message -->
+            <div *ngIf="qrSuccessMessage" class="p-3 rounded-2xl bg-emerald-950/90 border border-emerald-400 text-emerald-200 text-xs flex items-center justify-center gap-2">
+              <span>{{ qrSuccessMessage }}</span>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-400 to-teal-400 hover:from-cyan-300 hover:to-sky-300 text-slate-950 font-black text-base tracking-wide transition-all shadow-xl shadow-cyan-500/30 hover:shadow-cyan-400/50 hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-2">
+              <span>🖨️ Generate QR Badge</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Convention Pass Badge Display (Centered & Large QR for Mobile) -->
+        <div class="pass-lanyard-wrapper flex flex-col items-center w-full">
+
+          <!-- Lanyard Strap at top -->
+          <div class="w-14 h-10 bg-gradient-to-b from-cyan-600 to-cyan-800 rounded-t-lg shadow-md border-x border-cyan-400/50"></div>
+          <!-- Metallic clip -->
+          <div class="w-9 h-4 bg-gradient-to-r from-slate-300 via-white to-slate-400 rounded-sm shadow border border-slate-400"></div>
+
+          <!-- Main PVC Badge -->
+          <div class="convention-ticket w-full max-w-md rounded-3xl bg-gradient-to-b from-[#0d4559] via-[#093545] to-[#041d26] border-4 border-cyan-400/70 p-6 sm:p-8 shadow-2xl relative overflow-hidden text-center transform hover:scale-[1.01] transition-transform duration-300">
+
+            <!-- Clip hole -->
+            <div class="w-10 h-3 bg-[#031820] border border-cyan-400/70 rounded-full mx-auto mb-4 shadow-inner"></div>
+
+            <!-- Header banner (No RoNi-con spoiler before 27th) -->
+            <div class="flex items-center justify-between border-b border-cyan-400/30 pb-3 mb-4">
+              <div class="text-left">
+                <span class="text-[10px] uppercase tracking-widest text-cyan-300 font-black block">ANIME CONVENTION</span>
+                <span class="text-base font-black text-white">
+                  {{ isRevealed() ? 'RoNi-con' : '??? CON' }}
+                </span>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-gradient-to-r from-cyan-400 to-sky-400 text-slate-950 font-black text-[11px] tracking-wider uppercase shadow">
+                VIP PASS
+              </span>
+            </div>
+
+            <!-- Attendee Name -->
+            <div class="my-3">
+              <span class="text-[11px] uppercase tracking-widest text-cyan-300 font-black block">ATTENDEE</span>
+              <div class="text-2xl sm:text-3xl font-black text-white tracking-tight break-words px-2 py-1 drop-shadow-md">
+                {{ attendeeTicketName }}
+              </div>
+              <span class="text-xs text-cyan-300 font-mono font-bold">{{ attendeePassId }}</span>
+            </div>
+
+            <!-- Large Centered QR Code Display (Easily scannable on mobile) -->
+            <div class="my-4 p-4 bg-white rounded-3xl inline-block shadow-2xl border-4 border-cyan-400/70 transform hover:scale-105 transition-transform mx-auto">
+              <div *ngIf="qrSvg" [innerHTML]="qrSvg" class="flex justify-center items-center"></div>
+            </div>
+
+            <p class="text-xs text-sky-100 mt-2 font-semibold max-w-xs mx-auto leading-relaxed">
+              The Crew/staff at the event will scan your code and is required for entrance. You may scan it yourself.
+            </p>
+
+            <!-- Bottom Barcode & Details -->
+            <div class="mt-4 pt-3 border-t border-cyan-400/30 flex items-center justify-between text-xs text-cyan-200 font-mono font-bold">
+              <span>EDITION: 1ST</span>
+              <span>27-SEPTEMBER</span>
+              <span>14:00 - 21:00</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FLOATING DEV CONTROLS: Only visible on localhost (Hidden in production build!) -->
+  <aside *ngIf="isLocalhost()" class="fixed bottom-4 right-4 z-50">
+    <div class="bg-[#082a38]/95 border-2 border-cyan-400/60 rounded-2xl p-3 shadow-2xl backdrop-blur-xl flex items-center gap-3">
+      <div class="text-left hidden sm:block">
+        <span class="text-[10px] uppercase tracking-wider text-cyan-300 font-black block">Localhost Test</span>
+        <span class="text-xs font-bold text-white">
+          {{ isRevealed() ? 'Revealed Mode' : 'Mystery Mode' }}
+        </span>
+      </div>
+      <button
+        (click)="toggleReveal()"
+        class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-400 to-sky-400 hover:from-cyan-300 hover:to-sky-300 text-slate-950 text-xs font-black transition shadow-lg"
+        title="Toggle between Mystery (before Sept 27 13:00 GMT+2) and Revealed (RoNi-con)">
+        Switch State
+      </button>
+      <button
+        *ngIf="manualRevealOverride() !== null"
+        (click)="resetDateAuto()"
+        class="px-2.5 py-2 rounded-xl bg-[#0e3b4d] hover:bg-[#124d63] text-cyan-300 text-[11px] font-bold transition"
+        title="Reset to real date condition (September 27th, 13:00 GMT+2)">
+        Auto
+      </button>
+    </div>
+  </aside>
+
+</div>

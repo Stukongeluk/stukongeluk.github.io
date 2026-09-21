@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CapyDriveDetailComponent } from './projects/capy-drive-detail/capy-drive-detail.component';
 import { HermesSynologyDetailComponent } from './projects/hermes-synology-detail/hermes-synology-detail.component';
+import { ConventionComponent } from './convention/convention.component';
 
 export const routes: Routes = [
     {
@@ -15,6 +16,10 @@ export const routes: Routes = [
     {
         path: 'projects/hermes-synology',
         component: HermesSynologyDetailComponent
+    },
+    {
+        path: 'convention',
+        component: ConventionComponent
     },
     {
         path: '**',
