@@ -107,9 +107,8 @@
         </div>
 
         <!-- Mascot Subtitle Caption -->
-        <p class="mt-5 text-sm sm:text-base text-sky-100 font-medium">
-          <span *ngIf="!isRevealed()">Tap to peek! The full convention sticker & mascot reveal on September 27th at 13:00 GMT+2.</span>
-          <span *ngIf="isRevealed()" class="text-white font-bold">RoNi-con First Edition • September 27th!</span>
+        <p *ngIf="isRevealed()" class="mt-5 text-sm sm:text-base text-white font-bold">
+          RoNi-con First Edition • September 27th!
         </p>
       </div>
 
