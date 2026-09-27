@@ -155,14 +155,14 @@ export class ConventionComponent implements OnInit {
   ];
 
   // ========================================================
-  // TIMETABLE: Starts at 14:00, 14:30 Opening ceremony, Free for all, 21:00 Concludes
+  // TIMETABLE: Starts at 14:00, 14:30 Opening ceremony, 17:30 Group Picture, 18:00 Dinner, 21:00 Concludes
   // ========================================================
   public readonly timetable: TimetableEntry[] = [
     {
       time: '14:00',
       title: 'Doors Open (Convention Starts)',
-      subtitle: 'The convention officially starts! Doors open, grab your badges, and settle in.',
-      revealedSubtitle: 'RoNi-con officially starts! Doors open, grab your badges, and settle in.',
+      subtitle: 'The convention officially starts! Doors open, get your wristband, and settle in.',
+      revealedSubtitle: 'RoNi-con officially starts! Doors open, get your wristband, and settle in.',
       duration: 'Doors Open',
       icon: '🚪'
     },
@@ -170,18 +170,44 @@ export class ConventionComponent implements OnInit {
       time: '14:30 - 14:45',
       title: 'Opening Ceremony',
       subtitle: 'The 15-minute grand kickoff! Welcome speech and kicking off the birthday celebration.',
-      revealedSubtitle: 'The 15-minute grand kickoff! Welcome speech, badge greetings, and ribbon-cutting for RoNi-con - First edition!',
+      revealedSubtitle: 'The 15-minute grand kickoff! Welcome speech, warm greetings, and ribbon-cutting for RoNi-con - First edition!',
       duration: '15 mins',
       isSpecial: true,
       icon: '🎊'
     },
     {
-      time: '14:45 - 21:00',
-      title: 'Free For All (Foods, Karaoke & Fun)',
-      subtitle: 'Free for all! Enjoy Dutch food for dinner, snacks like chips, karaoke, cold drinks, secret prize challenge, and celebrating together.',
-      revealedSubtitle: 'Free for all! Enjoy Dutch food for dinner, snacks like chips, karaoke, cold drinks, secret prize challenge, and having fun at RoNi-con.',
-      duration: '6h 15m',
+      time: '14:45 - 17:30',
+      title: 'Free For All (Snacks, Karaoke & Fun)',
+      subtitle: 'Free for all! Enjoy snacks like chips, karaoke, cold drinks, secret prize challenge, and celebrating together.',
+      revealedSubtitle: 'Free for all! Enjoy snacks like chips, karaoke, cold drinks, secret prize challenge, and having fun at RoNi-con.',
+      duration: '2h 45m',
       icon: '🎉'
+    },
+    {
+      time: '17:30 - 18:00',
+      title: 'Group Picture',
+      subtitle: 'Gather around everyone! Time to capture the group picture and commemorate the celebration together.',
+      revealedSubtitle: 'Gather around everyone! Time for the official RoNi-con group photoshoot to commemorate the 1st edition!',
+      duration: '30 mins',
+      isSpecial: true,
+      icon: '📸'
+    },
+    {
+      time: '18:00 - 19:00',
+      title: 'Dinner is Served',
+      subtitle: 'Dinner is served! Enjoy tasty Dutch food, snacks, and drinks together with friends.',
+      revealedSubtitle: 'Dinner is served! Fuel up with Dutch dinner and drinks to power the rest of RoNi-con.',
+      duration: '1 hour',
+      isSpecial: true,
+      icon: '🍽️'
+    },
+    {
+      time: '19:00 - 21:00',
+      title: 'Free For All (Karaoke & Evening Fun)',
+      subtitle: 'The party continues into the evening! More karaoke, drinks, games, and celebrating together.',
+      revealedSubtitle: 'The party continues into the evening! More karaoke, drinks, games, and celebrating RoNi-con.',
+      duration: '2 hours',
+      icon: '🎤'
     },
     {
       time: '21:00',
