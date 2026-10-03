@@ -1,8 +1,7 @@
-import { Component, OnInit, WritableSignal, effect, signal, Inject, PLATFORM_ID, inject } from '@angular/core';
+import { Component, OnInit, WritableSignal, effect, signal, Inject, PLATFORM_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +14,6 @@ export class AppComponent implements OnInit {
   title = 'website';
   isDarkTheme: WritableSignal<boolean> = signal(false);
   isMenuOpen: WritableSignal<boolean> = signal(false);
-  isConventionPage: WritableSignal<boolean> = signal(false);
-
-  private router = inject(Router);
 
   toggleMenu() {
     this.isMenuOpen.set(!this.isMenuOpen());
@@ -30,28 +26,15 @@ export class AppComponent implements OnInit {
         this.setTheme(isDark);
       }
     });
-
-    // Check on navigation
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: any) => {
-      this.checkIfConvention(event.urlAfterRedirects || event.url || '');
-    });
   }
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.checkIfConvention(window.location.pathname);
-
       const savedTheme = localStorage.getItem('color-theme');
       if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         this.isDarkTheme.set(true);
       }
     }
-  }
-
-  private checkIfConvention(url: string) {
-    this.isConventionPage.set(url.includes('convention'));
   }
 
   changeTheme() {
