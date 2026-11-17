@@ -361,9 +361,9 @@
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="hobby-card group">
         <div class="hobby-media">
-          <video src="../../assets/ollie.webm" playsinline muted autoplay loop
+          <video #hobbyVideo src="../../assets/ollie.webm" playsinline muted [muted]="true" autoplay loop preload="auto"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            alt="Jimmy doing an Ollie"></video>
+            aria-label="Jimmy doing an Ollie"></video>
         </div>
         <div class="hobby-info">
           <h4>🛹 Skateboarding</h4>
@@ -385,9 +385,9 @@
 
       <div class="hobby-card group">
         <div class="hobby-media">
-          <video src="../../assets/tre.webm" playsinline muted autoplay loop
+          <video #hobbyVideo src="../../assets/tre.webm" playsinline muted [muted]="true" autoplay loop preload="auto"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            alt="Jimmy Treflip"></video>
+            aria-label="Jimmy Treflip"></video>
         </div>
         <div class="hobby-info">
           <h4>🛹 More Skating</h4>
