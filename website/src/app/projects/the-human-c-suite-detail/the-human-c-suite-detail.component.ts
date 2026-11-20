@@ -1,12 +1,12 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-the-human-c-suite-detail',
     standalone: true,
-    imports: [CommonModule, RouterModule],
+    imports: [RouterModule],
     templateUrl: './the-human-c-suite-detail.component.html',
     styleUrl: './the-human-c-suite-detail.component.css'
 })

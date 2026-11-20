@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 
 interface Project {
@@ -17,7 +17,7 @@ import { SuperSaiyanService } from '../services/super-saiyan.service';
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [RouterModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })
