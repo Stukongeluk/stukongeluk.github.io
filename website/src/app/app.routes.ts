@@ -17,6 +17,11 @@ export const routes: Routes = [
         component: HermesSynologyDetailComponent
     },
     {
+        path: 'projects/the-human-c-suite',
+        loadComponent: () => import('./projects/the-human-c-suite-detail/the-human-c-suite-detail.component')
+            .then(m => m.TheHumanCSuiteDetailComponent)
+    },
+    {
         path: '**',
         redirectTo: ''
     }

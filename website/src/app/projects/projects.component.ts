@@ -25,6 +25,15 @@ export class ProjectsComponent {
   constructor(public superSaiyan: SuperSaiyanService) { }
   projects = signal<Project[]>([
     {
+      title: 'The Human C-Suite: AI Agent Skills',
+      description: 'Open-source agent skills that make an AI agent think like a humane CEO, CTO and CPTO: grounded in company data, layoffs as the last resort, AI measured before anyone banks on it. Built and tested with the skill-creator loop.',
+      link: 'https://github.com/Stukongeluk/the-human-c-suite',
+      image: 'assets/the-human-c-suite.jpg',
+      route: '/projects/the-human-c-suite',
+      tags: ['Agent Skills', 'Claude', 'MCP', 'Leadership', 'Open Source'],
+      featured: true
+    },
+    {
       title: 'CapyDrive (EdTech SaaS)',
       description: 'Founder & Lead Engineer. Gamified micro-learning platform for driving theory education. Built with an ultra-fast Angular 21 Signals client and event-driven GCP / Firebase serverless backend with near-zero idle costs.',
       link: 'https://capydrive.eu',
