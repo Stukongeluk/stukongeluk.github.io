@@ -13,10 +13,12 @@
                 CapyDrive: <span class="text-blue-600 dark:text-blue-400">Modernizing Theory Learning</span>
             </h1>
             <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
-                Driving theory shouldn't be expensive or boring. I built CapyDrive to solve the high costs and outdated
-                interfaces of traditional theory platforms using <span
-                    class="font-bold text-blue-600 dark:text-blue-400">Angular 21+</span> and serverless technology.
+                Driving theory shouldn't be expensive or boring. CapyDrive is a Duolingo-style app for the Dutch CBR
+                theory exams, for the car and the scooter, in Dutch and English. I designed and built it myself on
+                <span class="font-bold text-blue-600 dark:text-blue-400">Angular 21</span> and a serverless Firebase
+                backend.
             </p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-4">Updated November 2026</p>
 
             <div class="flex flex-wrap gap-4 mt-8">
                 @for (tech of techStack; track tech.name) {
@@ -65,6 +67,33 @@
 
                 <section class="mb-16">
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white text-blue-600 dark:text-blue-400">
+                        What CapyDrive is today</h2>
+                    <p>
+                        What started as a car theory app is now a complete learning platform. Cappy the capybara
+                        guides you through short lessons, and the app keeps track of what you still need to practise.
+                    </p>
+                    <ul class="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-300">
+                        <li><strong>Two courses:</strong> car (licence B) and scooter (licence AM), with one switch in
+                            the app to move between them.</li>
+                        <li><strong>A learning path</strong> of modules, short theory lessons and quizzes, with medals
+                            per module and 3D explainer videos for the tricky situations.</li>
+                        <li><strong>Spaced repetition</strong> scheduled on the server. Questions you miss come back at
+                            the right moment, and how fast you answer tells the app how sure you were.</li>
+                        <li><strong>Mock exams in the CBR format:</strong> 10 per licence, with all seven CBR question
+                            types (including hotspot questions), unscored test questions and the 30-minute clock.</li>
+                        <li><strong>An exam planner</strong> that works back from your exam date, plus daily goals,
+                            streaks and leaderboards.</li>
+                        <li><strong>For driving schools:</strong> a learner can share their progress with an
+                            instructor. The instructor only sees it after the learner accepts.</li>
+                        <li><strong>Read-aloud, Dutch and English,</strong> and an installable PWA with the free
+                            lessons available offline.</li>
+                        <li><strong>Pricing:</strong> the first two modules are free. Premium is a one-time payment,
+                            no subscription and no expiry.</li>
+                    </ul>
+                </section>
+
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white text-blue-600 dark:text-blue-400">
                         The AWS Engineer's Perspective: The Power of Serverless</h2>
                     <p>
                         In my day job as an experienced AWS Cloud Engineer, I live and breathe complex infrastructure. I
@@ -80,11 +109,16 @@
                         </p>
                     </div>
                     <p>
-                        One of the best decisions was leaning into <strong>Serverless Cloud Functions</strong>. They are
-                        remarkably easy to deploy and test. Since they follow a pay-as-you-go model, there are no fixed
-                        costs. The system only scales (and costs money) when users are actually learning. This makes it
-                        perfect for a product like CapyDrive, where I want to keep overhead low while ensuring high
-                        availability.
+                        One of the best decisions was leaning into <strong>Serverless Cloud Functions</strong>. The
+                        backend has grown to around 40 functions on Node.js 22: XP and reviews, exams, leaderboards,
+                        payments and refunds, progress sharing, and scheduled jobs such as streak reminders and the
+                        automatic clean-up of inactive accounts. They follow a pay-as-you-go model, so there are no
+                        fixed server costs. The system only scales (and costs money) when people are actually learning.
+                    </p>
+                    <p>
+                        There is also no server of my own to patch. When critical PHP vulnerabilities put millions
+                        of websites at risk in October 2026, CapyDrive wasn't affected: there is no PHP anywhere in the
+                        stack.
                     </p>
                 </section>
 
@@ -94,13 +128,13 @@
                     <p>
                         When it came to the frontend, Angular was my natural choice. Over the years, it has become my
                         comfort framework. When you are managing complex exam logic and state, you can't afford
-                        "undefined is not a function." Angular 21+ provides the architectural rigor and type-safety
+                        "undefined is not a function." Angular 21 provides the architectural rigor and type-safety
                         needed to build a reliable platform.
                     </p>
                     <p>
-                        The shift to standalone components and modern signals has made Angular feel lighter than ever
-                        without losing its core strengths. It gives the platform a premium feel. The interactions are
-                        snappy, the state is predictable, and the developer experience is second to none.
+                        The shift to standalone components and signals has made Angular feel lighter than ever
+                        without losing its core strengths. The interactions are snappy, the state is predictable, and
+                        built-in i18n gives every page a Dutch and an English version.
                     </p>
                 </section>
 
@@ -112,25 +146,28 @@
                         class="mermaid-container bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-x-auto mb-8 shadow-inner transition-all duration-500">
                         <pre class="mermaid text-center">
 graph TD
-    User([fa:fa-user User/Browser]) --> Hosting[fa:fa-globe Firebase Hosting]
-    Hosting --> Angular[fa:fa-code Angular 21+]
+    User([fa:fa-user Learner / PWA]) --> Hosting[fa:fa-globe Firebase Hosting]
+    Instructor([fa:fa-graduation-cap Driving school]) --> Hosting
+    Hosting --> Angular[fa:fa-code Angular 21 + Signals]
 
-    subgraph "fa:fa-fire Google Cloud / Firebase (europe-west4)"
+    subgraph "fa:fa-fire Google Cloud / Firebase (europe-west4, Netherlands)"
         Angular --> Auth[fa:fa-lock Firebase Auth]
-        Angular --> Storage[fa:fa-file-image-o Firebase Storage]
+        Angular --> Storage[fa:fa-file-video-o Storage: images, 3D videos]
 
-        subgraph "fa:fa-bolt 20+ Cloud Functions"
-            Angular --> Functions[fa:fa-gears Backend Services]
-            Functions --> SC[Score Calculation]
-            Functions --> PM[Payment Manager]
-            Functions --> US[User Sync]
-            Functions --> AM[Admin Manager]
+        subgraph "fa:fa-bolt ~40 Cloud Functions (Node.js 22)"
+            Angular --> Functions[fa:fa-gears Callable functions]
+            Functions --> LR[Lessons, XP and Reviews]
+            Functions --> EX[Mock Exams]
+            Functions --> PM[Payments and Refunds]
+            Functions --> PS[Progress Sharing]
+            Jobs[fa:fa-clock-o Scheduled jobs] --> CL[Reminders and Clean-up]
         end
 
-        SC --> Firestore[(fa:fa-database Cloud Firestore)]
+        LR --> Firestore[(fa:fa-database Cloud Firestore)]
+        EX --> Firestore
         PM --> Firestore
-        US --> Firestore
-        AM --> Firestore
+        PS --> Firestore
+        CL --> Firestore
 
         PM --> Mollie[fa:fa-credit-card Mollie API]
     end
@@ -140,11 +177,57 @@ graph TD
     classDef database fill:#dbeafe,stroke:#1d4ed8,stroke-width:2px,color:#1e40af;
     classDef firebase fill:#fff7ed,stroke:#f59e0b,stroke-width:2px,color:#9a3412;
 
-    class Hosting,Angular,Functions,SC,PM,US,AM highlight;
+    class Hosting,Angular,Functions,Jobs,LR,EX,PM,PS,CL highlight;
     class Firestore,Storage database;
     class Auth firebase;
                         </pre>
                     </div>
+                </section>
+
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Building with AI, without the
+                        slop</h2>
+                    <p>
+                        Yes, AI helps me build CapyDrive. I work with Claude agents that write a lot of the code, the
+                        Flemish voice in the videos is AI, and so are parts of the marketing pipeline. I'm open about
+                        that, because how you use it matters more than whether you use it.
+                    </p>
+                    <p>
+                        The foundation doesn't come from AI: the product idea, the choice of language and
+                        infrastructure, the data model, the privacy design and which features go in. Those decisions
+                        come from ten years of building software at twelve companies. AI is the efficiency amplifier;
+                        I'm the one who decides what gets built and checks that it's right.
+                    </p>
+                    <ul class="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-300">
+                        <li><strong>Tests on every change:</strong> nearly 400 automated tests (Vitest for the Cloud
+                            Functions, Angular specs for the frontend) run in GitHub Actions.</li>
+                        <li><strong>DEV first:</strong> every push to main deploys to a separate development
+                            environment. Production only gets a release when I start that workflow myself.</li>
+                        <li><strong>Review:</strong> I read the changes before they ship, and I test the flows on a
+                            real phone.</li>
+                    </ul>
+                </section>
+
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Privacy by Design: Why
+                        Eemshaven?</h2>
+                    <p>
+                        Where your data lives matters. CapyDrive's database, hosting and functions run in
+                        Google's europe-west4 region, in Eemshaven in the Netherlands. That was a deliberate choice.
+                    </p>
+                    <ul class="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-300">
+                        <li><strong>Latency:</strong> fast response times for a mostly Dutch user base.</li>
+                        <li><strong>Data in the EU:</strong> account and learning data stay in the Netherlands, under
+                            the GDPR.</li>
+                        <li><strong>Isolation:</strong> security rules make sure every learner can only read their
+                            own progress.</li>
+                        <li><strong>Your data, your call:</strong> you can export your data or delete your account
+                            yourself, and inactive accounts are cleaned up automatically.</li>
+                    </ul>
+                    <p class="mt-6">
+                        It's about resilience and responsibility: the infrastructure behind the product should be as
+                        solid and as careful as the advice it gives.
+                    </p>
                 </section>
 
                 <section class="mb-16">
@@ -184,36 +267,17 @@ graph TD
                 </section>
 
                 <section class="mb-16">
-                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Ecological & Digital Sovereignty:
-                        Why Eemshaven?</h2>
-                    <p>
-                        Where your data lives matters. Hosting in europe-west4 (Eemshaven) was a deliberate choice for
-                        several reasons.
-                    </p>
-                    <ul class="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-300">
-                        <li><strong>Latency:</strong> Unbeatable response times for our core Dutch user base.</li>
-                        <li><strong>Sustainability:</strong> The Eemshaven data center is powered by 100% renewable
-                            energy.</li>
-                        <li><strong>Privacy:</strong> Strict adherence to local privacy standards and GDPR within the
-                            Netherlands.</li>
-                    </ul>
-                    <p class="mt-6">
-                        It's about resilience and responsibility. It's knowing that the infrastructure behind the
-                        product is as solid and as local as the advice we give.
-                    </p>
-                </section>
-
-                <section class="mb-16">
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">The New Frontier: Scaling Growth
                     </h2>
                     <p>
-                        Now that the technical foundations are rock-solid, my focus is shifting. I've realized that
-                        being a builder is only one part of the equation.
+                        The technical foundations are solid, so most of my time now goes into growth. That means
+                        bilingual guide pages that answer what learners search for, short videos with Cappy on TikTok
+                        and Instagram (the 3D scenes are rendered in code with Remotion), and partnerships with driving
+                        schools.
                     </p>
                     <p>
-                        My next mission is to broaden my skills in marketing and SEO. It's a completely different
-                        challenge: studying search intent, analyzing conversion funnels, and building a brand. It's the
-                        second phase of CapyDrive, and I'm just as excited for it as I was for the first line of code.
+                        It's a completely different challenge: studying search intent, analyzing conversion funnels,
+                        and building a brand. I'm learning as much from it as I did from the first line of code.
                     </p>
                 </section>
             </div>
@@ -230,8 +294,7 @@ graph TD
                         </a>
                         <h3 class="text-2xl font-bold mb-4 font-extrabold tracking-tight">Try CapyDrive</h3>
                         <p class="text-blue-100 mb-8 leading-relaxed opacity-90">
-                            Experience the modern way of learning for your driving theory exam. Cheap, fun, and
-                            effective.
+                            Learn for your car or scooter theory exam the modern way. The first two modules are free.
                         </p>
                         <a href="https://capydrive.eu" target="_blank" rel="noopener"
                             title="Visit CapyDrive.eu"
@@ -247,19 +310,21 @@ graph TD
                         <ul class="space-y-4">
                             <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 mt-1.5"></span>
-                                <div><strong>Swift Setup:</strong> From idea to production in minutes.</div>
+                                <div><strong>Fun:</strong> short lessons, Cappy and a learning path that feels like a
+                                    game.</div>
                             </li>
                             <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 mt-1.5"></span>
-                                <div><strong>Secure & GDPR:</strong> Data sovereignty in Eemshaven.</div>
+                                <div><strong>Affordable:</strong> pay once, no subscription.</div>
                             </li>
                             <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 mt-1.5"></span>
-                                <div><strong>Beautiful & Fun:</strong> A fast, engaging educational UX.</div>
+                                <div><strong>Careful with data:</strong> stored in the Netherlands, export and delete
+                                    it yourself.</div>
                             </li>
                             <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-3 mt-1.5"></span>
-                                <div><strong>Low Maintenance:</strong> Zero fixed costs with serverless.</div>
+                                <div><strong>Low Maintenance:</strong> zero fixed server costs with serverless.</div>
                             </li>
                         </ul>
                     </div>

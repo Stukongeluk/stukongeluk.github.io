@@ -25,11 +25,11 @@ export class CapyDriveDetailComponent implements OnInit, AfterViewInit {
         }
         this.titleService.setTitle('CapyDrive: Modernizing Theory Learning | Jimmy Nguyen');
         this.metaService.addTags([
-            { name: 'description', content: 'A deep dive into CapyDrive, a modern SaaS for Dutch driving theory built with Angular 21+ and Firebase Serverless architecture in europe-west4.' },
-            { name: 'keywords', content: 'CapyDrive, Angular 21, Firebase, Serverless, Mollie, Dutch Driving Theory, SaaS, Technical Write-up, Eemshaven' },
+            { name: 'description', content: 'How I built CapyDrive, a Duolingo-style app for the Dutch car and scooter theory exams, with Angular 21, serverless Firebase in europe-west4, and AI agents backed by tests.' },
+            { name: 'keywords', content: 'CapyDrive, Angular 21, Firebase, Serverless, Cloud Functions, Mollie, Dutch Driving Theory, CBR, Scooter AM, Spaced Repetition, AI-assisted development, Eemshaven' },
             { name: 'author', content: 'Jimmy Nguyen' },
             { property: 'og:title', content: 'CapyDrive: Modernizing Theory Learning' },
-            { property: 'og:description', content: 'How I built a scalable, affordable theory platform using serverless tech and Angular 21+.' },
+            { property: 'og:description', content: 'Car and scooter theory, CBR-format mock exams and spaced repetition: how I built an affordable theory platform with serverless tech, Angular 21 and AI agents.' },
             { property: 'og:image', content: 'assets/logo.png' },
             { property: 'og:url', content: 'https://stukongeluk.github.io/projects/capydrive' },
             { property: 'og:type', content: 'article' },
@@ -105,11 +105,13 @@ export class CapyDriveDetailComponent implements OnInit, AfterViewInit {
     ];
 
     techStack = [
-        { name: 'Angular 21+', description: 'Bleeding Edge Frontend' },
+        { name: 'Angular 21', description: 'Signals Frontend' },
         { name: 'Firebase', description: 'Serverless Backend' },
-        { name: 'TypeScript 5+', description: 'Type-Safe Everything' },
+        { name: 'TypeScript', description: 'Type-Safe Everything' },
+        { name: 'Node.js 22', description: 'Cloud Functions' },
         { name: 'Mollie', description: 'Localized Payments' },
-        { name: 'Node.js 20', description: 'Cloud Functions' },
-        { name: 'GitHub Actions', description: 'CI/CD Pipeline' }
+        { name: 'GitHub Actions', description: 'CI/CD Pipeline' },
+        { name: 'Vitest', description: 'Automated Tests' },
+        { name: 'Remotion', description: '3D Videos in Code' }
     ];
 }
