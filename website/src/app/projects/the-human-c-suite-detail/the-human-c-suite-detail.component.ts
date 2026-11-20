@@ -24,7 +24,7 @@ export class TheHumanCSuiteDetailComponent implements OnInit {
         const description = 'Open-source agent skills that make an AI agent think like a humane CEO, CTO and CPTO: grounded in company data, layoffs as the last resort, AI measured before anyone banks on it, and pushback welcome.';
         this.titleService.setTitle('The Human C-Suite: AI agent skills for running a company without losing your humanity | Jimmy Nguyen');
         this.metaService.updateTag({ name: 'description', content: description });
-        this.metaService.updateTag({ name: 'keywords', content: 'The Human C-Suite, agent skills, Claude, AI agents, MCP, leadership, layoffs, reskilling, IKEA, AI adoption, CTO, CPTO, CEO' });
+        this.metaService.updateTag({ name: 'keywords', content: 'The Human C-Suite, agent skills, Claude, AI agents, MCP, leadership, layoffs, reskilling, IKEA, AI adoption, CTO, CPTO, CEO, good leadership, works council, Nordic model' });
         this.metaService.updateTag({ name: 'author', content: 'Jimmy Nguyen' });
         this.metaService.updateTag({ property: 'og:title', content: 'The Human C-Suite: AI agent skills for running a company without losing your humanity' });
         this.metaService.updateTag({ property: 'og:description', content: description });
