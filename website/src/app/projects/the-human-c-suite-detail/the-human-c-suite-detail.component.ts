@@ -1,12 +1,13 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { NgClass, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+import { SuperSaiyanService } from '../../services/super-saiyan.service';
 
 @Component({
     selector: 'app-the-human-c-suite-detail',
     standalone: true,
-    imports: [RouterModule],
+    imports: [RouterModule, NgClass],
     templateUrl: './the-human-c-suite-detail.component.html',
     styleUrl: './the-human-c-suite-detail.component.css'
 })
@@ -14,6 +15,7 @@ export class TheHumanCSuiteDetailComponent implements OnInit {
     constructor(
         private titleService: Title,
         private metaService: Meta,
+        public superSaiyan: SuperSaiyanService,
         @Inject(PLATFORM_ID) private platformId: Object
     ) { }
 

@@ -9,8 +9,13 @@
                 Back to Home
             </a>
             <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6">
-                <span class="gradient-text">The Human C-Suite</span>: AI agent skills for running a company without losing your humanity
+                <span class="gradient-text">The @if (superSaiyan.isTransformed()) {<span class="tracking-tight">SUPER HUMAN</span>} @else {Human} C-Suite</span>: AI agent skills for running a company without losing your humanity
             </h1>
+            @if (superSaiyan.isTransformed()) {
+            <p class="text-lg font-bold text-amber-600 dark:text-amber-400 mb-4">
+                Empathy is the real superpower of leadership.
+            </p>
+            }
             <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
                 Open-source agent skills that make an AI agent think like a humane CEO, CTO and CPTO: grounded in company data,
                 layoffs as the last resort, AI measured before anyone banks on it, and pushback welcome.
@@ -28,6 +33,20 @@
                     class="px-4 py-2 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-bold hover:opacity-90 transition-opacity">
                     View on GitHub
                 </a>
+                <!-- Super Saiyan Toggle: the Human C-Suite becomes the SUPER HUMAN C-Suite -->
+                <button (click)="superSaiyan.toggle()"
+                    class="px-4 py-2 rounded-full border-2 border-amber-400 text-sm font-bold transition-all flex items-center gap-2 group"
+                    [ngClass]="superSaiyan.isTransformed()
+                            ? 'bg-amber-600 text-white border-amber-600 hover:bg-amber-700'
+                            : 'text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/30'">
+                    <svg class="w-4 h-4 transition-transform group-hover:scale-125"
+                        [class.animate-pulse]="superSaiyan.isTransformed()" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z">
+                        </path>
+                    </svg>
+                    {{ superSaiyan.isTransformed() ? 'UNLEASHED' : 'ASCEND' }}
+                </button>
             </div>
         </div>
     </header>
