@@ -26,7 +26,7 @@ export class ProjectsComponent {
   projects = signal<Project[]>([
     {
       title: 'The Human C-Suite: AI Agent Skills',
-      description: 'Open-source agent skills that make an AI agent think like a humane CEO, CTO and CPTO: grounded in company data, layoffs as the last resort, AI measured before anyone banks on it. Built and tested with the skill-creator loop.',
+      description: 'Open-source agent skills that make an AI agent think like a humane CEO, CFO, CTO and CPTO: grounded in company data, layoffs as the last resort, AI measured before anyone banks on it. Built and tested with the skill-creator loop.',
       link: 'https://github.com/Stukongeluk/the-human-c-suite',
       image: 'assets/the-human-c-suite.jpg',
       route: '/projects/the-human-c-suite',
