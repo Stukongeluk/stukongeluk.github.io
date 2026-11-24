@@ -1,7 +1,7 @@
 import { Component, OnInit, WritableSignal, effect, signal, Inject, PLATFORM_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { isPlatformBrowser } from '@angular/common';
+import { ViewportScroller, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +19,9 @@ export class AppComponent implements OnInit {
     this.isMenuOpen.set(!this.isMenuOpen());
   }
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, viewportScroller: ViewportScroller) {
+    // Keep section headings clear of the fixed nav bar when a nav link scrolls to them.
+    viewportScroller.setOffset([0, 80]);
     effect(() => {
       const isDark = this.isDarkTheme();
       if (isPlatformBrowser(this.platformId)) {
