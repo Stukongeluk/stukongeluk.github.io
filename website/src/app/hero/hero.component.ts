@@ -10,12 +10,12 @@ import { SuperSaiyanService } from '../services/super-saiyan.service';
   styleUrl: './hero.component.css'
 })
 export class HeroComponent implements OnInit {
-  displayedRole: string = "";
   roles: string[] = ['Senior DevOps Engineer', 'Full-stack Developer', 'Cloud Engineer', 'Forward Deploy Engineer'];
+  displayedRole: string = this.roles[0];
   roleIndex: number = 0;
-  currentWordLength: number = 0;
-  currentWord: string = "";
-  isDeleting: boolean = false;
+  currentWordLength: number = this.roles[0].length;
+  currentWord: string = this.roles[0];
+  isDeleting: boolean = true;
 
   constructor(
     public superSaiyan: SuperSaiyanService,
@@ -24,7 +24,7 @@ export class HeroComponent implements OnInit {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.updateDisplayRole();
+      this.scheduleUpdateDisplayedRole();
     }
   }
 

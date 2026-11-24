@@ -1,26 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://stukongeluk.github.io/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <loc>https://jimmynguyen.nl/</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://stukongeluk.github.io/projects/capydrive</loc>
-    <lastmod>2026-09-03</lastmod>
+    <loc>https://jimmynguyen.nl/projects/the-human-c-suite/</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <video:video>
+      <video:thumbnail_loc>https://jimmynguyen.nl/assets/the-human-c-suite-agents-poster.jpg</video:thumbnail_loc>
+      <video:title>The Human C-Suite agents debate a 20% AI job-cut memo</video:title>
+      <video:description>The CEO, CFO, CTO, CPTO and CHRO AI agent seats receive a "use AI, cut 20% of jobs" memo, push back on each other, and land on a plan with no layoffs.</video:description>
+      <video:content_loc>https://jimmynguyen.nl/assets/the-human-c-suite-agents.mp4</video:content_loc>
+      <video:duration>54</video:duration>
+      <video:publication_date>2026-11-24T00:00:00Z</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://jimmynguyen.nl/assets/the-human-c-suite-why-poster.jpg</video:thumbnail_loc>
+      <video:title>Why humane leadership matters: the real cost of layoffs</video:title>
+      <video:description>What a layoff really costs beyond severance, and how IKEA, Barry-Wehmiller and Nintendo kept their people.</video:description>
+      <video:content_loc>https://jimmynguyen.nl/assets/the-human-c-suite-why.mp4</video:content_loc>
+      <video:duration>33</video:duration>
+      <video:publication_date>2026-11-24T00:00:00Z</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://jimmynguyen.nl/assets/the-human-c-suite-seats-poster.jpg</video:thumbnail_loc>
+      <video:title>How The Human C-Suite agent seats think</video:title>
+      <video:description>The cost ladder, real data via MCP, reasons not rank, no surprises, and lessons borrowed from Europe and the Nordics.</video:description>
+      <video:content_loc>https://jimmynguyen.nl/assets/the-human-c-suite-seats.mp4</video:content_loc>
+      <video:duration>34</video:duration>
+      <video:publication_date>2026-11-24T00:00:00Z</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://jimmynguyen.nl/assets/the-human-c-suite-results-poster.jpg</video:thumbnail_loc>
+      <video:title>The Human C-Suite blind evaluation results on Claude and Gemini</video:title>
+      <video:description>Blind test results with and without the skills across Claude Opus, Claude Sonnet, and Gemini, the CFO seat benchmark, and honest limits.</video:description>
+      <video:content_loc>https://jimmynguyen.nl/assets/the-human-c-suite-results.mp4</video:content_loc>
+      <video:duration>44</video:duration>
+      <video:publication_date>2026-11-24T00:00:00Z</video:publication_date>
+    </video:video>
   </url>
   <url>
-    <loc>https://stukongeluk.github.io/projects/hermes-synology</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://stukongeluk.github.io/projects/the-human-c-suite</loc>
+    <loc>https://jimmynguyen.nl/projects/capydrive/</loc>
     <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jimmynguyen.nl/projects/hermes-synology/</loc>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

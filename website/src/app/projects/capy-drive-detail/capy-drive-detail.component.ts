@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Title, Meta } from '@angular/platform-browser';
+import { SeoService } from '../../services/seo.service';
 import { SuperSaiyanService } from '../../services/super-saiyan.service';
 
 @Component({
@@ -13,8 +13,7 @@ import { SuperSaiyanService } from '../../services/super-saiyan.service';
 })
 export class CapyDriveDetailComponent implements OnInit, AfterViewInit {
     constructor(
-        private titleService: Title,
-        private metaService: Meta,
+        private seoService: SeoService,
         public superSaiyan: SuperSaiyanService,
         @Inject(PLATFORM_ID) private platformId: Object
     ) { }
@@ -23,19 +22,17 @@ export class CapyDriveDetailComponent implements OnInit, AfterViewInit {
         if (isPlatformBrowser(this.platformId)) {
             window.scrollTo(0, 0);
         }
-        this.titleService.setTitle('CapyDrive: Modernizing Theory Learning | Jimmy Nguyen');
-        this.metaService.addTags([
-            { name: 'description', content: 'How I built CapyDrive, a Duolingo-style app for the Dutch car and scooter theory exams, with Angular 21, serverless Firebase in europe-west4, and AI agents backed by tests.' },
-            { name: 'keywords', content: 'CapyDrive, Angular 21, Firebase, Serverless, Cloud Functions, Mollie, Dutch Driving Theory, CBR, Scooter AM, Spaced Repetition, AI-assisted development, Eemshaven' },
-            { name: 'author', content: 'Jimmy Nguyen' },
-            { property: 'og:title', content: 'CapyDrive: Modernizing Theory Learning' },
-            { property: 'og:description', content: 'Car and scooter theory, CBR-format mock exams and spaced repetition: how I built an affordable theory platform with serverless tech, Angular 21 and AI agents.' },
-            { property: 'og:image', content: 'assets/logo.png' },
-            { property: 'og:url', content: 'https://stukongeluk.github.io/projects/capydrive' },
-            { property: 'og:type', content: 'article' },
-            { name: 'twitter:card', content: 'summary_large_image' },
-            { name: 'robots', content: 'index, follow' }
-        ]);
+        this.seoService.update({
+            title: 'CapyDrive: Modernizing Theory Learning | Jimmy Nguyen',
+            ogTitle: 'CapyDrive: Modernizing Theory Learning',
+            description: 'How I built CapyDrive, a Duolingo-style app for the Dutch car and scooter theory exams, with Angular 21, serverless Firebase in europe-west4, and AI agents backed by tests.',
+            ogDescription: 'Car and scooter theory, CBR-format mock exams and spaced repetition: how I built an affordable theory platform with serverless tech, Angular 21 and AI agents.',
+            url: 'https://jimmynguyen.nl/projects/capydrive/',
+            type: 'article',
+            keywords: 'CapyDrive, Angular 21, Firebase, Serverless, Cloud Functions, Mollie, Dutch Driving Theory, CBR, Scooter AM, Spaced Repetition, AI-assisted development, Eemshaven',
+            image: 'https://jimmynguyen.nl/assets/logo.png',
+            imageAlt: 'CapyDrive logo'
+        });
     }
 
     async ngAfterViewInit() {

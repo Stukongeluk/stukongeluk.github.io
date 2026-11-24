@@ -1,15 +1,14 @@
 #!/bin/bash
+set -e
 
 # Clean slate
-rm ../docs/*
-rm ../docs/assets/*
-rmdir ../docs/assets
+rm -rf ../docs/* ../docs/.nojekyll
 
-# Build app and move to right dir
-ng build
+# Build & prerender app, then move static output to ../docs
+npx ng build
 mv docs/browser/* ../docs
 echo jimmynguyen.nl > ../docs/CNAME
+touch ../docs/.nojekyll
 
 # Cleanup
 rm -rf docs
-# done

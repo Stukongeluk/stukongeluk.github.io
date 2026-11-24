@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, PLATFORM_ID, QueryList, ViewChildren } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-about',
@@ -9,7 +10,13 @@ import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@
 export class AboutComponent implements AfterViewInit {
   @ViewChildren('hobbyVideo') private hobbyVideos!: QueryList<ElementRef<HTMLVideoElement>>;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+
   ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     // Angular creates <video> elements via createElement + setAttribute, which does NOT set the
     // `muted` DOM property. Browsers then treat the video as unmuted and block autoplay.
     // Force the property and kick off playback explicitly.

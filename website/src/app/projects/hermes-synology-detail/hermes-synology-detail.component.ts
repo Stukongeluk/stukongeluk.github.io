@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Title, Meta } from '@angular/platform-browser';
+import { SeoService } from '../../services/seo.service';
 import { SuperSaiyanService } from '../../services/super-saiyan.service';
 
 @Component({
@@ -13,8 +13,7 @@ import { SuperSaiyanService } from '../../services/super-saiyan.service';
 })
 export class HermesSynologyDetailComponent implements OnInit, AfterViewInit {
     constructor(
-        private titleService: Title,
-        private metaService: Meta,
+        private seoService: SeoService,
         public superSaiyan: SuperSaiyanService,
         @Inject(PLATFORM_ID) private platformId: Object
     ) { }
@@ -23,19 +22,17 @@ export class HermesSynologyDetailComponent implements OnInit, AfterViewInit {
         if (isPlatformBrowser(this.platformId)) {
             window.scrollTo(0, 0);
         }
-        this.titleService.setTitle('Autonomous Ops: Hermes Agent on Synology NAS | Jimmy Nguyen');
-        this.metaService.addTags([
-            { name: 'description', content: 'How I built a 24/7 autonomous bot on Synology NAS with Docker, Hermes Agent, and Discord to power daily freelance contract radar and automated CBR exam question generation for CapyDrive.' },
-            { name: 'keywords', content: 'Hermes Agent, NousResearch, Synology NAS, Docker, Discord Bot, CapyDrive, Freelance DevOps, OpenClaw, Content Generation, CBR Exam' },
-            { name: 'author', content: 'Jimmy Nguyen' },
-            { property: 'og:title', content: 'Autonomous Ops: Hermes Agent on Synology NAS' },
-            { property: 'og:description', content: 'Containerized Hermes Agent on Synology NAS, free OpenRouter models, and Discord bot notifications for daily freelance radar and CapyDrive exam content.' },
-            { property: 'og:image', content: 'assets/hermes-synology.jpg' },
-            { property: 'og:url', content: 'https://stukongeluk.github.io/projects/hermes-synology' },
-            { property: 'og:type', content: 'article' },
-            { name: 'twitter:card', content: 'summary_large_image' },
-            { name: 'robots', content: 'index, follow' }
-        ]);
+        this.seoService.update({
+            title: 'Autonomous Ops: Hermes Agent on Synology NAS | Jimmy Nguyen',
+            ogTitle: 'Autonomous Ops: Hermes Agent on Synology NAS',
+            description: 'How I built a 24/7 autonomous bot on Synology NAS with Docker, Hermes Agent, and Discord to power daily freelance contract radar and automated CBR exam question generation for CapyDrive.',
+            ogDescription: 'Containerized Hermes Agent on Synology NAS, free OpenRouter models, and Discord bot notifications for daily freelance radar and CapyDrive exam content.',
+            url: 'https://jimmynguyen.nl/projects/hermes-synology/',
+            type: 'article',
+            keywords: 'Hermes Agent, NousResearch, Synology NAS, Docker, Discord Bot, CapyDrive, Freelance DevOps, OpenClaw, Content Generation, CBR Exam',
+            image: 'https://jimmynguyen.nl/assets/hermes-synology.jpg',
+            imageAlt: 'Hermes Agent on Synology NAS'
+        });
     }
 
     async ngAfterViewInit() {

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jimmynguyen.nl/sitemap.xml

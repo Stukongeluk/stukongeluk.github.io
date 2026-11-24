@@ -14,25 +14,18 @@
         @if (projects().length > 0) {
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @for (project of projects(); track project.title) {
-            <article [routerLink]="project.route ? project.route : null"
-                [style.cursor]="project.route || project.link ? 'pointer' : 'default'"
+            <article
                 class="project-card group relative bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 hover:-translate-y-1 flex flex-col h-full">
                 <!-- Image Placeholder / Gradient -->
                 <div
                     class="h-48 w-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center relative overflow-hidden">
                     @if (project.image) {
-                    <img [src]="project.image" [alt]="project.title"
+                    <img [src]="project.image" [alt]="project.title" loading="lazy"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     } @else {
-                    <div class="text-4xl opacity-20 transform transition-transform duration-500 group-hover:scale-110">
+                    <div class="text-4xl opacity-20 transform transition-transform duration-500 group-hover:scale-110" aria-hidden="true">
                         ⚡
                     </div>
-                    }
-
-                    <!-- Link Overlay for External Links -->
-                    @if (!project.route && project.link) {
-                    <a [href]="project.link" target="_blank" class="absolute inset-0 z-10"
-                        aria-label="View project"></a>
                     }
                 </div>
 
@@ -48,7 +41,17 @@
 
                     <h3
                         class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-emerald-500 transition-colors">
+                        @if (project.route) {
+                        <a [routerLink]="project.route" class="after:absolute after:inset-0 after:z-10">
+                            {{ project.title }}
+                        </a>
+                        } @else if (project.link) {
+                        <a [href]="project.link" target="_blank" rel="noopener noreferrer" class="after:absolute after:inset-0 after:z-10">
+                            {{ project.title }}
+                        </a>
+                        } @else {
                         {{ project.title }}
+                        }
                     </h3>
 
                     <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 flex-1">
@@ -58,7 +61,7 @@
                     <div class="flex items-center text-sm font-medium text-emerald-600 dark:text-emerald-400">
                         <span>{{ project.route ? 'View Write-up' : 'View Experience' }}</span>
                         <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
+                            stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                         </svg>
@@ -69,7 +72,7 @@
         </div>
         } @else {
         <div class="flex flex-col items-center justify-center py-12">
-            <div class="text-6xl mb-6">🚧</div>
+            <div class="text-6xl mb-6" aria-hidden="true">🚧</div>
             <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Coming Soon</h3>
             <p class="text-gray-600 dark:text-gray-400 text-center max-w-md">
                 I'm working on some exciting projects and writeups. Check back soon for updates!
