@@ -117,7 +117,7 @@ export class TheHumanCSuiteDetailComponent implements OnInit {
                             height: 756
                         },
                         datePublished: '2026-11-20T00:00:00Z',
-                        dateModified: '2026-11-21T00:00:00Z',
+                        dateModified: '2026-11-24T00:00:00Z',
                         inLanguage: 'en',
                         author: { '@id': 'https://jimmynguyen.nl/#person' },
                         publisher: { '@id': 'https://jimmynguyen.nl/#person' },
@@ -133,6 +133,8 @@ export class TheHumanCSuiteDetailComponent implements OnInit {
                             'AI layoffs',
                             'reskilling',
                             'works council',
+                            'CHRO AI agent',
+                            'fair performance reviews',
                             'open source'
                         ],
                         video: [
