@@ -1,7 +1,8 @@
-<article class="blog-article bg-white dark:bg-gray-950 min-h-screen transition-colors duration-300">
+<article class="blog-article min-h-screen">
     <!-- Hero Header -->
-    <header class="relative py-24 bg-blue-50/50 dark:bg-blue-900/10 border-b border-blue-100 dark:border-blue-800/50">
-        <div class="max-w-screen-xl px-4 mx-auto">
+    <header class="relative overflow-hidden pt-20 pb-28 md:pt-24 md:pb-32">
+        <app-writeup-backdrop></app-writeup-backdrop>
+        <div class="relative max-w-screen-xl px-5 mx-auto">
             <a routerLink="/"
                 class="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium mb-8 hover:underline">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -9,7 +10,7 @@
                 </svg>
                 Back to Home
             </a>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
                 CapyDrive: <span class="text-blue-600 dark:text-blue-400">Modernizing Theory Learning</span>
             </h1>
             <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
@@ -28,7 +29,7 @@
                 </span>
                 }
                 <!-- Super Saiyan Toggle -->
-                <button (click)="superSaiyan.toggle()"
+                <button (click)="superSaiyan.toggle($event)"
                     class="px-4 py-2 rounded-full border-2 border-amber-400 text-sm font-bold transition-all flex items-center gap-2 group"
                     [ngClass]="superSaiyan.isTransformed()
                             ? 'bg-amber-600 text-white border-amber-600 hover:bg-amber-700'
@@ -49,7 +50,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <!-- Main Content -->
             <div class="lg:col-span-2 prose prose-lg dark:prose-invert max-w-none text-gray-800 dark:text-gray-200">
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">The Spark: Why build CapyDrive?
                     </h2>
                     <p>
@@ -65,7 +66,7 @@
                     </p>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white text-blue-600 dark:text-blue-400">
                         What CapyDrive is today</h2>
                     <p>
@@ -92,7 +93,7 @@
                     </ul>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white text-blue-600 dark:text-blue-400">
                         The AWS Engineer's Perspective: The Power of Serverless</h2>
                     <p>
@@ -122,7 +123,7 @@
                     </p>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Why Angular 21? My Comfort
                         Framework</h2>
                     <p>
@@ -138,7 +139,7 @@
                     </p>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white text-blue-600 dark:text-blue-400">
                         Technical Architecture</h2>
                     <!-- Mermaid Diagram -->
@@ -146,36 +147,36 @@
                         class="mermaid-container bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-x-auto mb-8 shadow-inner transition-all duration-500">
                         <pre class="mermaid text-center">
 graph TD
-    User([fa:fa-user Learner / PWA]) --> Hosting[fa:fa-globe Firebase Hosting]
-    Instructor([fa:fa-graduation-cap Driving school]) --> Hosting
-    Hosting --> Angular[fa:fa-code Angular 21 + Signals]
+    User([Learner / PWA]) --> Hosting[Firebase Hosting]
+    Instructor([Driving school]) --> Hosting
+    Hosting --> Angular[Angular 21 + Signals]
 
-    subgraph "fa:fa-fire Google Cloud / Firebase (europe-west4, Netherlands)"
-        Angular --> Auth[fa:fa-lock Firebase Auth]
-        Angular --> Storage[fa:fa-file-video-o Storage: images, 3D videos]
+    subgraph "Google Cloud / Firebase (europe-west4, Netherlands)"
+        Angular --> Auth[Firebase Auth]
+        Angular --> Storage[Storage: images, 3D videos]
 
-        subgraph "fa:fa-bolt ~40 Cloud Functions (Node.js 22)"
-            Angular --> Functions[fa:fa-gears Callable functions]
+        subgraph "~40 Cloud Functions (Node.js 22)"
+            Angular --> Functions[Callable functions]
             Functions --> LR[Lessons, XP and Reviews]
             Functions --> EX[Mock Exams]
             Functions --> PM[Payments and Refunds]
             Functions --> PS[Progress Sharing]
-            Jobs[fa:fa-clock-o Scheduled jobs] --> CL[Reminders and Clean-up]
+            Jobs[Scheduled jobs] --> CL[Reminders and Clean-up]
         end
 
-        LR --> Firestore[(fa:fa-database Cloud Firestore)]
+        LR --> Firestore[(Cloud Firestore)]
         EX --> Firestore
         PM --> Firestore
         PS --> Firestore
         CL --> Firestore
 
-        PM --> Mollie[fa:fa-credit-card Mollie API]
+        PM --> Mollie[Mollie API]
     end
 
-    classDef default fill:#ffffff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a;
-    classDef highlight fill:#eff6ff,stroke:#2563eb,stroke-width:2px,color:#1d4ed8;
-    classDef database fill:#dbeafe,stroke:#1d4ed8,stroke-width:2px,color:#1e40af;
-    classDef firebase fill:#fff7ed,stroke:#f59e0b,stroke-width:2px,color:#9a3412;
+    classDef default fill:#FBF8F3,stroke:#A67B4F,stroke-width:1.5px,color:#3F2E20;
+    classDef highlight fill:#F2E6D4,stroke:#8A633E,stroke-width:1.5px,color:#3F2E20;
+    classDef database fill:#E9ECE2,stroke:#7A8665,stroke-width:1.5px,color:#3B432E;
+    classDef firebase fill:#F6E7E1,stroke:#B4533A,stroke-width:1.5px,color:#6E2E1F;
 
     class Hosting,Angular,Functions,Jobs,LR,EX,PM,PS,CL highlight;
     class Firestore,Storage database;
@@ -184,7 +185,7 @@ graph TD
                     </div>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Building with AI, without the
                         slop</h2>
                     <p>
@@ -208,7 +209,7 @@ graph TD
                     </ul>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Privacy by Design: Why
                         Eemshaven?</h2>
                     <p>
@@ -230,7 +231,7 @@ graph TD
                     </p>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">The 70/30 Reality: Beyond the Code
                     </h2>
                     <p>
@@ -266,7 +267,7 @@ graph TD
                     </p>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">The New Frontier: Scaling Growth
                     </h2>
                     <p>
@@ -286,26 +287,26 @@ graph TD
             <aside class="lg:col-span-1">
                 <div class="sticky top-24 space-y-8">
                     <!-- Project CTA -->
-                    <div class="p-8 rounded-3xl bg-blue-600 text-white shadow-xl shadow-blue-600/20">
+                    <div class="writeup-cta">
                         <a href="https://capydrive.eu" target="_blank" rel="noopener" class="block mb-6 group/logo">
                             <img src="assets/logo.png" alt="CapyDrive - Modern Dutch Driving Theory Learning Platform"
                                  title="Visit CapyDrive.eu"
-                                 class="w-full h-auto rounded-2xl shadow-lg transition-transform duration-300 group-hover/logo:scale-[1.02]">
+                                 class="w-full h-auto rounded-xl bg-paper-100 p-4 transition-transform duration-300 group-hover/logo:scale-[1.02]">
                         </a>
-                        <h3 class="text-2xl font-bold mb-4 font-extrabold tracking-tight">Try CapyDrive</h3>
-                        <p class="text-blue-100 mb-8 leading-relaxed opacity-90">
+                        <h3 class="font-serif text-2xl font-bold mb-3 text-gray-900 dark:text-gray-50">Try CapyDrive</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                             Learn for your car or scooter theory exam the modern way. The first two modules are free.
                         </p>
                         <a href="https://capydrive.eu" target="_blank" rel="noopener"
                             title="Visit CapyDrive.eu"
-                            class="block w-full text-center py-4 px-6 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all hover:-translate-y-1 hover:shadow-lg">
+                            class="btn-ink w-full justify-center">
                             Visit CapyDrive.eu
                         </a>
                     </div>
 
                     <!-- Tech Details -->
                     <div
-                        class="p-8 rounded-3xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 shadow-sm">
+                        class="p-8 rounded-2xl border border-[color:var(--line)] bg-paper-50 dark:bg-paper-900">
                         <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">Project Philosophy</h3>
                         <ul class="space-y-4">
                             <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">

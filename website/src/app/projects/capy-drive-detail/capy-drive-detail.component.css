@@ -17,24 +17,12 @@
     line-height: 1.8;
 }
 
-.prose strong {
-    color: #2563eb;
-}
 
-.dark .prose strong {
-    color: #60a5fa;
-}
 
-.gradient-text {
-    background: linear-gradient(135deg, #2563eb, #60a5fa, #93c5fd);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
 
 /* Base styles for the mermaid diagram */
 .mermaid {
-    font-family: 'Inter', sans-serif !important;
+    font-family: 'Zen Kaku Gothic New', sans-serif !important;
     background: transparent !important;
 }
 

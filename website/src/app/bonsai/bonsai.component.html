@@ -1,0 +1,86 @@
+<svg class="bonsai" viewBox="0 0 360 380" role="img" aria-labelledby="bonsai-title"
+    xmlns="http://www.w3.org/2000/svg">
+    <title id="bonsai-title">A small bonsai tree in a ceramic pot</title>
+
+    <!-- Low wooden stand -->
+    <g class="stand">
+        <rect x="58" y="338" width="244" height="11" rx="3" class="wood-top" />
+        <rect x="66" y="349" width="228" height="5" rx="2" class="wood-shade" />
+        <rect x="76" y="354" width="12" height="20" rx="2" class="wood-shade" />
+        <rect x="272" y="354" width="12" height="20" rx="2" class="wood-shade" />
+    </g>
+
+    <!-- Pot -->
+    <g class="pot">
+        <path d="M108 312 H252 L244 336 H116 Z" class="pot-body" />
+        <rect x="98" y="302" width="164" height="12" rx="3" class="pot-rim" />
+        <rect x="124" y="335" width="16" height="4" rx="1" class="pot-foot" />
+        <rect x="220" y="335" width="16" height="4" rx="1" class="pot-foot" />
+        <path d="M118 318 H242" class="pot-line" />
+    </g>
+
+    <!-- Soil, moss and a stone -->
+    <ellipse cx="180" cy="303" rx="76" ry="4" class="soil" />
+    <ellipse cx="156" cy="301" rx="20" ry="4.5" class="moss" />
+    <ellipse cx="214" cy="301.5" rx="14" ry="4" class="moss" />
+    <ellipse cx="232" cy="299" rx="9" ry="5" class="stone" />
+
+    <g class="tree">
+        <!-- Trunk & branches draw themselves -->
+        <g class="wood" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path class="draw d1" pathLength="1" stroke-width="20"
+                d="M178 304 C172 280 140 268 150 238 C158 214 206 212 200 182" />
+            <path class="draw d2" pathLength="1" stroke-width="12" d="M200 184 C196 160 168 150 176 126" />
+            <path class="draw d3" pathLength="1" stroke-width="7" d="M176 128 C182 108 196 100 194 80" />
+            <path class="draw d4" pathLength="1" stroke-width="8" d="M152 240 C128 236 104 238 80 224" />
+            <path class="draw d5" pathLength="1" stroke-width="7" d="M199 190 C224 186 252 178 280 158" />
+            <path class="draw d6" pathLength="1" stroke-width="5" d="M180 138 C160 132 140 128 120 114" />
+            <!-- bark texture -->
+            <path class="draw d1 bark" pathLength="1" stroke-width="2"
+                d="M174 296 C168 276 148 266 156 240 C162 222 198 216 196 192" />
+        </g>
+
+        <!-- Foliage pads: outer group unfolds, inner group breathes -->
+        <g class="pad p1">
+            <g class="breathe">
+                <ellipse cx="82" cy="222" rx="44" ry="15" class="l3" />
+                <ellipse cx="82" cy="214" rx="42" ry="16" class="l1" />
+                <ellipse cx="56" cy="218" rx="20" ry="10" class="l1" />
+                <ellipse cx="74" cy="204" rx="24" ry="11" class="l2" />
+                <ellipse cx="100" cy="207" rx="18" ry="9" class="l2" />
+            </g>
+        </g>
+        <g class="pad p2">
+            <g class="breathe">
+                <ellipse cx="284" cy="160" rx="50" ry="16" class="l3" />
+                <ellipse cx="284" cy="151" rx="48" ry="18" class="l1" />
+                <ellipse cx="316" cy="156" rx="20" ry="10" class="l1" />
+                <ellipse cx="272" cy="139" rx="26" ry="12" class="l2" />
+                <ellipse cx="300" cy="142" rx="20" ry="10" class="l2" />
+            </g>
+        </g>
+        <g class="pad p3">
+            <g class="breathe">
+                <ellipse cx="118" cy="114" rx="36" ry="12" class="l3" />
+                <ellipse cx="118" cy="106" rx="34" ry="14" class="l1" />
+                <ellipse cx="110" cy="97" rx="20" ry="9" class="l2" />
+            </g>
+        </g>
+        <g class="pad p4">
+            <g class="breathe">
+                <ellipse cx="194" cy="82" rx="48" ry="16" class="l3" />
+                <ellipse cx="194" cy="72" rx="46" ry="20" class="l1" />
+                <ellipse cx="168" cy="78" rx="20" ry="10" class="l1" />
+                <ellipse cx="190" cy="56" rx="28" ry="13" class="l2" />
+                <ellipse cx="214" cy="62" rx="20" ry="10" class="l2" />
+            </g>
+        </g>
+    </g>
+
+    <!-- The odd falling leaf (rising ki in Super Saiyan mode) -->
+    <g class="drift">
+        <ellipse class="leaf lf1" cx="290" cy="166" rx="4.5" ry="2" />
+        <ellipse class="leaf lf2" cx="86" cy="228" rx="4" ry="1.8" />
+        <ellipse class="leaf lf3" cx="200" cy="90" rx="4" ry="1.8" />
+    </g>
+</svg>

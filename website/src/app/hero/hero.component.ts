@@ -1,11 +1,13 @@
 import { Component, OnDestroy, OnInit, Inject, NgZone, PLATFORM_ID, signal } from '@angular/core';
-import { NgOptimizedImage, NgClass, isPlatformBrowser } from '@angular/common';
+import { NgOptimizedImage, isPlatformBrowser } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { SuperSaiyanService } from '../services/super-saiyan.service';
+import { BonsaiComponent } from '../bonsai/bonsai.component';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [NgOptimizedImage, NgClass],
+  imports: [NgOptimizedImage, RouterLink, BonsaiComponent],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
@@ -64,7 +66,7 @@ export class HeroComponent implements OnInit, OnDestroy {
   }
 
   // Toggle Super Saiyan transformation using the shared service
-  toggleTransformation(): void {
-    this.superSaiyan.toggle();
+  toggleTransformation(event: Event): void {
+    this.superSaiyan.toggle(event);
   }
 }

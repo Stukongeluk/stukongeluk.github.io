@@ -3,11 +3,13 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../services/seo.service';
 import { SuperSaiyanService } from '../../services/super-saiyan.service';
+import { RevealDirective } from '../../shared/reveal.directive';
+import { WriteupBackdropComponent } from '../../shared/writeup-backdrop.component';
 
 @Component({
     selector: 'app-capy-drive-detail',
     standalone: true,
-    imports: [CommonModule, RouterModule],
+    imports: [CommonModule, RouterModule, RevealDirective, WriteupBackdropComponent],
     templateUrl: './capy-drive-detail.component.html',
     styleUrl: './capy-drive-detail.component.css'
 })
@@ -42,9 +44,21 @@ export class CapyDriveDetailComponent implements OnInit, AfterViewInit {
                 const mermaid = (await import('mermaid')).default;
                 mermaid.initialize({
                     startOnLoad: false,
-                    theme: 'neutral',
+                    theme: 'base',
                     securityLevel: 'loose',
-                    fontFamily: 'Inter, sans-serif'
+                    fontFamily: '"Zen Kaku Gothic New", sans-serif',
+                    // Japandi palette: washi paper, oak lines, ink text
+                    themeVariables: {
+                        fontFamily: '"Zen Kaku Gothic New", sans-serif',
+                        primaryColor: '#FBF8F3',
+                        primaryBorderColor: '#A67B4F',
+                        primaryTextColor: '#3F2E20',
+                        lineColor: '#8F826F',
+                        clusterBkg: '#F5EFE6',
+                        clusterBorder: '#DACDBA',
+                        edgeLabelBackground: '#F5EFE6',
+                        tertiaryColor: '#F5EFE6'
+                    }
                 });
                 // Use the new mermaid.run() API or init() depending on the version
                 if (mermaid.run) {

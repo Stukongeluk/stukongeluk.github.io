@@ -11,25 +11,13 @@
     line-height: 1.8;
 }
 
-.prose strong {
-    color: #10b981;
-}
 
-:host-context(.dark) .prose strong {
-    color: #34d399;
-}
 
-.gradient-text {
-    background: linear-gradient(135deg, #10b981, #34d399, #6ee7b7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
 
 .code-block {
-    background: #111827;
-    color: #e5e7eb;
-    border: 1px solid #374151;
+    background: #27231E;
+    color: #EAE1D3;
+    border: 1px solid #38322B;
     border-radius: 1rem;
     padding: 1.25rem;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;

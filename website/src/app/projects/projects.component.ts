@@ -6,6 +6,11 @@ interface Project {
   title: string;
   description: string;
   image?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  /** Logos are shown whole instead of cropped. */
+  contain?: boolean;
   link?: string;
   route?: string;
   tags: string[];
@@ -13,11 +18,12 @@ interface Project {
 }
 
 import { SuperSaiyanService } from '../services/super-saiyan.service';
+import { RevealDirective } from '../shared/reveal.directive';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, RevealDirective],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })
@@ -28,7 +34,10 @@ export class ProjectsComponent {
       title: 'The Human C-Suite: AI Agent Skills',
       description: 'Open-source agent skills that make an AI agent think like a humane CEO, CFO, CTO, CPTO and CHRO: grounded in company data, layoffs as the last resort, AI measured before anyone banks on it. Built and tested with the skill-creator loop.',
       link: 'https://github.com/Stukongeluk/the-human-c-suite',
-      image: 'assets/the-human-c-suite.jpg',
+      image: 'assets/the-human-c-suite-card.webp',
+      imageAlt: 'Five cartoon characters labelled CEO, CFO, CTO, CPTO and CHRO',
+      imageWidth: 800,
+      imageHeight: 504,
       route: '/projects/the-human-c-suite',
       tags: ['Agent Skills', 'Claude', 'MCP', 'Leadership', 'Open Source'],
       featured: true
@@ -37,7 +46,11 @@ export class ProjectsComponent {
       title: 'CapyDrive (EdTech SaaS)',
       description: 'Founder & Lead Engineer. Gamified micro-learning platform for driving theory education. Built with an ultra-fast Angular 21 Signals client and event-driven GCP / Firebase serverless backend with near-zero idle costs.',
       link: 'https://capydrive.eu',
-      image: 'assets/logo.png',
+      image: 'assets/capydrive-logo.webp',
+      imageAlt: 'CapyDrive logo',
+      imageWidth: 600,
+      imageHeight: 198,
+      contain: true,
       route: '/projects/capydrive',
       tags: ['Angular 21 (Signals)', 'TypeScript', 'Firebase', 'GCP', 'TailwindCSS'],
       featured: true
@@ -45,7 +58,10 @@ export class ProjectsComponent {
     {
       title: 'Autonomous Ops: Hermes Agent on Synology NAS',
       description: 'A 24/7 autonomous AI agent in Docker on my Synology NAS using free models on OpenRouter and Discord. Powers daily freelance contract scanning with CV match scoring, and automated daily CBR TikTok marketing content for CapyDrive.',
-      image: 'assets/hermes-synology.jpg',
+      image: 'assets/hermes-synology-card.webp',
+      imageAlt: 'Illustration of a home NAS server with an AI agent and floating task icons',
+      imageWidth: 800,
+      imageHeight: 447,
       route: '/projects/hermes-synology',
       tags: ['Docker', 'Synology NAS', 'Hermes Agent', 'Discord Bot', 'CapyDrive', 'Automation'],
       featured: true

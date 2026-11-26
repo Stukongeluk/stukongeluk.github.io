@@ -6,7 +6,7 @@
   <title>Jimmy Nguyen | Senior DevOps Engineer & Full-Stack Developer</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10b981">
+  <meta name="theme-color" content="#F5EFE6">
   <meta name="description"
     content="Jimmy Nguyen - Senior DevOps Engineer & Full-Stack Developer with 10 years of experience across Cloud, Serverless, Kubernetes (CKAD), Golang DevEx tooling, and Forward Deploy capabilities.">
   <meta name="keywords"
@@ -32,22 +32,20 @@
       }
     }(window.location))
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-  <link rel="preload" as="style"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-  </style>
+  <link rel="preload" href="assets/fonts/shippori-mincho-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/zen-kaku-gothic-new-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    // Apply the saved theme before first paint (light by default), so there is
+    // no flash of the wrong theme while the app hydrates.
+    (function (d) {
+      try {
+        if (localStorage.getItem('color-theme') === 'dark') d.classList.add('dark');
+      } catch (e) {}
+    }(document.documentElement));
+  </script>
 </head>
 
-<body class="bg-gray-900">
+<body>
   <app-root></app-root>
 </body>
 

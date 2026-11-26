@@ -1,7 +1,8 @@
-<article class="blog-article bg-white dark:bg-gray-950 min-h-screen transition-colors duration-300">
+<article class="blog-article min-h-screen">
     <!-- Hero Header -->
-    <header class="relative py-24 bg-emerald-50/50 dark:bg-emerald-950/20 border-b border-emerald-100 dark:border-emerald-800/50">
-        <div class="max-w-screen-xl px-4 mx-auto">
+    <header class="relative overflow-hidden pt-20 pb-28 md:pt-24 md:pb-32">
+        <app-writeup-backdrop></app-writeup-backdrop>
+        <div class="relative max-w-screen-xl px-5 mx-auto">
             <a routerLink="/"
                 class="inline-flex items-center text-emerald-600 dark:text-emerald-400 font-medium mb-8 hover:underline">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -9,7 +10,7 @@
                 </svg>
                 Back to Home
             </a>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
                 Autonomous Ops: <span class="gradient-text">Hermes Agent</span> on Synology NAS
             </h1>
             <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
@@ -25,7 +26,7 @@
                 </span>
                 }
                 <!-- Super Saiyan Toggle -->
-                <button (click)="superSaiyan.toggle()"
+                <button (click)="superSaiyan.toggle($event)"
                     class="px-4 py-2 rounded-full border-2 border-amber-400 text-sm font-bold transition-all flex items-center gap-2 group"
                     [ngClass]="superSaiyan.isTransformed()
                             ? 'bg-amber-600 text-white border-amber-600 hover:bg-amber-700'
@@ -53,7 +54,7 @@
                          class="w-full rounded-2xl shadow-xl border border-emerald-500/20">
                 </div>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">The Engineering Mindset: Automate Daily Toil</h2>
                     <p>
                         As a Senior DevOps and Full-Stack engineer, repetitive manual routines are candidates for automation.
@@ -69,7 +70,7 @@
                     </p>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">The Setup: Synology NAS + Multi-Model Flexibility</h2>
                     <p>
                         The infrastructure is intentionally lightweight and cost-efficient:
@@ -81,7 +82,7 @@
                     </ul>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Why Hermes Agent Beats Frameworks Like OpenClaw</h2>
                     <p>
                         When evaluating open-source autonomous runtimes, <strong>OpenClaw</strong> (formerly Clawdbot/Moltbot) and NousResearch's <strong>Hermes Agent</strong> are the primary choices. For multi-task autonomous pipelines, Hermes Agent is demonstrably superior:
@@ -115,7 +116,7 @@
                     </div>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Dual-Pipeline Architecture</h2>
                     <p>
                         Both autonomous workflows run in parallel on Synology Container Manager, dispatching to separate Discord channels:
@@ -125,34 +126,34 @@
                         class="mermaid-container bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-x-auto mb-8 shadow-inner transition-all duration-500">
                         <pre class="mermaid text-center">
 graph TD
-    Cron[⏰ Daily Morning Cron : 07:00 AM] --> Agent[fa:fa-robot Hermes Agent on Synology NAS]
+    Cron[Daily Morning Cron : 07:00 AM] --> Agent[Hermes Agent on Synology NAS]
 
     subgraph "Synology NAS (Docker Container Manager)"
-        Agent --> CV[(fa:fa-file-text Jimmy's Priorities: Java, AWS, Angular, AI Agents)]
-        Agent --> CBR[(fa:fa-book CBR Driving Theory Syllabus)]
+        Agent --> CV[(Jimmy's Priorities: Java, AWS, Angular, AI Agents)]
+        Agent --> CBR[(CBR Driving Theory Syllabus)]
     end
 
     subgraph "Cognitive Layer (Multi-Model Support)"
-        Agent -->|Inference & Tool Calls| OpenRouter[fa:fa-cloud Free Models on OpenRouter]
+        Agent -->|Inference & Tool Calls| OpenRouter[Free Models on OpenRouter]
     end
 
     subgraph "Pipeline A: Freelance Contract Radar"
-        Agent -->|Scrape & Search| Boards[fa:fa-globe Freelance.nl & Tech Boards]
-        Boards --> Scorer[fa:fa-sliders Scorer: Java, AWS, Angular & AI Agents]
-        Scorer -->|Match &ge; 80% & Rate &ge; €95/hr| DiscordA[fa:fa-bell Discord: #freelance-radar]
+        Agent -->|Scrape & Search| Boards[Freelance.nl & Tech Boards]
+        Boards --> Scorer[Scorer: Java, AWS, Angular & AI Agents]
+        Scorer -->|Match &ge; 80% & Rate &ge; €95/hr| DiscordA[Discord: #freelance-radar]
     end
 
     subgraph "Pipeline B: CapyDrive Exam Question Generator"
-        Agent -->|Topic Selector| Generator[fa:fa-pencil CBR Scenario & Question Creator]
-        Generator --> Validator[fa:fa-check-square Schema & RVV 1990 Rule Check]
-        Validator --> DiscordB[fa:fa-car Discord: #capydrive-content]
+        Agent -->|Topic Selector| Generator[CBR Scenario & Question Creator]
+        Generator --> Validator[Schema & RVV 1990 Rule Check]
+        Validator --> DiscordB[Discord: #capydrive-content]
     end
 
-    classDef default fill:#ffffff,stroke:#10b981,stroke-width:2px,color:#065f46;
-    classDef highlight fill:#ecfdf5,stroke:#059669,stroke-width:2px,color:#047857;
-    classDef storage fill:#f0fdf4,stroke:#10b981,stroke-width:2px,color:#064e3b;
-    classDef discord fill:#eff6ff,stroke:#5865F2,stroke-width:2px,color:#3730a3;
-    classDef cloud fill:#fff7ed,stroke:#f59e0b,stroke-width:2px,color:#9a3412;
+    classDef default fill:#FBF8F3,stroke:#A67B4F,stroke-width:1.5px,color:#3F2E20;
+    classDef highlight fill:#F2E6D4,stroke:#8A633E,stroke-width:1.5px,color:#3F2E20;
+    classDef storage fill:#E9ECE2,stroke:#7A8665,stroke-width:1.5px,color:#3B432E;
+    classDef discord fill:#EAE1D3,stroke:#51493F,stroke-width:1.5px,color:#27231E;
+    classDef cloud fill:#F6E7E1,stroke:#B4533A,stroke-width:1.5px,color:#6E2E1F;
 
     class Cron,Agent highlight;
     class CV,CBR storage;
@@ -163,7 +164,7 @@ graph TD
                     </div>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Pipeline 1: Freelance Contract Radar & CV Matcher</h2>
                     <p>
                         The freelance pipeline acts as an automated talent scout:
@@ -206,7 +207,7 @@ graph TD
                     </div>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Pipeline 2: CapyDrive TikTok & Marketing Content Engine</h2>
                     <p>
                         In my <a routerLink="/projects/capydrive" class="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">CapyDrive case study</a>,
@@ -245,7 +246,7 @@ graph TD
                     </div>
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Docker Setup & Synology Configuration</h2>
                     <p>
                         For the container installation itself, refer to the <a href="https://nousresearch.com" target="_blank" rel="noopener" class="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">official Hermes Agent Docker documentation</a>.
@@ -263,7 +264,7 @@ graph TD
                     
                 </section>
 
-                <section class="mb-16">
+                <section class="mb-16" appReveal>
                     <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Security & Sandboxing: Why Docker on Synology is Crucial</h2>
                     <p>
                         Allowing an autonomous agent to scrape external job portals, parse third-party web content, and execute Python tool chains requires a strict security perimeter.
@@ -271,25 +272,25 @@ graph TD
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div class="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
-                            <h3 class="text-lg font-bold text-emerald-600 dark:text-emerald-400 mb-2">🛡️ Filesystem Sandboxing</h3>
+                            <h3 class="text-lg font-bold text-emerald-600 dark:text-emerald-400 mb-2">Filesystem Sandboxing</h3>
                             <p class="text-sm text-gray-700 dark:text-gray-300">
                                 The container is strictly constrained to its mounted volume (<code>/app/data</code>). It has zero read or write access to the Synology DSM root OS, system configurations, or private family and backup shares across the NAS storage pool.
                             </p>
                         </div>
                         <div class="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
-                            <h3 class="text-lg font-bold text-emerald-600 dark:text-emerald-400 mb-2">🌐 Bridge Network Isolation</h3>
+                            <h3 class="text-lg font-bold text-emerald-600 dark:text-emerald-400 mb-2">Bridge Network Isolation</h3>
                             <p class="text-sm text-gray-700 dark:text-gray-300">
                                 Sandboxed on an isolated Docker bridge network. The agent can only reach external APIs (OpenRouter, Discord) and cannot probe internal NAS administrative management ports (DSM 5000/5001) or other private LAN subnets.
                             </p>
                         </div>
                         <div class="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
-                            <h3 class="text-lg font-bold text-emerald-600 dark:text-emerald-400 mb-2">🔒 Least-Privilege Execution</h3>
+                            <h3 class="text-lg font-bold text-emerald-600 dark:text-emerald-400 mb-2">Least-Privilege Execution</h3>
                             <p class="text-sm text-gray-700 dark:text-gray-300">
                                 Runs as a dedicated non-root container user with dropped Linux capabilities and disabled root escalation, preventing privilege breakout from untrusted scraped HTML.
                             </p>
                         </div>
                         <div class="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
-                            <h3 class="text-lg font-bold text-emerald-600 dark:text-emerald-400 mb-2">⚙️ Resource Quotas & DoS Guard</h3>
+                            <h3 class="text-lg font-bold text-emerald-600 dark:text-emerald-400 mb-2">Resource Quotas & DoS Guard</h3>
                             <p class="text-sm text-gray-700 dark:text-gray-300">
                                 Hard memory and CPU limits ensure that even if a recursive scraping loop occurs, it cannot starve vital NAS workloads like automated RAID scrubbing, Time Machine backups, or media streaming.
                             </p>
@@ -302,48 +303,48 @@ graph TD
             <aside class="lg:col-span-1">
                 <div class="sticky top-24 space-y-8">
                     <!-- Project Specs Card -->
-                    <div class="p-8 rounded-3xl bg-emerald-600 text-white shadow-xl shadow-emerald-600/20">
-                        <div class="text-3xl mb-4">🤖</div>
-                        <h3 class="text-2xl font-bold mb-2 font-extrabold tracking-tight">Autonomous Ops Bot</h3>
-                        <p class="text-emerald-100 mb-6 leading-relaxed opacity-90 text-sm">
+                    <div class="writeup-cta">
+                        <p class="eyebrow mb-4">Spec sheet</p>
+                        <h3 class="font-serif text-2xl font-bold mb-2 text-gray-900 dark:text-gray-50">Autonomous Ops Bot</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-sm">
                             Containerized agent powering daily freelance contract hunting and CapyDrive CBR question generation via Discord.
                         </p>
-                        <div class="space-y-2 text-xs border-t border-emerald-500/50 pt-4">
+                        <div class="space-y-2 text-xs border-t border-[color:var(--line)] pt-4">
                             <div class="flex justify-between">
-                                <span class="text-emerald-200">Host Hardware:</span>
-                                <span class="font-bold">Synology NAS (DSM 7.2+)</span>
+                                <span class="text-gray-500 dark:text-gray-400">Host Hardware:</span>
+                                <span class="font-bold text-right text-gray-900 dark:text-gray-50">Synology NAS (DSM 7.2+)</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-emerald-200">Runtime:</span>
-                                <span class="font-bold">Docker Container Manager</span>
+                                <span class="text-gray-500 dark:text-gray-400">Runtime:</span>
+                                <span class="font-bold text-right text-gray-900 dark:text-gray-50">Docker Container Manager</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-emerald-200">Agent Framework:</span>
-                                <span class="font-bold">Hermes Agent</span>
+                                <span class="text-gray-500 dark:text-gray-400">Agent Framework:</span>
+                                <span class="font-bold text-right text-gray-900 dark:text-gray-50">Hermes Agent</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-emerald-200">Inference Engine:</span>
-                                <span class="font-bold">Free OpenRouter Models</span>
+                                <span class="text-gray-500 dark:text-gray-400">Inference Engine:</span>
+                                <span class="font-bold text-right text-gray-900 dark:text-gray-50">Free OpenRouter Models</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-emerald-200">Delivery Channel:</span>
-                                <span class="font-bold">Discord (#radar, #content)</span>
+                                <span class="text-gray-500 dark:text-gray-400">Delivery Channel:</span>
+                                <span class="font-bold text-right text-gray-900 dark:text-gray-50">Discord (#radar, #content)</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-emerald-200">Daily Execution:</span>
-                                <span class="font-bold">07:00 & 07:30 AM</span>
+                                <span class="text-gray-500 dark:text-gray-400">Daily Execution:</span>
+                                <span class="font-bold text-right text-gray-900 dark:text-gray-50">07:00 & 07:30 AM</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Key Takeaways -->
                     <div
-                        class="p-8 rounded-3xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 shadow-sm">
+                        class="p-8 rounded-2xl border border-[color:var(--line)] bg-paper-50 dark:bg-paper-900">
                         <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">Architecture Highlights</h3>
                         <ul class="space-y-4">
-                            @for (takeaway of takeaways; track takeaway.title) {
+                            @for (takeaway of takeaways; track takeaway.title; let i = $index) {
                             <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
-                                <span class="text-lg mr-3 mt-0.5">{{ takeaway.icon }}</span>
+                                <span class="font-serif text-accent-500 w-7 shrink-0 mt-0.5">{{ (i + 1).toString().padStart(2, '0') }}</span>
                                 <div>
                                     <strong class="text-gray-900 dark:text-gray-100 block">{{ takeaway.title }}</strong>
                                     {{ takeaway.description }}

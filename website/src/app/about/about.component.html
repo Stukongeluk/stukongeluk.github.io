@@ -1,411 +1,152 @@
-<section class="bg-white dark:bg-gray-900 py-16 scroll-mt-20" id="about">
-  <!-- About Me Section -->
-  <div class="max-w-screen-xl px-4 mx-auto mb-20">
-    <div class="gap-12 items-center md:grid md:grid-cols-2">
-      <div class="relative profile-glow mb-8 md:mb-0 flex justify-center">
-        <img class="rounded-full glow-red max-w-xs" fetchpriority="high" src="assets/profile.webp" alt="my face">
+<section class="relative py-24 lg:py-32 scroll-mt-20" id="about">
+  <!-- About -->
+  <div class="max-w-screen-xl px-5 mx-auto mb-28 lg:mb-36">
+    <div class="grid gap-14 lg:gap-20 items-center md:grid-cols-12">
+      <div class="md:col-span-5 flex justify-center" appReveal>
+        <div class="portrait-wrap">
+          <svg class="enso" viewBox="0 0 200 200" appReveal="draw" aria-hidden="true">
+            <path pathLength="1"
+              d="M150 40 C120 14 62 18 36 58 C10 98 28 158 82 176 C136 194 186 152 182 98 C180 72 168 56 156 48" />
+          </svg>
+          <div class="portrait-frame">
+          <img ngSrc="assets/profile.webp" width="640" height="801"
+            alt="Portrait photo of Jimmy Nguyen, Senior DevOps Engineer and Full-Stack Developer"
+            sizes="(max-width: 768px) 80vw, 360px" class="photo" />
+            <span class="frame-caption" aria-hidden="true">Leiden, NL</span>
+          </div>
+        </div>
       </div>
-      <div>
-        <h2 class="mb-6 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+      <div class="md:col-span-7" appReveal [revealDelay]="100">
+        <p class="eyebrow mb-5">01 — About</p>
+        <h2 class="section-title mb-8">
           More about <span class="gradient-text">myself</span>
         </h2>
-        <p class="mb-6 font-light text-gray-700 dark:text-gray-300 md:text-lg leading-relaxed">
-          Hello there! I'm Jimmy Nguyen, a Senior DevOps Engineer & Full-Stack Developer based in Leiden, Netherlands.
-          My journey into computer science began in 2014 at Hogeschool Leiden, diving deep into
-          core software craftsmanship, algorithms, and distributed architectures.
-        </p>
-        <p class="mb-6 font-light text-gray-700 dark:text-gray-300 md:text-lg leading-relaxed">
-          In 2016, I kickstarted my professional career as a Junior Developer, marking the beginning
-          of what has now become <span class="text-emerald-600 dark:text-emerald-400 font-semibold">10 years of
-            foundational software
-            craftsmanship</span>.
-          Over the years, I've built, scaled, and debugged complex systems across Public Sector & Taxation (Belastingdienst), Energy (Essent),
-          Climate (KNMI), Media (DPG Media), Mobility (Qbuzz), and high-growth SaaS (HeadFirst Group, Flottando, Capydrive).
-          I combine deep architectural fundamentals with Forward Deploy execution—taking complete ownership from infrastructure to client delivery.
-        </p>
-        <p class="font-light text-gray-700 dark:text-gray-300 md:text-lg leading-relaxed">
-          Whether architecting zero-downtime Auth0 identity migrations, building Golang DevEx CLI tools, or deploying Kubernetes and serverless platforms,
-          I pragmatically leverage modern AI tooling (Claude, MCP) as an efficiency amplifier to accelerate developer velocity and ship dependable systems.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Skills Section -->
-  <div class="max-w-screen-xl px-4 mx-auto mb-20">
-    <h2 class="mb-10 text-3xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
-      My <span class="gradient-text">Skills</span>
-    </h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Full-stack Card -->
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <span class="text-2xl">💻</span>
-          <h3>Full-stack</h3>
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">Java (Spring/Quarkus)</span>
-          <span class="skill-tag">TypeScript</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Angular 21 (Signals)</span>
-          <span class="skill-tag">PostgreSQL</span>
-          <span class="skill-tag">REST & SOAP</span>
-        </div>
-        <p class="skill-description">
-          Building reactive web applications, scalable microservices, and distributed systems with clean architecture.
-        </p>
-      </div>
-
-      <!-- DevOps Card -->
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <span class="text-2xl">⚙️</span>
-          <h3>DevOps & DevEx</h3>
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">Kubernetes (CKAD)</span>
-          <span class="skill-tag">Terraform</span>
-          <span class="skill-tag">GitHub Actions</span>
-          <span class="skill-tag">GitLab CI/CD</span>
-          <span class="skill-tag">Golang DevEx</span>
-        </div>
-        <p class="skill-description">
-          Automating multi-account CI/CD, building Golang DevEx CLI tools, and embedding Sigrid & Snyk security scans.
-        </p>
-      </div>
-
-      <!-- Cloud Card -->
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <span class="text-2xl">☁️</span>
-          <h3>Cloud & Serverless</h3>
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">AWS (Lambda/CDK)</span>
-          <span class="skill-tag">GCP / Firebase</span>
-          <span class="skill-tag">Red Hat OpenShift</span>
-          <span class="skill-tag">CloudFormation</span>
-          <span class="skill-tag">CloudWatch & Alerting</span>
-          <span class="skill-tag">DynamoDB</span>
-        </div>
-        <p class="skill-description">
-          Designing event-driven serverless backends, multi-account AWS topologies, and cloud-native solutions.
-        </p>
-      </div>
-
-      <!-- Forward Deploy Card -->
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <span class="text-2xl">🚀</span>
-          <h3>Forward Deploy</h3>
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">Auth0 & Entra ID</span>
-          <span class="skill-tag">Solution Architecture</span>
-          <span class="skill-tag">Rapid Delivery</span>
-          <span class="skill-tag">Production Rollout</span>
-          <span class="skill-tag">Claude & MCP Tooling</span>
-          <span class="skill-tag">Troubleshooting</span>
-        </div>
-        <p class="skill-description">
-          Deploying mission-critical systems into client environments with end-to-end technical ownership.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Sectors Section -->
-  <div class="max-w-screen-xl px-4 mx-auto mb-20">
-    <h2 class="mb-10 text-3xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
-      Industry <span class="gradient-text">Experience</span>
-    </h2>
-    <p class="mb-10 text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-      Throughout my career, I've had the privilege of contributing to diverse sectors, each offering unique challenges
-      and learning opportunities.
-    </p>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Government & Public Sector -->
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <span class="text-2xl">🏛️</span>
-          <h3>Government</h3>
-        </div>
-        <p class="skill-description">
-          GovTech corporate tax applications (Belastingdienst) and meteorology & climate data systems on AWS (KNMI).
-        </p>
-      </div>
-
-      <!-- IT & Software -->
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <span class="text-2xl">💻</span>
-          <h3>IT & Software</h3>
-        </div>
-        <p class="skill-description">
-          EdTech SaaS (Capydrive), international fleet management (Flottando), and event registration platforms (Aanmelder.nl).
-        </p>
-      </div>
-
-      <!-- Energy & Utilities -->
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <span class="text-2xl">⚡</span>
-          <h3>Energy</h3>
-        </div>
-        <p class="skill-description">
-          AWS Serverless migrations, 24/7 CloudWatch monitoring, and enterprise integrations with SAP/BPM (Essent).
-        </p>
-      </div>
-
-      <!-- Transport & Mobility -->
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <span class="text-2xl">🚌</span>
-          <h3>Transport</h3>
-        </div>
-        <p class="skill-description">
-          Public transit driver mobile tools, real-time journey planners, and GraphQL transit APIs (Qbuzz).
-        </p>
-      </div>
-
-      <!-- Healthcare & Non-profit -->
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <span class="text-2xl">🩺</span>
-          <h3>Healthcare</h3>
-        </div>
-        <p class="skill-description">
-          Enterprise .NET Core & Java Spring Boot APIs and SPAs on AWS for healthcare financing (PharmAccess).
-        </p>
-      </div>
-
-      <!-- Media & Publishing -->
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <span class="text-2xl">📰</span>
-          <h3>Media</h3>
-        </div>
-        <p class="skill-description">
-          Core Java microservices and automated CI/CD deployment pipelines for digital subscription processing (DPG Media).
-        </p>
-      </div>
-
-      <!-- HR & Recruitment -->
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <span class="text-2xl">💼</span>
-          <h3>HR & Recruitment</h3>
-        </div>
-        <p class="skill-description">
-          Multi-account AWS infrastructure, zero-downtime Auth0 identity migration, and Golang DevEx CLI tools (HeadFirst Group).
-        </p>
-      </div>
-
-      <!-- Consulting -->
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <span class="text-2xl">🎯</span>
-          <h3>Consulting</h3>
-        </div>
-        <p class="skill-description">
-          Hands-on technical advisory, rapid prototyping, and end-to-end delivery across complex enterprise ecosystems.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Certifications & Continuous Learning Section -->
-  <div class="max-w-screen-xl px-4 mx-auto mb-20">
-    <h2 class="mb-10 text-3xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
-      Certifications & <span class="gradient-text">Continuous Learning</span>
-    </h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Kubernetes & Containers Card -->
-      <div class="skill-card flex flex-col justify-between">
-        <div>
-          <div class="skill-card-header">
-            <span class="text-2xl">☸️</span>
-            <div>
-              <h3 class="text-lg">CKAD: Certified Kubernetes Application Developer</h3>
-              <p class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Linux Foundation</p>
-            </div>
-          </div>
-          <p class="skill-description mb-4">
-            Hands-on certification for designing, building, containerizing, and deploying cloud-native applications on Kubernetes.
+        <div class="space-y-5 text-[1.05rem] leading-[1.9] text-gray-600 dark:text-gray-300">
+          <p>
+            Hello there! I'm Jimmy Nguyen, a Senior DevOps Engineer & Full-Stack Developer based in Leiden,
+            Netherlands. My journey into computer science began in 2014 at Hogeschool Leiden, diving deep into
+            core software craftsmanship, algorithms, and distributed architectures.
           </p>
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">Kubernetes</span>
-          <span class="skill-tag">CKAD</span>
-          <span class="skill-tag">Containers</span>
-          <span class="skill-tag">Cloud Native</span>
-        </div>
-      </div>
-
-      <!-- AWS DevOps Pro Card -->
-      <div class="skill-card flex flex-col justify-between">
-        <div>
-          <div class="skill-card-header">
-            <span class="text-2xl">☁️</span>
-            <div>
-              <h3 class="text-lg">AWS Certified DevOps Engineer – Professional</h3>
-              <p class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Amazon Web Services</p>
-            </div>
-          </div>
-          <p class="skill-description mb-4">
-            Provisioning, operating, and managing distributed application systems, automated CI/CD pipelines, and multi-account AWS environments.
+          <p>
+            In 2016, I kickstarted my professional career as a Junior Developer, marking the beginning
+            of what has now become <span class="text-gray-900 dark:text-gray-50 font-medium">10 years of
+              foundational software craftsmanship</span>.
+            Over the years, I've built, scaled, and debugged complex systems across Public Sector & Taxation
+            (Belastingdienst), Energy (Essent), Climate (KNMI), Media (DPG Media), Mobility (Qbuzz), and high-growth
+            SaaS (HeadFirst Group, Flottando, Capydrive). I combine deep architectural fundamentals with Forward
+            Deploy execution—taking complete ownership from infrastructure to client delivery.
           </p>
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">AWS DevOps Pro</span>
-          <span class="skill-tag">IaC</span>
-          <span class="skill-tag">CI/CD</span>
-          <span class="skill-tag">Automation</span>
-        </div>
-      </div>
-
-      <!-- AWS Solutions Architect & Developer Card -->
-      <div class="skill-card flex flex-col justify-between">
-        <div>
-          <div class="skill-card-header">
-            <span class="text-2xl">🏗️</span>
-            <div>
-              <h3 class="text-lg">AWS Solutions Architect & Developer Associate</h3>
-              <p class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Amazon Web Services</p>
-            </div>
-          </div>
-          <p class="skill-description mb-4">
-            Designing resilient, secure, high-performing architectures and developing serverless cloud applications on AWS.
+          <p>
+            Whether architecting zero-downtime Auth0 identity migrations, building Golang DevEx CLI tools, or deploying
+            Kubernetes and serverless platforms, I pragmatically leverage modern AI tooling (Claude, MCP) as an
+            efficiency amplifier to accelerate developer velocity and ship dependable systems.
           </p>
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">Solutions Architect</span>
-          <span class="skill-tag">Developer Associate</span>
-          <span class="skill-tag">Serverless</span>
-        </div>
-      </div>
-
-      <!-- Java Professional Card -->
-      <div class="skill-card flex flex-col justify-between">
-        <div>
-          <div class="skill-card-header">
-            <span class="text-2xl">☕</span>
-            <div>
-              <h3 class="text-lg">Oracle Certified Professional (OCP) & OCA</h3>
-              <p class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Oracle (Java SE 8)</p>
-            </div>
-          </div>
-          <p class="skill-description mb-4">
-            Foundational software craftsmanship, object-oriented design principles, concurrency, memory models, and JVM internals.
-          </p>
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">Java SE</span>
-          <span class="skill-tag">OCP</span>
-          <span class="skill-tag">OCA</span>
-          <span class="skill-tag">Clean Code</span>
-        </div>
-      </div>
-
-      <!-- AI & MCP Tooling Card -->
-      <div class="skill-card flex flex-col justify-between">
-        <div>
-          <div class="skill-card-header">
-            <span class="text-2xl">🤖</span>
-            <div>
-              <h3 class="text-lg">Model Context Protocol (MCP) & AI Agent Skills</h3>
-              <p class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Anthropic / Advanced Topics</p>
-            </div>
-          </div>
-          <p class="skill-description mb-4">
-            Pragmatically integrating Claude AI skills and Model Context Protocol (MCP) tooling into software delivery pipelines and engineering workflows.
-          </p>
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">Claude</span>
-          <span class="skill-tag">MCP</span>
-          <span class="skill-tag">AI SDLC</span>
-          <span class="skill-tag">Developer Velocity</span>
-        </div>
-      </div>
-
-      <!-- Academic Background Card -->
-      <div class="skill-card flex flex-col justify-between">
-        <div>
-          <div class="skill-card-header">
-            <span class="text-2xl">🎓</span>
-            <div>
-              <h3 class="text-lg">BSc. Computer Science (Informatica)</h3>
-              <p class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Hogeschool Leiden (2014 – 2018)</p>
-            </div>
-          </div>
-          <p class="skill-description mb-4">
-            Rigorous 4-year degree in software engineering, distributed systems, data structures, algorithms, and full-stack development.
-          </p>
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">BSc Informatica</span>
-          <span class="skill-tag">Hogeschool Leiden</span>
-          <span class="skill-tag">Computer Science</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Hobbies Section -->
-  <div class="max-w-screen-xl px-4 mx-auto">
-    <h2 class="mb-10 text-3xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
-      My <span class="gradient-text">Hobbies</span>
-    </h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="hobby-card group">
-        <div class="hobby-media">
-          <video #hobbyVideo src="../../assets/ollie.webm" playsinline muted [muted]="true" autoplay loop preload="auto"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            aria-label="Jimmy doing an Ollie"></video>
+  <!-- Skills -->
+  <div class="max-w-screen-xl px-5 mx-auto mb-28 lg:mb-36">
+    <div class="section-head" appReveal>
+      <p class="eyebrow">02 — Craft</p>
+      <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      @for (skill of skills; track skill.title; let i = $index) {
+      <div class="skill-card" appReveal [revealDelay]="i * 90">
+        <div class="skill-card-header">
+          <span class="section-kanji text-2xl" aria-hidden="true">{{ skill.numeral }}</span>
+          <h3>{{ skill.title }}</h3>
         </div>
-        <div class="hobby-info">
-          <h4>🛹 Skateboarding</h4>
-          <p>Landing ollies and more</p>
+        <div class="skill-tags">
+          @for (tag of skill.tags; track tag) {
+          <span class="skill-tag">{{ tag }}</span>
+          }
         </div>
+        <p class="skill-description">{{ skill.description }}</p>
       </div>
+      }
+    </div>
+  </div>
 
-      <div class="hobby-card group">
-        <div class="hobby-media">
-          <img src="../../assets/boulder_optimized.webp" loading="lazy"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            alt="Jimmy bouldering">
-        </div>
-        <div class="hobby-info">
-          <h4>🧗 Bouldering</h4>
-          <p>Climbing to new heights</p>
+  <!-- Sectors -->
+  <div class="max-w-screen-xl px-5 mx-auto mb-28 lg:mb-36">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+      <div class="lg:col-span-4" appReveal>
+        <div class="lg:sticky lg:top-28">
+          <p class="eyebrow mb-5">03 — Sectors</p>
+          <h2 class="section-title mb-6">Industry <span class="gradient-text">Experience</span></h2>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Throughout my career, I've had the privilege of contributing to diverse sectors, each offering unique
+            challenges and learning opportunities.
+          </p>
         </div>
       </div>
+      <ol class="lg:col-span-8 sector-list">
+        @for (sector of sectors; track sector.title; let i = $index) {
+        <li class="sector" appReveal [revealDelay]="(i % 2) * 80">
+          <span class="sector-index" aria-hidden="true">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <div>
+            <h3 class="sector-title">{{ sector.title }}</h3>
+            <p class="sector-text">{{ sector.description }}</p>
+          </div>
+        </li>
+        }
+      </ol>
+    </div>
+  </div>
 
-      <div class="hobby-card group">
-        <div class="hobby-media">
-          <video #hobbyVideo src="../../assets/tre.webm" playsinline muted [muted]="true" autoplay loop preload="auto"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            aria-label="Jimmy Treflip"></video>
+  <!-- Certifications -->
+  <div class="max-w-screen-xl px-5 mx-auto mb-28 lg:mb-36">
+    <div class="section-head" appReveal>
+      <p class="eyebrow">04 — Learning</p>
+      <h2 class="section-title">Certifications & <span class="gradient-text">Continuous Learning</span></h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      @for (cert of certifications; track cert.title; let i = $index) {
+      <div class="skill-card flex flex-col justify-between" appReveal [revealDelay]="(i % 3) * 90">
+        <div>
+          <p class="text-[0.7rem] tracking-[0.2em] uppercase text-accent-600 dark:text-accent-400 mb-3">{{ cert.issuer
+            }}</p>
+          <h3 class="font-serif text-lg font-bold leading-snug text-gray-900 dark:text-gray-50 mb-3">{{ cert.title }}
+          </h3>
+          <p class="skill-description mb-5">{{ cert.description }}</p>
         </div>
-        <div class="hobby-info">
-          <h4>🛹 More Skating</h4>
-          <p>Treflips and tricks</p>
+        <div class="skill-tags !mb-0">
+          @for (tag of cert.tags; track tag) {
+          <span class="skill-tag">{{ tag }}</span>
+          }
         </div>
       </div>
+      }
+    </div>
+  </div>
 
-      <div class="hobby-card group">
+  <!-- Hobbies -->
+  <div class="max-w-screen-xl px-5 mx-auto">
+    <div class="section-head" appReveal>
+      <p class="eyebrow">05 — Off the clock</p>
+      <h2 class="section-title">My <span class="gradient-text">Hobbies</span></h2>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+      @for (hobby of hobbies; track hobby.title; let i = $index) {
+      <figure class="hobby-card" appReveal [revealDelay]="i * 90">
         <div class="hobby-media">
-          <img src="../../assets/Screenshot 2024-01-31 at 18.30.07.webp" loading="lazy"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            alt="Jimmy steam completionist">
+          @if (hobby.video) {
+          <video #hobbyVideo [attr.data-src]="hobby.video" playsinline muted loop preload="none"
+            class="w-full h-full object-cover" [attr.aria-label]="hobby.alt"></video>
+          } @else {
+          <img [src]="hobby.image" [alt]="hobby.alt" [width]="hobby.width" [height]="hobby.height" loading="lazy"
+            decoding="async" class="w-full h-full object-cover" [style.object-position]="hobby.position ?? 'center'">
+          }
         </div>
-        <div class="hobby-info">
-          <h4>🎮 Gaming</h4>
-          <p>Achievement hunter</p>
-        </div>
-      </div>
+        <figcaption class="hobby-info">
+          <h3>{{ hobby.title }}</h3>
+          <p>{{ hobby.caption }}</p>
+        </figcaption>
+      </figure>
+      }
     </div>
   </div>
 </section>

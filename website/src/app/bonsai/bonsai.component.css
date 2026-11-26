@@ -1,0 +1,291 @@
+:host {
+  display: block;
+}
+
+.bonsai {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Static pieces */
+.wood-top {
+  fill: #A67B4F;
+}
+
+.wood-shade {
+  fill: #6E4E32;
+}
+
+.pot-body {
+  fill: #5B5148;
+}
+
+.pot-rim {
+  fill: #6D6254;
+}
+
+.pot-foot {
+  fill: #3E3731;
+}
+
+.pot-line {
+  stroke: rgba(255, 255, 255, .12);
+  stroke-width: 1.5;
+}
+
+.soil {
+  fill: #4A3F35;
+}
+
+.moss {
+  fill: #7A8665;
+}
+
+.stone {
+  fill: #B8AE9F;
+}
+
+/* Trunk */
+.wood path {
+  stroke: #5E422A;
+}
+
+.wood .bark {
+  stroke: rgba(255, 238, 210, .18);
+}
+
+.draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 0.6s cubic-bezier(.45, 0, .2, 1) forwards;
+}
+
+.d1 {
+  animation-duration: 0.75s;
+}
+
+.d2 {
+  animation-delay: 0.6s;
+  animation-duration: 0.4s;
+}
+
+.d3 {
+  animation-delay: 0.9s;
+  animation-duration: 0.35s;
+}
+
+.d4 {
+  animation-delay: 0.55s;
+}
+
+.d5 {
+  animation-delay: 0.75s;
+}
+
+.d6 {
+  animation-delay: 0.95s;
+  animation-duration: 0.45s;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Foliage */
+.l1 {
+  fill: var(--leaf-1);
+}
+
+.l2 {
+  fill: var(--leaf-2);
+}
+
+.l3 {
+  fill: var(--leaf-3);
+}
+
+.l1,
+.l2,
+.l3 {
+  transition: fill 0.6s ease;
+}
+
+.pad {
+  transform-box: fill-box;
+  transform-origin: 50% 80%;
+  transform: scale(0);
+  animation: unfold 0.8s cubic-bezier(.2, 1.4, .4, 1) forwards;
+}
+
+.p1 {
+  animation-delay: 0.95s;
+}
+
+.p2 {
+  animation-delay: 1.1s;
+}
+
+.p3 {
+  animation-delay: 1.2s;
+}
+
+.p4 {
+  animation-delay: 1.3s;
+}
+
+@keyframes unfold {
+  to {
+    transform: scale(1);
+  }
+}
+
+.breathe {
+  transform-box: fill-box;
+  transform-origin: 50% 90%;
+  animation: breathe 6s ease-in-out 2.2s infinite alternate;
+}
+
+.p2 .breathe {
+  animation-duration: 7s;
+  animation-delay: 2.6s;
+}
+
+.p3 .breathe {
+  animation-duration: 5.4s;
+}
+
+.p4 .breathe {
+  animation-duration: 6.6s;
+  animation-delay: 3s;
+}
+
+@keyframes breathe {
+  from {
+    transform: rotate(-1.2deg) scale(1);
+  }
+
+  to {
+    transform: rotate(1.4deg) scale(1.03, 1.05);
+  }
+}
+
+/* Whole tree sways gently around the root */
+.tree {
+  transform-origin: 178px 304px;
+  animation: sway 9s ease-in-out 2.2s infinite alternate;
+}
+
+@keyframes sway {
+  from {
+    transform: rotate(-0.6deg);
+  }
+
+  to {
+    transform: rotate(0.8deg);
+  }
+}
+
+/* Falling leaves */
+.leaf {
+  fill: var(--leaf-1);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: fall 11s ease-in 4s infinite;
+}
+
+.lf2 {
+  animation-duration: 14s;
+  animation-delay: 7.5s;
+}
+
+.lf3 {
+  animation-duration: 12.5s;
+  animation-delay: 10s;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0);
+  }
+
+  6% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-70px, 150px) rotate(300deg);
+  }
+}
+
+/* ---------- Super Saiyan: golden leaves, ki rising ---------- */
+:host-context(body.super-saiyan-mode) .pad {
+  filter: drop-shadow(0 0 6px var(--leaf-glow));
+}
+
+:host-context(body.super-saiyan-mode) .breathe {
+  animation-duration: 0.9s !important;
+}
+
+:host-context(body.super-saiyan-mode) .tree {
+  animation: sway 0.35s ease-in-out infinite alternate;
+}
+
+:host-context(body.super-saiyan-mode) .leaf {
+  fill: #FFE27A;
+  filter: drop-shadow(0 0 3px #FFC400);
+  animation: rise 2.4s ease-out infinite;
+}
+
+:host-context(body.super-saiyan-mode) .lf2 {
+  animation-delay: 0.8s;
+}
+
+:host-context(body.super-saiyan-mode) .lf3 {
+  animation-delay: 1.6s;
+}
+
+:host-context(body.super-saiyan-mode) .wood path:not(.bark) {
+  stroke: #8A633E;
+}
+
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(1);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(10px, -120px) scale(0.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .draw,
+  .pad {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+  }
+
+  .breathe,
+  .tree,
+  .leaf {
+    animation: none !important;
+  }
+}

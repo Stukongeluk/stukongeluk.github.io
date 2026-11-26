@@ -1,0 +1,61 @@
+name: Deploy site to GitHub Pages
+
+# Builds the Angular site (with prerendered pages) on every push to main and
+# publishes it to GitHub Pages. No compiled files need to be committed.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'website/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: website
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and prerender
+        run: npx ng build
+
+      - name: Add custom domain and disable Jekyll
+        run: |
+          echo jimmynguyen.nl > docs/browser/CNAME
+          touch docs/browser/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: website/docs/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
