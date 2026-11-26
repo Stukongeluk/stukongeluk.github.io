@@ -100,7 +100,7 @@ export class CapyDriveDetailComponent implements OnInit, AfterViewInit {
         },
         {
             title: 'Automated Pipelines',
-            description: 'GitHub Actions handles the heavy lifting—running linting, testing, and deploying to Firebase Hosting and Functions on every push.',
+            description: 'GitHub Actions handles the heavy lifting: running linting, testing, and deploying to Firebase Hosting and Functions on every push.',
             icon: '🚀'
         },
         {

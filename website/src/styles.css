@@ -1,5 +1,5 @@
 /* =========================================================
-   Japandi theme — washi paper, oak & walnut, sumi ink, moss
+   Japandi theme: washi paper, oak & walnut, sumi ink, moss
    ========================================================= */
 @tailwind base;
 @tailwind components;
@@ -887,7 +887,7 @@ body.super-saiyan-mode .writeup-cta {
 }
 
 /* =========================================================
-   SUPER SAIYAN MODE — kintsugi gold on sumi ink
+   SUPER SAIYAN MODE: kintsugi gold on sumi ink
    ========================================================= */
 
 /* Page shake while powering up (on <main>, not the overlays) */
@@ -948,14 +948,11 @@ body.super-saiyan-mode::before {
   }
 }
 
-body.super-saiyan-mode main,
-body.super-saiyan-mode nav {
+/* Lift the content above the golden haze. The nav keeps its own z-50 so it
+   stays on top of the content and stays clickable. */
+body.super-saiyan-mode main {
   position: relative;
   z-index: 2;
-}
-
-body.super-saiyan-mode nav {
-  position: fixed;
 }
 
 /* Gold headings with a soft glow */
