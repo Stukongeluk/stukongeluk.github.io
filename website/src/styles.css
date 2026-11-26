@@ -765,16 +765,29 @@ body.super-saiyan-mode {
   z-index: 1;
 }
 
+/* ---------- Bonsai branches that swing away to reveal a section ---------- */
+:root {
+  --branch: #5E422A;
+}
+
+html.dark {
+  --branch: #7A5838;
+}
+
+body.super-saiyan-mode {
+  --branch: #8A633E;
+}
+
 app-leaf-canopy {
   position: absolute;
   left: 50%;
-  top: -175px;
+  top: -170px;
   width: 100vw;
-  height: 270px;
+  height: 250px;
   margin-left: -50vw;
   pointer-events: none;
   z-index: 0;
-  /* never cause sideways scrolling, but let leaves sway above and below */
+  /* never cause sideways scrolling, but let branches sway above and below */
   overflow-x: clip;
 }
 
@@ -786,114 +799,141 @@ app-leaf-canopy {
 .cluster {
   position: absolute;
   top: 0;
-  height: 100%;
-  width: min(22vw, 320px);
-  transition: transform 1.6s cubic-bezier(.2, .8, .2, 1);
+  width: min(27vw, 400px);
 }
 
 .cluster.left {
-  left: -20px;
+  left: 0;
 }
 
 .cluster.right {
-  right: -20px;
+  right: 0;
+  transform: scaleX(-1);
 }
 
-.leaf {
-  position: absolute;
+.branch-svg {
+  display: block;
+  width: 100%;
   height: auto;
-  aspect-ratio: 1;
   overflow: visible;
-  opacity: 0.9;
-  transform: rotate(var(--r));
-  transition: transform 1.8s cubic-bezier(.2, .8, .2, 1) var(--d), opacity 1.2s ease var(--d);
-  filter: drop-shadow(0 6px 8px rgba(81, 61, 41, 0.12));
+  filter: drop-shadow(0 10px 12px rgba(81, 61, 41, 0.14));
 }
 
-.leaf.far {
-  opacity: 0.38;
-  filter: blur(0.6px);
+.branch-svg .wood {
+  fill: none;
+  stroke: var(--branch);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.6s;
 }
 
-html.dark .leaf { opacity: 0.7; }
-html.dark .leaf.far { opacity: 0.28; }
-
-body.super-saiyan-mode .leaf {
-  opacity: 0.95;
-  filter: drop-shadow(0 0 6px rgba(255, 190, 0, 0.55));
+.branch-svg .wood.bark {
+  stroke: rgba(255, 238, 210, 0.22);
 }
 
-body.super-saiyan-mode .leaf.far {
-  opacity: 0.45;
+.bl1 { fill: var(--leaf-1); }
+.bl2 { fill: var(--leaf-2); }
+.bl3 { fill: var(--leaf-3); }
+
+.branch,
+.sway,
+.bpad {
+  transform-box: view-box;
 }
 
-/* Closed: the two clusters meet over the section, leaves turned and larger */
-app-leaf-canopy.leaves-closed .cluster.left {
-  transform: translateX(min(30vw, 430px));
+.branch {
+  transition: transform 1.7s cubic-bezier(.2, .8, .2, 1);
 }
 
-app-leaf-canopy.leaves-closed .cluster.right {
-  transform: translateX(max(-30vw, -430px));
+.bpad {
+  transition: transform 1.5s cubic-bezier(.2, .8, .2, 1) var(--pd, 0ms);
 }
 
-app-leaf-canopy.leaves-closed .leaf {
-  transform: rotate(calc(var(--r) + 70deg)) scale(1.25);
+html.dark .branch-svg {
+  opacity: 0.85;
 }
 
-app-leaf-canopy.leaves-closed .leaf:not(.far) {
-  opacity: 1;
+body.super-saiyan-mode .bpad {
+  filter: drop-shadow(0 0 6px var(--leaf-glow));
 }
 
-@media (max-width: 767px) {
-  app-leaf-canopy {
-    top: -150px;
-    height: 150px;
-  }
+/* Closed: branches reach across the section, pads swollen and leaning in */
+app-leaf-canopy.leaves-closed .branch {
+  transform: translateX(min(22vw, 330px)) rotate(7deg);
+}
 
-  .leaf:not(.far) {
-    opacity: 0.75;
-  }
+app-leaf-canopy.leaves-closed .bpad {
+  transform: translateX(var(--px)) rotate(var(--pr)) scale(1.3);
+}
 
-  .cluster {
-    width: 38vw;
-  }
-
-  .leaf {
-    scale: 0.62;
-  }
-
-  .leaf.far {
-    display: none;
-  }
+/* Leaves shaken loose while the branch swings back */
+.fly {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Gentle sway once open (uses `rotate`, so it adds to the transform above) */
-  .leaf {
-    animation: leaf-sway var(--sway, 6s) ease-in-out infinite alternate;
+  app-leaf-canopy.parting .fly {
+    animation: leaf-shake-off 2.2s cubic-bezier(.3, .1, .4, 1) var(--fd, 0ms) both;
   }
 
-  body.super-saiyan-mode .leaf {
-    animation-duration: 0.9s;
+  /* Gentle breathing in the wind once open */
+  .sway {
+    animation: branch-sway 7s ease-in-out infinite alternate;
   }
 
-  /* Depth: near and far leaves drift at different speeds while scrolling */
+  .cluster.right .sway {
+    animation-duration: 8.5s;
+    animation-delay: -3s;
+  }
+
+  body.super-saiyan-mode .sway {
+    animation-duration: 0.45s;
+  }
+
+  /* Depth: the branches drift a little slower than the page while scrolling */
   @supports (animation-timeline: view()) {
-    .leaf {
-      animation: leaf-sway var(--sway, 6s) ease-in-out infinite alternate, leaf-depth linear both;
-      animation-timeline: auto, view();
+    .branch-svg {
+      animation: branch-depth linear both;
+      animation-timeline: view();
     }
   }
 }
 
-@keyframes leaf-sway {
-  from { rotate: -5deg; }
-  to { rotate: 6deg; }
+@keyframes branch-sway {
+  from { rotate: -1.4deg; }
+  to { rotate: 1.6deg; }
 }
 
-@keyframes leaf-depth {
-  from { translate: 0 calc(var(--z, 1) * 50px); }
-  to { translate: 0 calc(var(--z, 1) * -50px); }
+@keyframes branch-depth {
+  from { translate: 0 40px; }
+  to { translate: 0 -40px; }
+}
+
+@keyframes leaf-shake-off {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0); }
+  10% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--fx), var(--fy)) rotate(var(--fr)); }
+}
+
+@media (max-width: 767px) {
+  app-leaf-canopy {
+    top: -100px;
+    height: 110px;
+  }
+
+  .cluster {
+    width: 46vw;
+  }
+
+  html:not(.dark) .branch-svg {
+    opacity: 0.85;
+  }
+
+  app-leaf-canopy.leaves-closed .branch {
+    transform: translateX(26vw) rotate(7deg);
+  }
 }
 
 /* A few leaves drifting down the page, behind the content */
