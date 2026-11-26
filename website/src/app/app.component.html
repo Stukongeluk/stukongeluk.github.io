@@ -29,9 +29,9 @@
                 <li class="px-4 py-2 md:ml-3 md:pl-5 md:border-l md:border-[color:var(--line)]">
                     <button type="button" (click)="changeTheme()"
                         class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300"
-                        [attr.aria-pressed]="isDarkTheme()" aria-label="Toggle dark mode">
+                        [attr.aria-pressed]="theme.isDark()" aria-label="Toggle dark mode">
                         <span class="theme-switch" aria-hidden="true"></span>
-                        <span>{{ isDarkTheme() ? 'Evening' : 'Daylight' }}</span>
+                        <span>{{ theme.isDark() ? 'Evening' : 'Daylight' }}</span>
                     </button>
                 </li>
             </ul>

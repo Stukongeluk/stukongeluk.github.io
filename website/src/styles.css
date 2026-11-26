@@ -97,8 +97,37 @@ html.dark {
   color-scheme: dark;
 }
 
-/* Super Saiyan: accent wood turns to gold everywhere */
+/* Super Saiyan: accent wood turns to gold everywhere.
+   Daylight variant: deep gold on gilded washi paper (kintsugi on paper). */
 body.super-saiyan-mode {
+  --accent-50: 255 250 235;
+  --accent-100: 252 240 200;
+  --accent-200: 246 221 140;
+  --accent-300: 236 196 80;
+  --accent-400: 224 164 0;
+  --accent-500: 201 138 0;
+  --accent-600: 166 106 0;
+  --accent-700: 138 82 0;
+  --accent-800: 110 64 4;
+  --accent-900: 84 48 6;
+  --accent-950: 54 30 4;
+
+  --paper: #F6EEDC;
+  --paper-deep: #EFE2C2;
+  --card: #FCF7EA;
+  --line: rgba(196, 140, 0, 0.3);
+  --wood: #C98A00;
+  --wood-dark: #8A5200;
+  --leaf-1: #E8B000;
+  --leaf-2: #FFD54A;
+  --leaf-3: #C98A00;
+  --leaf-glow: rgba(255, 186, 0, 0.6);
+  --gold-text: linear-gradient(100deg, #8A5200 0%, #C98A00 35%, #E8B000 50%, #B07A00 70%, #8A5200 100%);
+  --gold-glow: rgba(224, 160, 0, 0.25);
+}
+
+/* Evening variant: bright gold on sumi ink (the default when powering up). */
+html.dark body.super-saiyan-mode {
   --accent-50: 255 251 235;
   --accent-100: 254 243 199;
   --accent-200: 253 230 138;
@@ -121,6 +150,16 @@ body.super-saiyan-mode {
   --leaf-2: #FFE27A;
   --leaf-3: #E09B00;
   --leaf-glow: rgba(255, 196, 0, 0.75);
+  --gold-text: linear-gradient(100deg, #FFE27A 0%, #F5B301 40%, #FFF3B0 55%, #E09B00 75%, #FFD34D 100%);
+  --gold-glow: rgba(255, 190, 20, 0.35);
+}
+
+html:has(body.super-saiyan-mode) {
+  background: #F6EEDC;
+}
+
+html.dark:has(body.super-saiyan-mode) {
+  background: #120F0B;
 }
 
 /* ---------- Base ---------- */
@@ -544,6 +583,131 @@ html.dark .theme-switch::after {
   }
 }
 
+/* ---------- Staggered entrances ----------
+   When an element scrolls in it gets `is-in` (see RevealDirective) and its
+   contents follow one after another: rules grow, titles wipe up like a brush
+   stroke, tags pop in, images unveil from the bottom, sector lines sweep. */
+@media (prefers-reduced-motion: no-preference) {
+  .is-in .eyebrow::before {
+    transform-origin: left;
+    animation: rule-grow 0.8s var(--ease-out) 0.1s both;
+  }
+
+  .is-in .section-title {
+    animation: wipe-up 1s var(--ease-out) 0.12s both;
+  }
+
+  .is-in .section-kanji {
+    animation: kanji-in 0.9s var(--ease-out) both;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 150ms);
+  }
+
+  .is-in .skill-tag,
+  .is-in .social-icon {
+    animation: pop-in 0.5s var(--ease-out) both;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 260ms + var(--n, 0) * 45ms);
+  }
+
+  .is-in .skill-tag:nth-child(2), .is-in .social-icon:nth-child(2) { --n: 1; }
+  .is-in .skill-tag:nth-child(3), .is-in .social-icon:nth-child(3) { --n: 2; }
+  .is-in .skill-tag:nth-child(4) { --n: 3; }
+  .is-in .skill-tag:nth-child(5) { --n: 4; }
+  .is-in .skill-tag:nth-child(6) { --n: 5; }
+  .is-in .skill-tag:nth-child(7) { --n: 6; }
+
+  .is-in .photo,
+  .hobby-card.is-in .hobby-media > *,
+  .project-card.is-in .project-media img,
+  figure.is-in video,
+  .is-in .mermaid-container {
+    animation: unveil 1.15s cubic-bezier(.7, 0, .2, 1) both;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 120ms);
+  }
+
+  .sector.is-in::after {
+    animation: line-sweep 1.3s var(--ease-out) both;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 150ms);
+  }
+
+  .sector.is-in .sector-index {
+    animation: pop-in 0.6s var(--ease-out) both;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 200ms);
+  }
+
+  /* Scroll-linked touches where the browser supports them (no JavaScript):
+     brush circles turn slowly and the portrait drifts as you scroll past. */
+  @supports (animation-timeline: view()) {
+    .enso,
+    .contact-enso {
+      animation: enso-turn linear both;
+      animation-timeline: view();
+    }
+
+    .portrait-frame {
+      animation: drift linear both;
+      animation-timeline: view();
+    }
+  }
+}
+
+.sector {
+  position: relative;
+}
+
+.sector::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: rgb(var(--accent-500));
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+@keyframes rule-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes wipe-up {
+  from { clip-path: inset(0 0 100% 0); translate: 0 0.35em; }
+  to { clip-path: inset(-15% -5% -25% -5%); translate: 0 0; }
+}
+
+@keyframes kanji-in {
+  from { opacity: 0; transform: scale(1.6) rotate(-12deg); filter: blur(4px); }
+  to { opacity: 0.85; transform: none; filter: none; }
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.92); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes unveil {
+  from { clip-path: inset(100% 0 0 0); scale: 1.12; }
+  to { clip-path: inset(0 0 0 0); scale: 1; }
+}
+
+@keyframes line-sweep {
+  0% { transform: scaleX(0); opacity: 1; }
+  70% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+
+@keyframes enso-turn {
+  from { rotate: -22deg; }
+  to { rotate: 22deg; }
+}
+
+@keyframes drift {
+  from { translate: 0 36px; }
+  to { translate: 0 -36px; }
+}
+
 /* Ensō brush circle that draws itself when revealed */
 .enso path {
   stroke-dasharray: 1;
@@ -960,13 +1124,13 @@ body.super-saiyan-mode .section-title,
 body.super-saiyan-mode h1,
 body.super-saiyan-mode h1 .role-line,
 body.super-saiyan-mode .gradient-text {
-  background: linear-gradient(100deg, #FFE27A 0%, #F5B301 40%, #FFF3B0 55%, #E09B00 75%, #FFD34D 100%);
+  background: var(--gold-text);
   background-size: 220% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  filter: drop-shadow(0 0 14px rgba(255, 190, 20, 0.35));
+  filter: drop-shadow(0 0 14px var(--gold-glow));
   animation: ss-shimmer 3.5s linear infinite;
 }
 

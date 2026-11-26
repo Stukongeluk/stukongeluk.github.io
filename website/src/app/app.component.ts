@@ -3,6 +3,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { DOCUMENT, ViewportScroller, isPlatformBrowser } from '@angular/common';
 import { SaiyanFxComponent } from './saiyan-fx/saiyan-fx.component';
 import { SuperSaiyanService } from './services/super-saiyan.service';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,6 @@ import { SuperSaiyanService } from './services/super-saiyan.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'website';
-  isDarkTheme: WritableSignal<boolean> = signal(false);
   isMenuOpen: WritableSignal<boolean> = signal(false);
   readonly year = new Date().getFullYear();
   /** Scroll positions (0–1) where a leaf buds on the scroll branch. */
@@ -27,7 +27,8 @@ export class AppComponent implements OnInit, OnDestroy {
     @Inject(DOCUMENT) private document: Document,
     viewportScroller: ViewportScroller,
     private zone: NgZone,
-    private saiyan: SuperSaiyanService
+    private saiyan: SuperSaiyanService,
+    public theme: ThemeService
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     // Keep section headings clear of the fixed nav bar when a nav link scrolls to them.
@@ -40,9 +41,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (!this.isBrowser) return;
-    // Light (daylight) is the default; the inline script in index.html already
-    // applied a saved "dark" choice before first paint.
-    this.isDarkTheme.set(this.document.documentElement.classList.contains('dark'));
     this.zone.runOutsideAngular(() => {
       window.addEventListener('scroll', this.onScroll, { passive: true });
       window.addEventListener('resize', this.onScroll, { passive: true });
@@ -57,19 +55,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   changeTheme() {
-    const isDark = !this.isDarkTheme();
-    this.isDarkTheme.set(isDark);
-    if (!this.isBrowser) return;
-    try {
-      localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
-    } catch { /* private mode */ }
-    // Super Saiyan mode keeps the page dark until it powers down.
-    const keepDark = isDark || this.saiyan.isTransformed();
-    this.document.documentElement.classList.toggle('dark', keepDark);
-    if (!this.saiyan.isTransformed()) {
-      this.document.querySelector('meta[name="theme-color"]')
-        ?.setAttribute('content', isDark ? '#1B1814' : '#F5EFE6');
-    }
+    // In Super Saiyan mode the toggle switches between gold-on-ink and
+    // gold-on-paper without changing the saved preference.
+    this.theme.apply(!this.theme.isDark(), !this.saiyan.isTransformed());
   }
 
   /** Feeds scroll position to the scroll branch and hero parallax, once per frame. */

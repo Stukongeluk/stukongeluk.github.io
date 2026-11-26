@@ -65,7 +65,9 @@ export class RevealDirective implements OnDestroy {
     callbacks.set(node, () => {
       node.style.setProperty('--reveal-delay', `${this.revealDelay}ms`);
       node.classList.remove('reveal-pending');
-      node.classList.add('reveal-in');
+      // `is-in` stays on, so the element's contents can play their own
+      // staggered entrance (tags popping in, images unveiling, lines drawing).
+      node.classList.add('reveal-in', 'is-in');
       // Drop the class afterwards so hover transforms work again.
       const done = (e: AnimationEvent) => {
         if (e.target !== node) return;

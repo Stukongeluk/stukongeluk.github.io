@@ -1,5 +1,6 @@
 import { Injectable, signal, Inject, PLATFORM_ID } from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { ThemeService } from './theme.service';
 
 export type SaiyanPhase = 'idle' | 'charging' | 'transformed' | 'reverting';
 
@@ -29,7 +30,8 @@ export class SuperSaiyanService {
 
     constructor(
         @Inject(PLATFORM_ID) platformId: Object,
-        @Inject(DOCUMENT) private document: Document
+        @Inject(DOCUMENT) private document: Document,
+        private theme: ThemeService
     ) {
         this.isBrowser = isPlatformBrowser(platformId);
     }
@@ -64,8 +66,8 @@ export class SuperSaiyanService {
             body.classList.remove('ss-charging', 'ss-charging-hard');
             // The FX overlay flashes at this exact moment, which hides the theme swap.
             body.classList.add('super-saiyan-mode');
-            this.document.documentElement.classList.add('dark');
-            this.setThemeColor('#120F0B');
+            // Power up into Evening for drama; the toggle can still switch to Daylight.
+            this.theme.apply(true, false);
             this.isTransformed.set(true);
             this.phase.set('transformed');
             this.isAnimating.set(false);
@@ -88,10 +90,8 @@ export class SuperSaiyanService {
 
         setTimeout(() => {
             body.classList.remove('super-saiyan-mode');
-            if (!this.prefersDark()) {
-                this.document.documentElement.classList.remove('dark');
-            }
-            this.setThemeColor(this.prefersDark() ? '#1B1814' : '#F5EFE6');
+            // Back to whatever the visitor chose themselves.
+            this.theme.apply(this.theme.savedIsDark(), false);
             this.isTransformed.set(false);
         }, SAIYAN_TIMING.revertMs * 0.4);
 
@@ -121,18 +121,6 @@ export class SuperSaiyanService {
             return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
         }
         return { x: view.innerWidth / 2, y: view.innerHeight / 2 };
-    }
-
-    private prefersDark(): boolean {
-        try {
-            return localStorage.getItem('color-theme') === 'dark';
-        } catch {
-            return false;
-        }
-    }
-
-    private setThemeColor(color: string): void {
-        this.document.querySelector('meta[name="theme-color"]')?.setAttribute('content', color);
     }
 
     private fadeOutAudio(audio: HTMLAudioElement): void {

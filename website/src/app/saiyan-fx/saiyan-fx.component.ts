@@ -241,6 +241,9 @@ export class SaiyanFxComponent implements AfterViewInit, OnDestroy {
         ctx.stroke();
       }
     } else {
+      // On Daylight paper, additive light would vanish: draw deeper gold instead.
+      const daylight = !document.documentElement.classList.contains('dark');
+      if (daylight) ctx.globalCompositeOperation = 'source-over';
       this.spawnAmbient();
       for (const p of this.particles) {
         p.vx *= 0.97;
@@ -249,7 +252,7 @@ export class SaiyanFxComponent implements AfterViewInit, OnDestroy {
         p.y += p.vy;
         p.life++;
         const fade = 1 - p.life / p.max;
-        ctx.fillStyle = `hsla(${p.hue}, 100%, 62%, ${Math.max(0, fade) * 0.85})`;
+        ctx.fillStyle = `hsla(${p.hue}, 100%, ${daylight ? 46 : 62}%, ${Math.max(0, fade) * 0.85})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
