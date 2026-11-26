@@ -1,23 +1,27 @@
-[![pages-build-deployment](https://github.com/Stukongeluk/stukongeluk.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Stukongeluk/stukongeluk.github.io/actions/workflows/pages/pages-build-deployment)
+[![Deploy site to GitHub Pages](https://github.com/Stukongeluk/stukongeluk.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/Stukongeluk/stukongeluk.github.io/actions/workflows/deploy.yml)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fjimmynguyen.nl&label=jimmynguyen.nl)](https://jimmynguyen.nl)
+[![Angular 21](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)](https://angular.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Node.js 22](https://img.shields.io/badge/Node.js-22-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 # Jimmy Nguyen - Personal Website 🚀
 
 Welcome to my personal portfolio website! This project showcases my journey, skills, and projects as a Senior DevOps Engineer & Full-Stack Developer with 10 years of software craftsmanship and Forward Deploy capabilities.
 
 ## ✨ Features
 
-- **⚡ Super Saiyan Mode**: A hidden Easter egg! Click my profile picture in the hero section to see the entire site transform into a golden Super Saiyan theme.
-- **🌗 Daylight & Evening Mode**: light by default, with a warm dark mode you can switch on.
-- **🎨 Japandi Design**: light washi-paper and wood palette, an animated bonsai and hanging scroll, and calm scroll animations that respect reduced-motion settings.
-- **📱 Mobile First**: fully responsive layout ensuring a great experience on any device.
+- **⚡ Super Saiyan Easter Egg**: Click my pixel-art portrait in the hero hanging scroll to transform—and keep clicking to go even further beyond (**Super Saiyan → SSJ2 → SSJ3 → Super Saiyan God → Super Saiyan Blue → Ultra Instinct Sign → Mastered Ultra Instinct**). Each stage unlocks a custom portrait (down to the Goku coffee mug), matching aura, scouter reading, vertical calligraphy, and full-site Japandi theme palette, with subtle stage dots and one-click (or `Esc`) power-down back to Base.
+- **🌗 Daylight & Evening Mode**: Light by default, with a warm dark mode you can switch on—including Daylight and Evening variants across every transformed theme.
+- **🎨 Japandi Design**: Washi-paper and oak palette, animated bonsai and parting leaf canopies, a hanging kakejiku scroll, and calm scroll animations that respect reduced-motion settings.
+- **📱 Mobile First**: Fully responsive layout ensuring a great experience on any device.
 
 ## 🛠️ Tech Stack
 
-This project is built with the latest modern web technologies:
+This project is built with modern web technologies:
 
-- **[Angular v18](https://angular.io/)**: Utilizing standalone components, signals, and the new application builder for maximum performance.
-- **[Tailwind CSS v3](https://tailwindcss.com/)**: For rapid, utility-first styling and custom design systems.
-- **[TypeScript](https://www.typescriptlang.org/)**: ensuring type safety and robust code.
-- **GitHub Pages**: built and deployed by a GitHub Actions workflow on every push to `main`.
+- **[Angular 21](https://angular.dev/)**: Standalone components, signals, and static prerendering (`@angular/ssr`) for fast loads and SEO.
+- **[Tailwind CSS v3](https://tailwindcss.com/)**: Utility-first styling paired with custom CSS tokens for Japandi and transformation themes.
+- **[TypeScript](https://www.typescriptlang.org/)**: End-to-end type safety.
+- **GitHub Pages**: Built and deployed by a GitHub Actions workflow on every push to `main`.
 
 ## 🚀 Getting Started
 
