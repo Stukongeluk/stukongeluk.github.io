@@ -32,8 +32,11 @@ export class CapyDriveDetailComponent implements OnInit, AfterViewInit {
             url: 'https://jimmynguyen.nl/projects/capydrive/',
             type: 'article',
             keywords: 'CapyDrive, Angular 21, Firebase, Serverless, Cloud Functions, Mollie, Dutch Driving Theory, CBR, Scooter AM, Spaced Repetition, AI-assisted development, Eemshaven',
-            image: 'https://jimmynguyen.nl/assets/logo.png',
-            imageAlt: 'CapyDrive logo'
+            image: 'https://jimmynguyen.nl/assets/og/capydrive.jpg',
+            imageWidth: 1200,
+            imageHeight: 630,
+            imageType: 'image/jpeg',
+            imageAlt: 'CapyDrive project write-up by Jimmy Nguyen, with the CapyDrive logo'
         });
     }
 

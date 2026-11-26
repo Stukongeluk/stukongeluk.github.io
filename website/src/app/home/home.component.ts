@@ -33,8 +33,11 @@ export class HomeComponent implements OnInit {
       url: 'https://jimmynguyen.nl/',
       type: 'website',
       keywords: 'Jimmy Nguyen, Senior DevOps Engineer, Full-Stack Developer, Cloud Engineer, Forward Deploy Engineer, CKAD, AWS Certified, Terraform, Kubernetes, Docker, Angular, Java, Spring Boot, Quarkus, Golang, Python, Auth0, Claude, MCP',
-      image: 'https://jimmynguyen.nl/assets/hero_profile.webp',
-      imageAlt: 'Jimmy Nguyen illustration',
+      image: 'https://jimmynguyen.nl/assets/og/home.jpg',
+      imageWidth: 1200,
+      imageHeight: 630,
+      imageType: 'image/jpeg',
+      imageAlt: 'Jimmy Nguyen, Senior DevOps Engineer and Full-Stack Developer, with his pixel-art portrait on a hanging scroll beside a bonsai',
       jsonLd: {
         '@context': 'https://schema.org',
         '@graph': [

@@ -32,8 +32,11 @@ export class HermesSynologyDetailComponent implements OnInit, AfterViewInit {
             url: 'https://jimmynguyen.nl/projects/hermes-synology/',
             type: 'article',
             keywords: 'Hermes Agent, NousResearch, Synology NAS, Docker, Discord Bot, CapyDrive, Freelance DevOps, OpenClaw, Content Generation, CBR Exam',
-            image: 'https://jimmynguyen.nl/assets/hermes-synology.jpg',
-            imageAlt: 'Hermes Agent on Synology NAS'
+            image: 'https://jimmynguyen.nl/assets/og/hermes-synology.jpg',
+            imageWidth: 1200,
+            imageHeight: 630,
+            imageType: 'image/jpeg',
+            imageAlt: 'Autonomous Ops: Hermes Agent on a Synology NAS, a project write-up by Jimmy Nguyen'
         });
     }
 

@@ -26,7 +26,7 @@ export class TheHumanCSuiteDetailComponent implements OnInit {
         }
 
         const pageUrl = 'https://jimmynguyen.nl/projects/the-human-c-suite/';
-        const imageUrl = 'https://jimmynguyen.nl/assets/the-human-c-suite.jpg';
+        const imageUrl = 'https://jimmynguyen.nl/assets/og/the-human-c-suite.jpg';
         const description = 'Open-source AI agent skills for Claude and Gemini: a humane CEO, CFO, CTO, CPTO & CHRO grounded in company data, with layoffs as a last resort and blind evals.';
 
         this.seoService.update({
@@ -38,9 +38,9 @@ export class TheHumanCSuiteDetailComponent implements OnInit {
             keywords: 'The Human C-Suite, AI agent skills, Claude Code plugin, Claude skills, Gemini agent skills, Model Context Protocol, MCP, humane leadership, AI layoffs alternative, CEO AI agent, CFO AI agent, CTO AI agent, CPTO AI agent, CHRO AI agent, HR AI agent, reskilling, works council, Nordic model, open source',
             image: imageUrl,
             imageWidth: 1200,
-            imageHeight: 756,
+            imageHeight: 630,
             imageType: 'image/jpeg',
-            imageAlt: 'The Human C-Suite: five AI agent seats for CEO, CFO, CTO, CPTO, and CHRO',
+            imageAlt: 'The Human C-Suite write-up by Jimmy Nguyen, with the five C-suite agent characters',
             publishedTime: '2026-11-20T00:00:00Z',
             modifiedTime: '2026-11-21T00:00:00Z',
             section: 'AI Agents & Leadership',
@@ -116,7 +116,7 @@ export class TheHumanCSuiteDetailComponent implements OnInit {
                             '@type': 'ImageObject',
                             url: imageUrl,
                             width: 1200,
-                            height: 756
+                            height: 630
                         },
                         datePublished: '2026-11-20T00:00:00Z',
                         dateModified: '2026-11-24T00:00:00Z',
