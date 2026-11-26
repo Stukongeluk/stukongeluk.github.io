@@ -231,7 +231,7 @@ h3,
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -296,6 +296,22 @@ html.dark .gradient-text {
   backdrop-filter: saturate(1.1) blur(12px);
   -webkit-backdrop-filter: saturate(1.1) blur(12px);
   border-bottom: 1px solid var(--line);
+}
+
+/* Phone menu: solid paper panel so the page doesn't show through */
+@media (max-width: 767px) {
+  nav.menu-open {
+    background: var(--paper);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 0 24px 40px -24px rgba(39, 35, 30, 0.35);
+  }
+
+  nav.menu-open .nav-link {
+    font-size: 1.05rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+  }
 }
 
 .nav-link {
@@ -831,14 +847,14 @@ body.super-saiyan-mode .trunk::after {
 
 @media (max-width: 767px) {
   .trunk {
-    width: 60px;
-    -webkit-mask-size: 60px 614px, 100% 100%;
-    mask-size: 60px 614px, 100% 100%;
+    width: 44px;
+    -webkit-mask-size: 44px 450px, 100% 100%;
+    mask-size: 44px 450px, 100% 100%;
   }
 
   .trunk::after {
-    -webkit-mask-size: 60px 614px, 100% 100%;
-    mask-size: 60px 614px, 100% 100%;
+    -webkit-mask-size: 44px 450px, 100% 100%;
+    mask-size: 44px 450px, 100% 100%;
   }
 
   .trunk.left {
@@ -1009,12 +1025,18 @@ app-leaf-canopy.leaves-closed .bpad {
 
 @media (max-width: 767px) {
   app-leaf-canopy {
-    top: -100px;
-    height: 110px;
+    top: -112px;
+    height: 104px;
+  }
+
+  /* No scroll drift on phones: the gaps between sections are tighter */
+  .branch-svg {
+    animation: none !important;
+    translate: none;
   }
 
   .cluster {
-    width: 46vw;
+    width: 40vw;
   }
 
   html:not(.dark) .branch-svg {
@@ -1224,6 +1246,13 @@ html.dark .kakejiku .silk {
   transition: opacity 0.4s;
 }
 
+.power-hint .hint-touch { display: none; }
+
+@media (hover: none) {
+  .power-hint .hint-touch { display: inline; }
+  .power-hint .hint-mouse { display: none; }
+}
+
 .kakejiku:hover .power-hint,
 .kakejiku:focus-within .power-hint {
   opacity: 1;
@@ -1325,6 +1354,14 @@ body.super-saiyan-mode .writeup-cta {
   border-color: rgba(251, 191, 36, 0.45);
   border-top-color: #F5B301;
   box-shadow: 0 0 30px -8px rgba(255, 180, 0, 0.45);
+}
+
+@media (max-width: 767px) {
+  .blog-article .code-block,
+  .blog-article .code-block code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
 }
 
 .blog-article .code-block {

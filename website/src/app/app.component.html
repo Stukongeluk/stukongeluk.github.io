@@ -2,7 +2,7 @@
     class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:px-4 focus:py-2 focus:rounded-full focus:bg-paper-900 focus:text-paper-50">Skip
     to content</a>
 
-<nav aria-label="Main navigation" class="fixed top-0 left-0 right-0 z-50 glass-dark">
+<nav aria-label="Main navigation" class="fixed top-0 left-0 right-0 z-50 glass-dark" [class.menu-open]="isMenuOpen()">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-5 py-3.5">
         <a routerLink="/" (click)="isMenuOpen.set(false)" class="flex items-center"
             aria-label="Jimmy Nguyen, home">
@@ -12,10 +12,13 @@
         <button (click)="toggleMenu()" type="button"
             class="inline-flex items-center justify-center w-10 h-10 rounded-full text-gray-700 dark:text-gray-200 md:hidden hover:bg-gray-200/60 dark:hover:bg-gray-800 transition-colors"
             aria-controls="navbar-default" [attr.aria-expanded]="isMenuOpen()">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-5 h-5 transition-transform duration-300" [class.rotate-90]="isMenuOpen()" aria-hidden="true"
-                fill="none" viewBox="0 0 17 14">
+            <span class="sr-only">{{ isMenuOpen() ? 'Close main menu' : 'Open main menu' }}</span>
+            <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
+                @if (isMenuOpen()) {
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M3 1l11 12M14 1L3 13" />
+                } @else {
                 <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M1 1h15M1 7h15M4 13h12" />
+                }
             </svg>
         </button>
         <div class="w-full md:block md:w-auto" [class.hidden]="!isMenuOpen()" id="navbar-default">

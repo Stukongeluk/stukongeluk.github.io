@@ -111,7 +111,7 @@
       @for (cert of certifications; track cert.title; let i = $index) {
       <div class="skill-card flex flex-col justify-between" appReveal [revealDelay]="(i % 3) * 90">
         <div>
-          <p class="text-[0.7rem] tracking-[0.2em] uppercase text-accent-600 dark:text-accent-400 mb-3">{{ cert.issuer
+          <p class="text-[0.75rem] tracking-[0.2em] uppercase text-accent-600 dark:text-accent-400 mb-3">{{ cert.issuer
             }}</p>
           <h3 class="font-serif text-lg font-bold leading-snug text-gray-900 dark:text-gray-50 mb-3">{{ cert.title }}
           </h3>

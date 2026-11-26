@@ -71,8 +71,7 @@
                         <path d="M6 70 L15 78 L9 82 L20 94" />
                         <path d="M94 62 L86 72 L92 76 L82 90" />
                     </svg>
-                    <span class="power-hint" aria-hidden="true">{{ superSaiyan.isTransformed() ? 'Click to power down'
-                        : 'Click the portrait to power up' }}</span>
+                    <span class="power-hint" aria-hidden="true"><span class="hint-touch">{{ superSaiyan.isTransformed() ? 'Tap again to power down' : 'Tap the portrait to power up' }}</span><span class="hint-mouse">{{ superSaiyan.isTransformed() ? 'Click to power down' : 'Click the portrait to power up' }}</span></span>
                 </div>
                 <app-bonsai class="hero-bonsai"></app-bonsai>
                 <div class="toko-board" aria-hidden="true"></div>
@@ -80,7 +79,7 @@
         </div>
     </div>
 
-    <a routerLink="/" fragment="about" class="scroll-cue" aria-label="Scroll to About">
+    <a routerLink="/" fragment="about" class="scroll-cue" aria-hidden="true" tabindex="-1">
         <span></span>
     </a>
 </section>

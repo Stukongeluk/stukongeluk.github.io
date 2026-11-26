@@ -54,7 +54,10 @@
 }
 
 .project-tags {
-  font-size: 0.72rem;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.15rem;
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
   color: var(--muted);
   margin-bottom: 0.9rem;
