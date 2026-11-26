@@ -162,6 +162,212 @@ html.dark:has(body.super-saiyan-mode) {
   background: #120F0B;
 }
 
+/* Super Saiyan God (red hair): vermilion-crimson divine flame on gilded blush washi */
+body.super-saiyan-mode.ssj-god {
+  --accent-50: 255 241 242;
+  --accent-100: 255 228 230;
+  --accent-200: 254 205 211;
+  --accent-300: 253 164 175;
+  --accent-400: 251 113 133;
+  --accent-500: 225 29 72;
+  --accent-600: 190 18 60;
+  --accent-700: 159 18 57;
+  --accent-800: 136 19 55;
+  --accent-900: 112 16 44;
+  --accent-950: 76 5 25;
+
+  --paper: #FBF0EE;
+  --paper-deep: #F4DFDC;
+  --card: #FFF8F7;
+  --line: rgba(225, 29, 72, 0.24);
+  --wood: #BE123C;
+  --wood-dark: #881337;
+  --leaf-1: #E11D48;
+  --leaf-2: #FB7185;
+  --leaf-3: #B91C1C;
+  --leaf-glow: rgba(239, 68, 68, 0.65);
+  --gold-text: linear-gradient(100deg, #991B1B 0%, #DC2626 35%, #F97316 55%, #BE123C 78%, #991B1B 100%);
+  --gold-glow: rgba(225, 29, 72, 0.28);
+}
+
+/* Super Saiyan God Evening variant: fiery crimson & ruby flame on obsidian ink */
+html.dark body.super-saiyan-mode.ssj-god {
+  --accent-50: 255 241 242;
+  --accent-100: 255 228 230;
+  --accent-200: 254 205 211;
+  --accent-300: 253 164 175;
+  --accent-400: 251 113 133;
+  --accent-500: 244 63 94;
+  --accent-600: 225 29 72;
+  --accent-700: 190 18 60;
+  --accent-800: 159 18 57;
+  --accent-900: 136 19 55;
+  --accent-950: 76 5 25;
+
+  --paper: #140B0D;
+  --paper-deep: #1F1114;
+  --card: #221317;
+  --line: rgba(251, 113, 133, 0.24);
+  --wood: #F43F5E;
+  --wood-dark: #9F1239;
+  --leaf-1: #EF4444;
+  --leaf-2: #FB7185;
+  --leaf-3: #DC2626;
+  --leaf-glow: rgba(244, 63, 94, 0.8);
+  --gold-text: linear-gradient(100deg, #FDA4AF 0%, #EF4444 35%, #FDE047 55%, #F43F5E 75%, #FB7185 100%);
+  --gold-glow: rgba(239, 68, 68, 0.45);
+}
+
+html:has(body.super-saiyan-mode.ssj-god) {
+  background: #FBF0EE;
+}
+
+html.dark:has(body.super-saiyan-mode.ssj-god) {
+  background: #140B0D;
+}
+
+/* Super Saiyan Blue (SSGSS): electric cyan-blue on glacial washi & midnight ink */
+body.super-saiyan-mode.ssj-blue {
+  --accent-50: 236 254 255;
+  --accent-100: 207 250 254;
+  --accent-200: 165 243 252;
+  --accent-300: 103 232 249;
+  --accent-400: 34 211 238;
+  --accent-500: 6 182 212;
+  --accent-600: 8 145 178;
+  --accent-700: 14 116 144;
+  --accent-800: 21 94 117;
+  --accent-900: 22 78 99;
+  --accent-950: 8 51 68;
+
+  --paper: #EEF8FB;
+  --paper-deep: #DCF0F7;
+  --card: #F7FCFE;
+  --line: rgba(6, 182, 212, 0.24);
+  --wood: #0E7490;
+  --wood-dark: #164E63;
+  --leaf-1: #06B6D4;
+  --leaf-2: #67E8F9;
+  --leaf-3: #0284C7;
+  --leaf-glow: rgba(34, 211, 238, 0.65);
+  --gold-text: linear-gradient(100deg, #0E7490 0%, #0284C7 35%, #22D3EE 55%, #0891B2 78%, #0E7490 100%);
+  --gold-glow: rgba(6, 182, 212, 0.28);
+}
+
+html.dark body.super-saiyan-mode.ssj-blue {
+  --paper: #091119;
+  --paper-deep: #101B26;
+  --card: #12202D;
+  --line: rgba(34, 211, 238, 0.24);
+  --wood: #22D3EE;
+  --wood-dark: #0E7490;
+  --leaf-1: #22D3EE;
+  --leaf-2: #A5F3FC;
+  --leaf-3: #0284C7;
+  --leaf-glow: rgba(34, 211, 238, 0.8);
+  --gold-text: linear-gradient(100deg, #A5F3FC 0%, #22D3EE 35%, #E0F2FE 55%, #06B6D4 75%, #67E8F9 100%);
+  --gold-glow: rgba(34, 211, 238, 0.45);
+}
+
+html:has(body.super-saiyan-mode.ssj-blue) { background: #EEF8FB; }
+html.dark:has(body.super-saiyan-mode.ssj-blue) { background: #091119; }
+
+/* Ultra Instinct Sign: silver-blue ethereal heat on mist washi & cosmic indigo ink */
+body.super-saiyan-mode.ssj-ui-sign {
+  --accent-50: 248 250 252;
+  --accent-100: 241 245 249;
+  --accent-200: 219 234 254;
+  --accent-300: 191 219 254;
+  --accent-400: 147 197 253;
+  --accent-500: 96 165 250;
+  --accent-600: 71 85 105;
+  --accent-700: 51 65 85;
+  --accent-800: 30 41 59;
+  --accent-900: 15 23 42;
+  --accent-950: 9 13 24;
+
+  --paper: #F1F5FA;
+  --paper-deep: #E2EAF4;
+  --card: #F8FAFD;
+  --line: rgba(96, 165, 250, 0.24);
+  --wood: #475569;
+  --wood-dark: #1E293B;
+  --leaf-1: #60A5FA;
+  --leaf-2: #BFDBFE;
+  --leaf-3: #4F46E5;
+  --leaf-glow: rgba(147, 197, 253, 0.65);
+  --gold-text: linear-gradient(100deg, #334155 0%, #4F46E5 35%, #60A5FA 55%, #475569 78%, #334155 100%);
+  --gold-glow: rgba(129, 140, 248, 0.26);
+}
+
+html.dark body.super-saiyan-mode.ssj-ui-sign {
+  --accent-600: 147 197 253;
+  --paper: #0B0E18;
+  --paper-deep: #131826;
+  --card: #161C2C;
+  --line: rgba(147, 197, 253, 0.22);
+  --wood: #93C5FD;
+  --wood-dark: #475569;
+  --leaf-1: #93C5FD;
+  --leaf-2: #E2E8F0;
+  --leaf-3: #6366F1;
+  --leaf-glow: rgba(147, 197, 253, 0.78);
+  --gold-text: linear-gradient(100deg, #E2E8F0 0%, #93C5FD 35%, #FFFFFF 55%, #818CF8 75%, #CBD5E1 100%);
+  --gold-glow: rgba(147, 197, 253, 0.42);
+}
+
+html:has(body.super-saiyan-mode.ssj-ui-sign) { background: #F1F5FA; }
+html.dark:has(body.super-saiyan-mode.ssj-ui-sign) { background: #0B0E18; }
+
+/* Mastered Ultra Instinct: luminous pure silver-white & celestial iridescent pearl */
+body.super-saiyan-mode.ssj-mui {
+  --accent-50: 255 255 255;
+  --accent-100: 248 250 252;
+  --accent-200: 226 232 240;
+  --accent-300: 203 213 225;
+  --accent-400: 196 181 253;
+  --accent-500: 148 163 184;
+  --accent-600: 100 116 139;
+  --accent-700: 71 85 105;
+  --accent-800: 51 65 85;
+  --accent-900: 30 41 59;
+  --accent-950: 15 23 42;
+
+  --paper: #F7F8FC;
+  --paper-deep: #EBEEF6;
+  --card: #FFFFFF;
+  --line: rgba(148, 163, 184, 0.28);
+  --wood: #64748B;
+  --wood-dark: #334155;
+  --leaf-1: #CBD5E1;
+  --leaf-2: #F8FAFC;
+  --leaf-3: #A78BFA;
+  --leaf-glow: rgba(196, 181, 253, 0.7);
+  --gold-text: linear-gradient(100deg, #475569 0%, #7C3AED 38%, #94A3B8 55%, #475569 78%, #334155 100%);
+  --gold-glow: rgba(167, 139, 250, 0.26);
+}
+
+html.dark body.super-saiyan-mode.ssj-mui {
+  --accent-400: 226 232 240;
+  --accent-500: 203 213 225;
+  --accent-600: 241 245 249;
+  --paper: #0C0D14;
+  --paper-deep: #151722;
+  --card: #191B28;
+  --line: rgba(226, 232, 240, 0.22);
+  --wood: #E2E8F0;
+  --wood-dark: #64748B;
+  --leaf-1: #E2E8F0;
+  --leaf-2: #FFFFFF;
+  --leaf-3: #C4B5FD;
+  --leaf-glow: rgba(241, 245, 249, 0.88);
+  --gold-text: linear-gradient(100deg, #FFFFFF 0%, #E2E8F0 32%, #DDD6FE 54%, #F8FAFC 76%, #CBD5E1 100%);
+  --gold-glow: rgba(226, 232, 240, 0.52);
+}
+
+html:has(body.super-saiyan-mode.ssj-mui) { background: #F7F8FC; }
+html.dark:has(body.super-saiyan-mode.ssj-mui) { background: #0C0D14; }
+
 /* ---------- Base ---------- */
 html {
   scroll-behavior: smooth;
@@ -765,6 +971,42 @@ body.super-saiyan-mode {
   --lf-red: #FFB020;
 }
 
+body.super-saiyan-mode.ssj-god {
+  --lf-moss: #DC2626;
+  --lf-sage: #FB7185;
+  --lf-oak: #E11D48;
+  --lf-walnut: #991B1B;
+  --lf-red: #F97316;
+  --branch: #7F2B2B;
+}
+
+body.super-saiyan-mode.ssj-blue {
+  --lf-moss: #06B6D4;
+  --lf-sage: #67E8F9;
+  --lf-oak: #0284C7;
+  --lf-walnut: #0E7490;
+  --lf-red: #38BDF8;
+  --branch: #1E4E68;
+}
+
+body.super-saiyan-mode.ssj-ui-sign {
+  --lf-moss: #60A5FA;
+  --lf-sage: #BFDBFE;
+  --lf-oak: #818CF8;
+  --lf-walnut: #475569;
+  --lf-red: #CBD5E1;
+  --branch: #3B4A66;
+}
+
+body.super-saiyan-mode.ssj-mui {
+  --lf-moss: #CBD5E1;
+  --lf-sage: #F8FAFC;
+  --lf-oak: #C4B5FD;
+  --lf-walnut: #94A3B8;
+  --lf-red: #E2E8F0;
+  --branch: #525B72;
+}
+
 [data-tone="moss"] { color: var(--lf-moss); }
 [data-tone="sage"] { color: var(--lf-sage); }
 [data-tone="oak"] { color: var(--lf-oak); }
@@ -1186,7 +1428,7 @@ html.dark .kakejiku .silk {
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 720 / 824;
+  aspect-ratio: 3 / 4;
   border: 0;
   padding: 0;
   cursor: pointer;
@@ -1215,6 +1457,160 @@ html.dark .kakejiku .silk {
 .kakejiku.is-super .portrait .img-normal {
   opacity: 0;
 }
+
+.kakejiku .portrait img {
+  opacity: 0;
+}
+
+.kakejiku .portrait .img-normal,
+.kakejiku .portrait .img-ssj1 {
+  object-position: left center;
+}
+
+.kakejiku.form-base .portrait .img-normal,
+.kakejiku.form-ssj1 .portrait .img-ssj1,
+.kakejiku.form-ssj2 .portrait .img-ssj2,
+.kakejiku.form-ssj3 .portrait .img-ssj3,
+.kakejiku.form-ssg .portrait .img-ssg,
+.kakejiku.form-ssb .portrait .img-ssb,
+.kakejiku.form-ui-sign .portrait .img-ui-sign,
+.kakejiku.form-mui .portrait .img-mui {
+  opacity: 1;
+}
+
+/* Subtle Japandi scroll controls & quiet power-down */
+.saiyan-controls {
+  position: absolute;
+  left: 50%;
+  bottom: -0.55rem;
+  transform: translate(-50%, 100%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+  z-index: 6;
+  opacity: 0.72;
+  transition: opacity 0.3s ease;
+}
+
+.kakejiku:hover .saiyan-controls,
+.saiyan-controls:hover,
+.saiyan-controls:focus-within {
+  opacity: 1;
+}
+
+.saiyan-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.saiyan-dot {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border-radius: 999px;
+  background: var(--line);
+  border: 1px solid color-mix(in srgb, var(--muted) 45%, transparent);
+  transition: transform 0.25s ease, width 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.saiyan-dot:hover {
+  transform: scale(1.35);
+  border-color: rgb(var(--accent-400));
+}
+
+.saiyan-dot.is-reached {
+  background: rgb(var(--accent-500) / 0.55);
+  border-color: rgb(var(--accent-400));
+}
+
+.saiyan-dot.is-active {
+  width: 14px;
+  background: rgb(var(--accent-400));
+  border-color: rgb(var(--accent-300));
+  box-shadow: 0 0 8px rgb(var(--accent-400) / 0.7);
+}
+
+.saiyan-dot.is-god.is-active {
+  background: #F43F5E;
+  border-color: #FDA4AF;
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.8);
+}
+
+.saiyan-sep {
+  font-size: 0.75rem;
+  color: var(--muted);
+  opacity: 0.55;
+}
+
+.saiyan-quiet-down {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+
+.saiyan-quiet-down:hover {
+  color: var(--ink);
+}
+
+/* Quiet global navbar power-down matching the Evening/Daylight control */
+.nav-powerdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.84rem;
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+
+.nav-powerdown:hover {
+  color: var(--ink);
+}
+
+.nav-ki-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgb(var(--accent-400));
+  box-shadow: 0 0 8px rgb(var(--accent-400) / 0.8);
+}
+
+.nav-ki-dot.is-god {
+  background: #F43F5E;
+  box-shadow: 0 0 9px rgba(244, 63, 94, 0.9);
+}
+
+.saiyan-dot[data-stage="ssg"].is-active {
+  background: #F43F5E;
+  border-color: #FDA4AF;
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.8);
+}
+
+.saiyan-dot[data-stage="ssb"].is-active {
+  background: #22D3EE;
+  border-color: #A5F3FC;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.85);
+}
+
+.saiyan-dot[data-stage="ui_sign"].is-active {
+  background: #93C5FD;
+  border-color: #E0E7FF;
+  box-shadow: 0 0 10px rgba(147, 197, 253, 0.85);
+}
+
+.saiyan-dot[data-stage="mui"].is-active {
+  background: #F8FAFC;
+  border-color: #DDD6FE;
+  box-shadow: 0 0 12px rgba(241, 245, 249, 0.95);
+}
+
+.nav-ki-dot[data-form="ssg"] { background: #F43F5E; box-shadow: 0 0 9px rgba(244, 63, 94, 0.9); }
+.nav-ki-dot[data-form="ssb"] { background: #22D3EE; box-shadow: 0 0 9px rgba(34, 211, 238, 0.9); }
+.nav-ki-dot[data-form="ui_sign"] { background: #93C5FD; box-shadow: 0 0 9px rgba(147, 197, 253, 0.9); }
+.nav-ki-dot[data-form="mui"] { background: #F8FAFC; box-shadow: 0 0 10px rgba(226, 232, 240, 0.95); }
 
 .kakejiku .vertical-text {
   writing-mode: vertical-rl;
@@ -1555,12 +1951,12 @@ body.super-saiyan-mode .kakejiku .aura {
 @keyframes ss-aura {
   from {
     transform: translate(-50%, -50%) scale(1) skewX(-1deg);
-    filter: brightness(1);
+    filter: var(--aura-filter, brightness(1)) brightness(1);
   }
 
   to {
     transform: translate(-50%, -51.5%) scale(1.06) skewX(1deg);
-    filter: brightness(1.25);
+    filter: var(--aura-filter, brightness(1)) brightness(1.22);
   }
 }
 
@@ -1635,6 +2031,317 @@ body.super-saiyan-mode .kakejiku .lightning {
 body.super-saiyan-mode h1 .role-line {
   animation: ss-tremble 0.25s linear infinite, ss-shimmer 3.5s linear infinite;
   display: inline-block;
+}
+
+/* === SSJ2: High-voltage cyan bio-electricity === */
+body.super-saiyan-mode.ssj-2 .kakejiku {
+  filter: drop-shadow(0 0 32px rgba(250, 204, 21, 0.55)) drop-shadow(0 0 18px rgba(56, 189, 248, 0.45));
+}
+
+body.super-saiyan-mode.ssj-2 .kakejiku .aura {
+  --aura-filter: saturate(1.25) drop-shadow(0 0 18px rgba(56, 189, 248, 0.65));
+  animation-duration: 0.38s;
+}
+
+body.super-saiyan-mode.ssj-2 .lightning path,
+body.super-saiyan-mode.ssj-3 .lightning path {
+  stroke: #E0F2FE;
+  filter: drop-shadow(0 0 5px #38BDF8) drop-shadow(0 0 14px #0EA5E9);
+  animation-duration: 1.45s;
+}
+
+body.super-saiyan-mode.ssj-2 .skill-card,
+body.super-saiyan-mode.ssj-2 .modern-card,
+body.super-saiyan-mode.ssj-2 .hobby-card,
+body.super-saiyan-mode.ssj-2 .project-card {
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.22), 0 0 30px -8px rgba(255, 195, 0, 0.55);
+}
+
+/* === SSJ3: Blazing solar gold & maximum voltage === */
+body.super-saiyan-mode.ssj-3 .kakejiku {
+  filter: drop-shadow(0 0 42px rgba(253, 224, 71, 0.72)) drop-shadow(0 0 26px rgba(56, 189, 248, 0.6));
+}
+
+body.super-saiyan-mode.ssj-3 .kakejiku .aura {
+  width: 215%;
+  height: 195%;
+  --aura-filter: saturate(1.4) drop-shadow(0 0 28px rgba(56, 189, 248, 0.8));
+  animation-duration: 0.28s;
+}
+
+body.super-saiyan-mode.ssj-3 .lightning path {
+  stroke-width: 2.6;
+  animation-duration: 1.05s;
+}
+
+body.super-saiyan-mode.ssj-3 .lightning path:nth-child(5) {
+  animation-delay: 0.25s;
+  animation-duration: 1.2s;
+}
+
+body.super-saiyan-mode.ssj-3 .lightning path:nth-child(6) {
+  animation-delay: 0.7s;
+  animation-duration: 1.35s;
+}
+
+body.super-saiyan-mode.ssj-3 h1 .role-line {
+  animation-duration: 0.15s, 2.2s;
+}
+
+/* === Super Saiyan God (SSG): Divine crimson flame & serene composure === */
+body.super-saiyan-mode.ssj-god::before {
+  background:
+    radial-gradient(900px 520px at 70% -10%, rgba(239, 68, 68, 0.26), transparent 70%),
+    radial-gradient(700px 500px at 0% 110%, rgba(244, 63, 94, 0.18), transparent 70%);
+}
+
+body.super-saiyan-mode.ssj-god .trunk::after {
+  background: rgba(251, 113, 133, 0.52);
+}
+
+body.super-saiyan-mode.ssj-god .sway {
+  animation-duration: 2.6s;
+}
+
+body.super-saiyan-mode.ssj-god .kakejiku {
+  filter: drop-shadow(0 0 36px rgba(239, 68, 68, 0.6));
+}
+
+body.super-saiyan-mode.ssj-god .kakejiku .silk {
+  background-color: #F4DCE0;
+  box-shadow: inset 0 0 0 2px rgba(225, 29, 72, 0.55);
+}
+
+body.super-saiyan-mode.ssj-god .kakejiku .aura {
+  --aura-filter: hue-rotate(-52deg) saturate(3.2) drop-shadow(0 0 24px rgba(239, 68, 68, 0.85));
+  animation-duration: 1.1s;
+}
+
+body.super-saiyan-mode.ssj-god .kakejiku .lightning {
+  display: none;
+}
+
+body.super-saiyan-mode.ssj-god .skill-card,
+body.super-saiyan-mode.ssj-god .modern-card,
+body.super-saiyan-mode.ssj-god .hobby-card,
+body.super-saiyan-mode.ssj-god .project-card,
+body.super-saiyan-mode.ssj-god .writeup-cta {
+  border-color: rgba(244, 63, 94, 0.45) !important;
+  box-shadow: 0 0 0 1px rgba(244, 63, 94, 0.18), 0 0 30px -8px rgba(239, 68, 68, 0.5);
+}
+
+body.super-saiyan-mode.ssj-god .skill-card::after,
+body.super-saiyan-mode.ssj-god .project-card::after {
+  filter: hue-rotate(-48deg) saturate(2.8) drop-shadow(0 0 5px rgba(239, 68, 68, 0.85));
+}
+
+body.super-saiyan-mode.ssj-god .btn-ink,
+body.super-saiyan-mode.ssj-god .btn-modern {
+  background: linear-gradient(135deg, #F43F5E, #DC2626);
+  color: #FFF8F7;
+  box-shadow: 0 0 26px rgba(239, 68, 68, 0.5);
+}
+
+body.super-saiyan-mode.ssj-god .social-icon:hover {
+  background: #E11D48;
+  border-color: #E11D48;
+  color: #FFF8F7;
+  box-shadow: 0 0 26px rgba(239, 68, 68, 0.65);
+}
+
+body.super-saiyan-mode.ssj-god .blog-article header {
+  background: radial-gradient(circle at 70% 0%, rgba(239, 68, 68, 0.22), transparent 60%), var(--paper-deep) !important;
+}
+
+/* SSG has calm divine composure: stop frantic trembling, keep luminous shimmer */
+body.super-saiyan-mode.ssj-god h1 .role-line {
+  animation: ss-shimmer 4.2s linear infinite;
+}
+
+/* === Super Saiyan Blue (SSB): Electric cyan-blue aura & cobalt precision === */
+body.super-saiyan-mode.ssj-blue::before {
+  background:
+    radial-gradient(900px 520px at 70% -10%, rgba(34, 211, 238, 0.25), transparent 70%),
+    radial-gradient(700px 500px at 0% 110%, rgba(2, 132, 199, 0.18), transparent 70%);
+}
+
+body.super-saiyan-mode.ssj-blue .trunk::after { background: rgba(103, 232, 249, 0.55); }
+body.super-saiyan-mode.ssj-blue .sway { animation-duration: 1.6s; }
+
+body.super-saiyan-mode.ssj-blue .kakejiku {
+  filter: drop-shadow(0 0 38px rgba(34, 211, 238, 0.65));
+}
+
+body.super-saiyan-mode.ssj-blue .kakejiku .silk {
+  background-color: #DCEFF4;
+  box-shadow: inset 0 0 0 2px rgba(6, 182, 212, 0.58);
+}
+
+body.super-saiyan-mode.ssj-blue .kakejiku .aura {
+  --aura-filter: hue-rotate(140deg) saturate(3.2) drop-shadow(0 0 26px rgba(34, 211, 238, 0.9));
+  animation-duration: 0.7s;
+}
+
+body.super-saiyan-mode.ssj-blue .kakejiku .lightning { display: none; }
+
+body.super-saiyan-mode.ssj-blue .skill-card,
+body.super-saiyan-mode.ssj-blue .modern-card,
+body.super-saiyan-mode.ssj-blue .hobby-card,
+body.super-saiyan-mode.ssj-blue .project-card,
+body.super-saiyan-mode.ssj-blue .writeup-cta {
+  border-color: rgba(34, 211, 238, 0.45) !important;
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.18), 0 0 30px -8px rgba(6, 182, 212, 0.5);
+}
+
+body.super-saiyan-mode.ssj-blue .skill-card::after,
+body.super-saiyan-mode.ssj-blue .project-card::after {
+  filter: hue-rotate(145deg) saturate(2.5) drop-shadow(0 0 5px rgba(34, 211, 238, 0.85));
+}
+
+body.super-saiyan-mode.ssj-blue .btn-ink,
+body.super-saiyan-mode.ssj-blue .btn-modern {
+  background: linear-gradient(135deg, #22D3EE, #0284C7);
+  color: #06131C;
+  box-shadow: 0 0 26px rgba(34, 211, 238, 0.52);
+}
+
+body.super-saiyan-mode.ssj-blue .social-icon:hover {
+  background: #06B6D4;
+  border-color: #06B6D4;
+  color: #06131C;
+  box-shadow: 0 0 26px rgba(34, 211, 238, 0.65);
+}
+
+body.super-saiyan-mode.ssj-blue .blog-article header {
+  background: radial-gradient(circle at 70% 0%, rgba(34, 211, 238, 0.2), transparent 60%), var(--paper-deep) !important;
+}
+
+body.super-saiyan-mode.ssj-blue h1 .role-line {
+  animation: ss-shimmer 3.2s linear infinite;
+}
+
+/* === Ultra Instinct Sign: Ethereal silver-blue heat aura & silent stillness === */
+body.super-saiyan-mode.ssj-ui-sign::before {
+  background:
+    radial-gradient(900px 520px at 70% -10%, rgba(147, 197, 253, 0.22), transparent 70%),
+    radial-gradient(700px 500px at 0% 110%, rgba(99, 102, 241, 0.16), transparent 70%);
+}
+
+body.super-saiyan-mode.ssj-ui-sign .trunk::after { background: rgba(191, 219, 254, 0.48); }
+body.super-saiyan-mode.ssj-ui-sign .sway { animation-duration: 4.5s; }
+
+body.super-saiyan-mode.ssj-ui-sign .kakejiku {
+  filter: drop-shadow(0 0 36px rgba(147, 197, 253, 0.55));
+}
+
+body.super-saiyan-mode.ssj-ui-sign .kakejiku .silk {
+  background-color: #E2E8F2;
+  box-shadow: inset 0 0 0 2px rgba(147, 197, 253, 0.55);
+}
+
+body.super-saiyan-mode.ssj-ui-sign .kakejiku .aura {
+  --aura-filter: saturate(0.45) hue-rotate(162deg) drop-shadow(0 0 24px rgba(147, 197, 253, 0.85)) drop-shadow(0 0 42px rgba(129, 140, 248, 0.45));
+  animation-duration: 1.8s;
+}
+
+body.super-saiyan-mode.ssj-ui-sign .kakejiku .lightning { display: none; }
+
+body.super-saiyan-mode.ssj-ui-sign .skill-card,
+body.super-saiyan-mode.ssj-ui-sign .modern-card,
+body.super-saiyan-mode.ssj-ui-sign .hobby-card,
+body.super-saiyan-mode.ssj-ui-sign .project-card,
+body.super-saiyan-mode.ssj-ui-sign .writeup-cta {
+  border-color: rgba(147, 197, 253, 0.38) !important;
+  box-shadow: 0 0 0 1px rgba(147, 197, 253, 0.16), 0 0 30px -8px rgba(129, 140, 248, 0.42);
+}
+
+body.super-saiyan-mode.ssj-ui-sign .skill-card::after,
+body.super-saiyan-mode.ssj-ui-sign .project-card::after {
+  filter: saturate(0.35) brightness(1.3) drop-shadow(0 0 5px rgba(147, 197, 253, 0.8));
+}
+
+body.super-saiyan-mode.ssj-ui-sign .btn-ink,
+body.super-saiyan-mode.ssj-ui-sign .btn-modern {
+  background: linear-gradient(135deg, #DBEAFE, #818CF8);
+  color: #0F172A;
+  box-shadow: 0 0 24px rgba(147, 197, 253, 0.48);
+}
+
+body.super-saiyan-mode.ssj-ui-sign .social-icon:hover {
+  background: #93C5FD;
+  border-color: #93C5FD;
+  color: #0F172A;
+  box-shadow: 0 0 24px rgba(147, 197, 253, 0.6);
+}
+
+body.super-saiyan-mode.ssj-ui-sign .blog-article header {
+  background: radial-gradient(circle at 70% 0%, rgba(147, 197, 253, 0.18), transparent 60%), var(--paper-deep) !important;
+}
+
+body.super-saiyan-mode.ssj-ui-sign h1 .role-line {
+  animation: ss-shimmer 4.8s linear infinite;
+}
+
+/* === Mastered Ultra Instinct: Pure radiant silver-white celestial stillness === */
+body.super-saiyan-mode.ssj-mui::before {
+  background:
+    radial-gradient(950px 540px at 70% -10%, rgba(241, 245, 249, 0.24), transparent 70%),
+    radial-gradient(750px 520px at 0% 110%, rgba(196, 181, 253, 0.18), transparent 70%);
+}
+
+body.super-saiyan-mode.ssj-mui .trunk::after { background: rgba(241, 245, 249, 0.6); }
+body.super-saiyan-mode.ssj-mui .sway { animation-duration: 5.5s; }
+
+body.super-saiyan-mode.ssj-mui .kakejiku {
+  filter: drop-shadow(0 0 42px rgba(241, 245, 249, 0.65)) drop-shadow(0 0 24px rgba(196, 181, 253, 0.45));
+}
+
+body.super-saiyan-mode.ssj-mui .kakejiku .silk {
+  background-color: #F1F3F8;
+  box-shadow: inset 0 0 0 2px rgba(226, 232, 240, 0.72);
+}
+
+body.super-saiyan-mode.ssj-mui .kakejiku .aura {
+  --aura-filter: saturate(0.12) hue-rotate(190deg) brightness(1.18) drop-shadow(0 0 28px rgba(248, 250, 252, 0.95)) drop-shadow(0 0 48px rgba(196, 181, 253, 0.65));
+  animation-duration: 2.2s;
+}
+
+body.super-saiyan-mode.ssj-mui .kakejiku .lightning { display: none; }
+
+body.super-saiyan-mode.ssj-mui .skill-card,
+body.super-saiyan-mode.ssj-mui .modern-card,
+body.super-saiyan-mode.ssj-mui .hobby-card,
+body.super-saiyan-mode.ssj-mui .project-card,
+body.super-saiyan-mode.ssj-mui .writeup-cta {
+  border-color: rgba(226, 232, 240, 0.46) !important;
+  box-shadow: 0 0 0 1px rgba(241, 245, 249, 0.2), 0 0 34px -8px rgba(196, 181, 253, 0.48);
+}
+
+body.super-saiyan-mode.ssj-mui .skill-card::after,
+body.super-saiyan-mode.ssj-mui .project-card::after {
+  filter: saturate(0.1) brightness(1.55) drop-shadow(0 0 6px rgba(241, 245, 249, 0.9));
+}
+
+body.super-saiyan-mode.ssj-mui .btn-ink,
+body.super-saiyan-mode.ssj-mui .btn-modern {
+  background: linear-gradient(135deg, #FFFFFF, #CBD5E1);
+  color: #0F172A;
+  box-shadow: 0 0 28px rgba(226, 232, 240, 0.58);
+}
+
+body.super-saiyan-mode.ssj-mui .social-icon:hover {
+  background: #F8FAFC;
+  border-color: #F8FAFC;
+  color: #0F172A;
+  box-shadow: 0 0 28px rgba(241, 245, 249, 0.72);
+}
+
+body.super-saiyan-mode.ssj-mui .blog-article header {
+  background: radial-gradient(circle at 70% 0%, rgba(226, 232, 240, 0.2), transparent 60%), var(--paper-deep) !important;
+}
+
+body.super-saiyan-mode.ssj-mui h1 .role-line {
+  animation: ss-shimmer 5.2s linear infinite;
 }
 
 @keyframes ss-tremble {

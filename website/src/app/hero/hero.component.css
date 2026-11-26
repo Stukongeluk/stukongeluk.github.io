@@ -28,29 +28,45 @@
   animation: sun-pulse 1.4s ease-in-out infinite alternate;
 }
 
+:host-context(body.super-saiyan-mode.ssj-2) .sun {
+  background: radial-gradient(circle, rgba(253, 224, 71, 0.4), rgba(56, 189, 248, 0.14) 60%, transparent 70%);
+  animation-duration: 1s;
+}
+
+:host-context(body.super-saiyan-mode.ssj-3) .sun {
+  background: radial-gradient(circle, rgba(254, 240, 138, 0.46), rgba(56, 189, 248, 0.18) 60%, transparent 72%);
+  animation-duration: 0.7s;
+}
+
+:host-context(body.super-saiyan-mode.ssj-god) .sun {
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.42), rgba(244, 63, 94, 0.16) 58%, transparent 72%);
+  animation-duration: 2.2s;
+}
+
+:host-context(body.super-saiyan-mode.ssj-blue) .sun {
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.42), rgba(2, 132, 199, 0.16) 58%, transparent 72%);
+  animation-duration: 1.8s;
+}
+
+:host-context(body.super-saiyan-mode.ssj-ui-sign) .sun {
+  background: radial-gradient(circle, rgba(147, 197, 253, 0.34), rgba(99, 102, 241, 0.14) 60%, transparent 72%);
+  animation-duration: 3s;
+}
+
+:host-context(body.super-saiyan-mode.ssj-mui) .sun {
+  background: radial-gradient(circle, rgba(241, 245, 249, 0.38), rgba(196, 181, 253, 0.16) 60%, transparent 74%);
+  animation-duration: 3.4s;
+}
+
 @keyframes sun-pulse {
-  to {
-    transform: scale(1.06);
-  }
+  to { transform: scale(1.06); }
 }
 
-.ink-mountains path {
-  transition: fill 0.6s;
-}
+.ink-mountains path { transition: fill 0.6s; }
+.m1 { fill: rgba(110, 98, 84, 0.08); }
+.m2 { fill: rgba(110, 98, 84, 0.1); }
+.m3 { fill: rgba(110, 98, 84, 0.06); }
 
-.m1 {
-  fill: rgba(110, 98, 84, 0.08);
-}
-
-.m2 {
-  fill: rgba(110, 98, 84, 0.1);
-}
-
-.m3 {
-  fill: rgba(110, 98, 84, 0.06);
-}
-
-/* The ridges fade out at the bottom, so the hero melts into the page */
 .ink-mountains {
   -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
@@ -61,15 +77,12 @@
   fill: rgba(218, 205, 186, 0.05);
 }
 
-
-
-/* Tokonoma alcove: the scroll hangs above a low oak board, the bonsai sits on it */
 .tokonoma {
   position: relative;
   display: flex;
   justify-content: flex-end;
   width: min(100%, 520px);
-  padding: 46px 0 70px 0;
+  padding: 46px 0 82px 0;
 }
 
 .toko-board {
@@ -100,15 +113,8 @@
 }
 
 @media (max-width: 1023px) {
-  .tokonoma {
-    justify-content: center;
-    padding-left: 22%;
-  }
-
-  .hero-bonsai {
-    left: 0;
-    width: 44%;
-  }
+  .tokonoma { justify-content: center; padding-left: 22%; }
+  .hero-bonsai { left: 0; width: 44%; }
 }
 
 .scroll-cue {
@@ -130,18 +136,10 @@
 }
 
 @keyframes cue {
-  0% {
-    transform: translateY(-100%);
-  }
-
-  60%,
-  100% {
-    transform: translateY(100%);
-  }
+  0% { transform: translateY(-100%); }
+  60%, 100% { transform: translateY(100%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scroll-cue span {
-    animation: none;
-  }
+  .scroll-cue span { animation: none; }
 }

@@ -20,7 +20,7 @@ export class AppComponent {
 
   constructor(
     viewportScroller: ViewportScroller,
-    private saiyan: SuperSaiyanService,
+    public saiyan: SuperSaiyanService,
     public theme: ThemeService
   ) {
     // Keep section headings clear of the fixed nav bar when a nav link scrolls to them.
@@ -32,8 +32,8 @@ export class AppComponent {
   }
 
   changeTheme() {
-    // In Super Saiyan mode the toggle switches between gold-on-ink and
-    // gold-on-paper without changing the saved preference.
+    // In Super Saiyan mode the toggle switches between dark and light variants
+    // without changing the saved preference.
     this.theme.apply(!this.theme.isDark(), !this.saiyan.isTransformed());
   }
 }

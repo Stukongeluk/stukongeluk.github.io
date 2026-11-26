@@ -25,11 +25,11 @@
                 </ol>
             </nav>
             <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-                <span class="gradient-text">The @if (superSaiyan.isTransformed()) {<span class="tracking-tight">SUPER HUMAN</span>} @else {Human} C-Suite</span>: AI agent skills for running a company without losing your humanity
+                <span class="gradient-text">The @if (superSaiyan.isTransformed()) {<span class="tracking-tight">{{ superSaiyan.currentFormInfo().csuiteTitle }}</span>} @else {Human} C-Suite</span>: AI agent skills for running a company without losing your humanity
             </h1>
             @if (superSaiyan.isTransformed()) {
-            <p class="text-lg font-bold text-amber-600 dark:text-amber-400 mb-4">
-                Empathy is the real superpower of leadership.
+            <p class="text-lg font-bold mb-4" [ngClass]="superSaiyan.form() === 'ssg' ? 'text-rose-600 dark:text-rose-400' : superSaiyan.form() === 'ssb' ? 'text-cyan-600 dark:text-cyan-400' : superSaiyan.form() === 'ui_sign' || superSaiyan.form() === 'mui' ? 'text-slate-600 dark:text-slate-200' : 'text-amber-600 dark:text-amber-400'">
+                {{ superSaiyan.currentFormInfo().csuiteSubtitle }}
             </p>
             }
             <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
@@ -52,12 +52,22 @@
                     View on GitHub
                 </a>
                 <!-- Super Saiyan Toggle: the Human C-Suite becomes the SUPER HUMAN C-Suite -->
+                @if (superSaiyan.isTransformed()) {
+                <button type="button" (click)="superSaiyan.powerDown($event)"
+                    class="px-2 py-2 text-xs font-medium tracking-[0.16em] uppercase text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors flex items-center gap-1.5"
+                    title="Power down to Base form (Esc)">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                    Power Down
+                </button>
+                }
                 <button type="button" (click)="superSaiyan.toggle($event)"
                     aria-label="Toggle Super Human C-Suite mode"
                     [attr.aria-pressed]="superSaiyan.isTransformed()"
                     class="px-4 py-2 rounded-full border-2 border-amber-400 text-sm font-bold transition-all flex items-center gap-2 group"
                     [ngClass]="superSaiyan.isTransformed()
-                            ? 'bg-amber-600 text-white border-amber-600 hover:bg-amber-700'
+                            ? (superSaiyan.form() === 'ssg' ? 'bg-rose-600 text-white border-rose-500 hover:bg-rose-700' : superSaiyan.form() === 'ssb' ? 'bg-cyan-600 text-white border-cyan-400 hover:bg-cyan-700' : superSaiyan.form() === 'ui_sign' || superSaiyan.form() === 'mui' ? 'bg-slate-200 text-slate-900 border-slate-300 hover:bg-white' : 'bg-amber-600 text-white border-amber-600 hover:bg-amber-700')
                             : 'text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/30'">
                     <svg class="w-4 h-4 transition-transform group-hover:scale-125"
                         [class.animate-pulse]="superSaiyan.isTransformed()" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -65,7 +75,7 @@
                             d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z">
                         </path>
                     </svg>
-                    {{ superSaiyan.isTransformed() ? 'UNLEASHED' : 'ASCEND' }}
+                    {{ superSaiyan.currentFormInfo().buttonLabel }}
                 </button>
             </div>
         </div>

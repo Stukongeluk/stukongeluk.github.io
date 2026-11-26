@@ -1,4 +1,4 @@
-<div class="fx" [class]="'fx stage-' + stage()" aria-hidden="true"
+<div class="fx" [class]="'fx stage-' + stage() + ' fx-' + fxForm()" aria-hidden="true"
     [style.--ox.px]="saiyan.origin().x" [style.--oy.px]="saiyan.origin().y">
     <canvas #canvas class="fx-canvas"></canvas>
     <div class="fx-vignette"></div>
@@ -8,11 +8,12 @@
     <div class="fx-dim"></div>
 </div>
 
-<div class="scouter" [class.is-on]="scouter() !== 'hidden'" [class.is-over]="scouter() === 'over'" role="status"
-    aria-live="polite">
+<div class="scouter" [class]="'scouter scouter-' + fxForm()"
+    [class.is-on]="scouter() !== 'hidden'" [class.is-over]="scouter() === 'over'"
+    role="status" aria-live="polite">
     <div class="scouter-lens">
-        <span class="scouter-label">Power level</span>
+        <span class="scouter-label">{{ scouterLabel() }}</span>
         <span class="scouter-value" #power>0</span>
-        <span class="scouter-over">It's over 9000!</span>
+        <span class="scouter-over">{{ scouterOverText() }}</span>
     </div>
 </div>

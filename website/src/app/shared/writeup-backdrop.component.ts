@@ -67,6 +67,26 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       filter: drop-shadow(0 0 10px rgba(255, 180, 0, 0.6));
     }
 
+    :host-context(body.super-saiyan-mode.ssj-god) .wb-enso path {
+      stroke: rgba(244, 63, 94, 0.5);
+      filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.65));
+    }
+
+    :host-context(body.super-saiyan-mode.ssj-blue) .wb-enso path {
+      stroke: rgba(34, 211, 238, 0.5);
+      filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.65));
+    }
+
+    :host-context(body.super-saiyan-mode.ssj-ui-sign) .wb-enso path {
+      stroke: rgba(147, 197, 253, 0.45);
+      filter: drop-shadow(0 0 12px rgba(129, 140, 248, 0.6));
+    }
+
+    :host-context(body.super-saiyan-mode.ssj-mui) .wb-enso path {
+      stroke: rgba(241, 245, 249, 0.55);
+      filter: drop-shadow(0 0 14px rgba(196, 181, 253, 0.7));
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .wb-enso path { animation: none; stroke-dashoffset: 0; }
     }

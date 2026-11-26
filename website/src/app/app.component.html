@@ -9,18 +9,27 @@
             <span class="font-serif text-xl font-bold tracking-tight text-gray-900 dark:text-gray-50">Jimmy
                 Nguyen</span>
         </a>
-        <button (click)="toggleMenu()" type="button"
-            class="inline-flex items-center justify-center w-10 h-10 rounded-full text-gray-700 dark:text-gray-200 md:hidden hover:bg-gray-200/60 dark:hover:bg-gray-800 transition-colors"
-            aria-controls="navbar-default" [attr.aria-expanded]="isMenuOpen()">
-            <span class="sr-only">{{ isMenuOpen() ? 'Close main menu' : 'Open main menu' }}</span>
-            <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
-                @if (isMenuOpen()) {
-                <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M3 1l11 12M14 1L3 13" />
-                } @else {
-                <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M1 1h15M1 7h15M4 13h12" />
-                }
-            </svg>
-        </button>
+        <div class="flex items-center gap-2 md:hidden">
+            @if (saiyan.isTransformed()) {
+            <button type="button" class="nav-powerdown" (click)="saiyan.powerDown($event)"
+                title="Power down to Base (Esc)">
+                <span class="nav-ki-dot" [attr.data-form]="saiyan.form()" aria-hidden="true"></span>
+                <span>Power down</span>
+            </button>
+            }
+            <button (click)="toggleMenu()" type="button"
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full text-gray-700 dark:text-gray-200 hover:bg-gray-200/60 dark:hover:bg-gray-800 transition-colors"
+                aria-controls="navbar-default" [attr.aria-expanded]="isMenuOpen()">
+                <span class="sr-only">{{ isMenuOpen() ? 'Close main menu' : 'Open main menu' }}</span>
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
+                    @if (isMenuOpen()) {
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M3 1l11 12M14 1L3 13" />
+                    } @else {
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M1 1h15M1 7h15M4 13h12" />
+                    }
+                </svg>
+            </button>
+        </div>
         <div class="w-full md:block md:w-auto" [class.hidden]="!isMenuOpen()" id="navbar-default">
             <ul class="flex flex-col gap-1 pt-4 md:pt-0 md:flex-row md:items-center md:gap-2">
                 <li><a routerLink="/" fragment="about" (click)="isMenuOpen.set(false)"
@@ -29,6 +38,15 @@
                         class="nav-link block py-2 px-4">Projects</a></li>
                 <li><a routerLink="/" fragment="contact" (click)="isMenuOpen.set(false)"
                         class="nav-link block py-2 px-4">Contact</a></li>
+                @if (saiyan.isTransformed()) {
+                <li class="hidden md:block md:ml-2 md:pl-4 md:border-l md:border-[color:var(--line)]">
+                    <button type="button" class="nav-powerdown" (click)="saiyan.powerDown($event)"
+                        title="Power down to Base (Esc)">
+                        <span class="nav-ki-dot" [attr.data-form]="saiyan.form()" aria-hidden="true"></span>
+                        <span>Power down</span>
+                    </button>
+                </li>
+                }
                 <li class="px-4 py-2 md:ml-3 md:pl-5 md:border-l md:border-[color:var(--line)]">
                     <button type="button" (click)="changeTheme()"
                         class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300"

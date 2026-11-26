@@ -41,7 +41,16 @@
 
         <div class="lg:col-span-5 relative flex justify-center lg:justify-end pt-12 lg:pt-0">
             <div class="tokonoma">
-                <div class="kakejiku" [class.is-super]="superSaiyan.isTransformed()">
+                <div class="kakejiku"
+                    [class.is-super]="superSaiyan.isTransformed()"
+                    [class.form-base]="superSaiyan.form() === 'base'"
+                    [class.form-ssj1]="superSaiyan.form() === 'ssj1'"
+                    [class.form-ssj2]="superSaiyan.form() === 'ssj2'"
+                    [class.form-ssj3]="superSaiyan.form() === 'ssj3'"
+                    [class.form-ssg]="superSaiyan.form() === 'ssg'"
+                    [class.form-ssb]="superSaiyan.form() === 'ssb'"
+                    [class.form-ui-sign]="superSaiyan.form() === 'ui_sign'"
+                    [class.form-mui]="superSaiyan.form() === 'mui'">
                     <div class="aura" aria-hidden="true"></div>
                     <span class="hanger" aria-hidden="true"></span>
                     <div class="rod" aria-hidden="true"></div>
@@ -49,17 +58,22 @@
                         <div class="flex gap-3">
                             <button type="button" class="portrait" (click)="toggleTransformation($event)"
                                 [attr.aria-pressed]="superSaiyan.isTransformed()"
-                                [attr.aria-label]="superSaiyan.isTransformed() ? 'Power down from Super Saiyan mode' : 'Power up: turn on Super Saiyan mode'">
+                                [attr.aria-label]="superSaiyan.currentFormInfo().nextActionLabel">
                                 <img ngSrc="assets/hero_profile.webp" alt="Pixel-art illustration of Jimmy Nguyen coding at his desk"
                                     class="img-normal" width="720" height="824" priority />
-                                <!-- Only fetched once the power-up starts (the service preloads it on click) -->
+                                <!-- Only fetched once the power-up starts (the service preloads all forms on click) -->
                                 @if (superSaiyan.phase() !== 'idle') {
-                                <img src="assets/hero_profile2.webp" alt="" class="img-super" width="640" height="731"
-                                    decoding="async" />
+                                <img src="assets/hero_profile2.webp" alt="" class="img-ssj1" width="640" height="731" decoding="async" />
+                                <img src="assets/hero_profile_ssj2.webp" alt="" class="img-ssj2" width="896" height="1200" decoding="async" />
+                                <img src="assets/hero_profile_ssj3.webp" alt="" class="img-ssj3" width="896" height="1200" decoding="async" />
+                                <img src="assets/hero_profile_ssg.webp" alt="" class="img-ssg" width="896" height="1200" decoding="async" />
+                                <img src="assets/hero_profile_ssb.webp" alt="" class="img-ssb" width="896" height="1200" decoding="async" />
+                                <img src="assets/hero_profile_ui_sign.webp" alt="" class="img-ui-sign" width="896" height="1200" decoding="async" />
+                                <img src="assets/hero_profile_mui.webp" alt="" class="img-mui" width="896" height="1200" decoding="async" />
                                 }
                             </button>
                             <div class="flex flex-col items-center justify-between py-1" aria-hidden="true">
-                                <span class="vertical-text" lang="ja">静かな力</span>
+                                <span class="vertical-text" lang="ja">{{ superSaiyan.currentFormInfo().kanji }}</span>
                                 <span class="seal"></span>
                             </div>
                         </div>
@@ -70,8 +84,34 @@
                         <path d="M92 18 L84 30 L90 33 L78 48" />
                         <path d="M6 70 L15 78 L9 82 L20 94" />
                         <path d="M94 62 L86 72 L92 76 L82 90" />
+                        @if (superSaiyan.form() === 'ssj3') {
+                        <path d="M36 2 L44 15 L38 18 L48 32" />
+                        <path d="M66 4 L58 18 L64 21 L54 36" />
+                        }
                     </svg>
-                    <span class="power-hint" aria-hidden="true"><span class="hint-touch">{{ superSaiyan.isTransformed() ? 'Tap again to power down' : 'Tap the portrait to power up' }}</span><span class="hint-mouse">{{ superSaiyan.isTransformed() ? 'Click to power down' : 'Click the portrait to power up' }}</span></span>
+                    @if (!superSaiyan.isTransformed()) {
+                    <span class="power-hint" aria-hidden="true"><span class="hint-touch">Tap the portrait to power up</span><span class="hint-mouse">Click the portrait to power up</span></span>
+                    } @else {
+                    <div class="saiyan-controls" role="region" aria-label="Power level controls">
+                        <div class="saiyan-dots" role="group" aria-label="Form stage">
+                            @for (stage of superSaiyan.forms; track stage) {
+                            <button type="button" class="saiyan-dot"
+                                (click)="selectForm(stage, $event)"
+                                [attr.data-stage]="stage"
+                                [class.is-active]="superSaiyan.form() === stage"
+                                [class.is-reached]="superSaiyan.formInfoMap[stage].level <= superSaiyan.currentFormInfo().level"
+                                [attr.aria-pressed]="superSaiyan.form() === stage"
+                                [attr.aria-label]="'Switch to stage ' + superSaiyan.formInfoMap[stage].level">
+                            </button>
+                            }
+                        </div>
+                        <span class="saiyan-sep" aria-hidden="true">·</span>
+                        <button type="button" class="saiyan-quiet-down" (click)="powerDown($event)"
+                            title="Return to Base (Esc)">
+                            Power down
+                        </button>
+                    </div>
+                    }
                 </div>
                 <app-bonsai class="hero-bonsai"></app-bonsai>
                 <div class="toko-board" aria-hidden="true"></div>

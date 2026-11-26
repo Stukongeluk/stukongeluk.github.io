@@ -259,6 +259,56 @@
   stroke: #8A633E;
 }
 
+:host-context(body.super-saiyan-mode.ssj-3) .tree {
+  animation-duration: 0.22s;
+}
+
+:host-context(body.super-saiyan-mode.ssj-god) .tree {
+  animation-duration: 2.2s;
+}
+
+:host-context(body.super-saiyan-mode.ssj-god) .leaf {
+  fill: #FB7185;
+  filter: drop-shadow(0 0 4px #EF4444);
+}
+
+:host-context(body.super-saiyan-mode.ssj-god) .wood path:not(.bark) {
+  stroke: #7F2B2B;
+}
+
+:host-context(body.super-saiyan-mode.ssj-blue) .tree {
+  animation-duration: 1.5s;
+}
+
+:host-context(body.super-saiyan-mode.ssj-blue) .leaf {
+  fill: #67E8F9;
+  filter: drop-shadow(0 0 4px #06B6D4);
+}
+
+:host-context(body.super-saiyan-mode.ssj-blue) .wood path:not(.bark) {
+  stroke: #1E4E68;
+}
+
+:host-context(body.super-saiyan-mode.ssj-ui-sign) .tree,
+:host-context(body.super-saiyan-mode.ssj-mui) .tree {
+  animation-duration: 4.5s;
+}
+
+:host-context(body.super-saiyan-mode.ssj-ui-sign) .leaf {
+  fill: #BFDBFE;
+  filter: drop-shadow(0 0 5px #93C5FD);
+}
+
+:host-context(body.super-saiyan-mode.ssj-mui) .leaf {
+  fill: #F8FAFC;
+  filter: drop-shadow(0 0 6px #C4B5FD);
+}
+
+:host-context(body.super-saiyan-mode.ssj-ui-sign) .wood path:not(.bark),
+:host-context(body.super-saiyan-mode.ssj-mui) .wood path:not(.bark) {
+  stroke: #475569;
+}
+
 @keyframes rise {
   0% {
     opacity: 0;

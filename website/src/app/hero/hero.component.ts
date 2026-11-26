@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, Inject, NgZone, PLATFORM_ID, signal } from '@angular/core';
 import { NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { SuperSaiyanService } from '../services/super-saiyan.service';
+import { SaiyanForm, SuperSaiyanService } from '../services/super-saiyan.service';
 import { BonsaiComponent } from '../bonsai/bonsai.component';
 
 @Component({
@@ -65,8 +65,18 @@ export class HeroComponent implements OnInit, OnDestroy {
     this.typingTimer = setTimeout(() => this.updateDisplayRole(), delay);
   }
 
-  // Toggle Super Saiyan transformation using the shared service
+  // Advance through Base -> SSJ -> SSJ2 -> SSJ3 -> SSG -> Base
   toggleTransformation(event: Event): void {
-    this.superSaiyan.toggle(event);
+    this.superSaiyan.advance(event);
+  }
+
+  // Jump straight to a chosen Super Saiyan form
+  selectForm(form: SaiyanForm, event: Event): void {
+    this.superSaiyan.setForm(form, event);
+  }
+
+  // Power straight down to Base from any stage
+  powerDown(event: Event): void {
+    this.superSaiyan.powerDown(event);
   }
 }
