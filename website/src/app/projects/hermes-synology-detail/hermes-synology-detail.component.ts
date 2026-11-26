@@ -4,12 +4,13 @@ import { RouterModule } from '@angular/router';
 import { SeoService } from '../../services/seo.service';
 import { SuperSaiyanService } from '../../services/super-saiyan.service';
 import { RevealDirective } from '../../shared/reveal.directive';
+import { LeafCanopyComponent } from '../../leaves/leaf-canopy.component';
 import { WriteupBackdropComponent } from '../../shared/writeup-backdrop.component';
 
 @Component({
     selector: 'app-hermes-synology-detail',
     standalone: true,
-    imports: [CommonModule, RouterModule, RevealDirective, WriteupBackdropComponent],
+    imports: [CommonModule, RouterModule, RevealDirective, WriteupBackdropComponent, LeafCanopyComponent],
     templateUrl: './hermes-synology-detail.component.html',
     styleUrl: './hermes-synology-detail.component.css'
 })

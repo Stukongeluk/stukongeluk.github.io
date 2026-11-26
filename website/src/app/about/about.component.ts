@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, PLATFORM_ID, QueryList, ViewChildren } from '@angular/core';
 import { NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { RevealDirective } from '../shared/reveal.directive';
+import { LeafCanopyComponent } from '../leaves/leaf-canopy.component';
 
 interface SkillGroup { numeral: string; title: string; tags: string[]; description: string; }
 interface Sector { title: string; description: string; }
@@ -10,7 +11,7 @@ interface Hobby { title: string; caption: string; image?: string; video?: string
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [RevealDirective, NgOptimizedImage],
+  imports: [RevealDirective, NgOptimizedImage, LeafCanopyComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })

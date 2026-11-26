@@ -4,12 +4,13 @@ import { RouterModule } from '@angular/router';
 import { SeoService } from '../../services/seo.service';
 import { SuperSaiyanService } from '../../services/super-saiyan.service';
 import { RevealDirective } from '../../shared/reveal.directive';
+import { LeafCanopyComponent } from '../../leaves/leaf-canopy.component';
 import { WriteupBackdropComponent } from '../../shared/writeup-backdrop.component';
 
 @Component({
     selector: 'app-the-human-c-suite-detail',
     standalone: true,
-    imports: [RouterModule, NgClass, RevealDirective, WriteupBackdropComponent],
+    imports: [RouterModule, NgClass, RevealDirective, WriteupBackdropComponent, LeafCanopyComponent],
     templateUrl: './the-human-c-suite-detail.component.html',
     styleUrl: './the-human-c-suite-detail.component.css'
 })

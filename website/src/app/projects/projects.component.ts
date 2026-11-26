@@ -19,11 +19,12 @@ interface Project {
 
 import { SuperSaiyanService } from '../services/super-saiyan.service';
 import { RevealDirective } from '../shared/reveal.directive';
+import { LeafCanopyComponent } from '../leaves/leaf-canopy.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [RouterModule, RevealDirective],
+  imports: [RouterModule, RevealDirective, LeafCanopyComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })

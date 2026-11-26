@@ -2,13 +2,14 @@ import { Component, OnInit, OnDestroy, WritableSignal, signal, Inject, PLATFORM_
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { DOCUMENT, ViewportScroller, isPlatformBrowser } from '@angular/common';
 import { SaiyanFxComponent } from './saiyan-fx/saiyan-fx.component';
+import { LeafDefsComponent } from './leaves/leaf-defs.component';
 import { SuperSaiyanService } from './services/super-saiyan.service';
 import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, SaiyanFxComponent],
+  imports: [RouterOutlet, RouterLink, SaiyanFxComponent, LeafDefsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -724,6 +724,224 @@ html.dark .theme-switch::after {
   }
 }
 
+/* ---------- Leaves: canopies that part to reveal sections ---------- */
+:root {
+  --lf-moss: #7A8665;
+  --lf-sage: #A3AD8C;
+  --lf-oak: #C9A26B;
+  --lf-walnut: #8A633E;
+  --lf-red: #B4533A;
+}
+
+html.dark {
+  --lf-moss: #5C6A4A;
+  --lf-sage: #7C8768;
+  --lf-oak: #9C7A4C;
+  --lf-walnut: #6E4E32;
+  --lf-red: #8E3F2C;
+}
+
+body.super-saiyan-mode {
+  --lf-moss: #E0A400;
+  --lf-sage: #F2C94C;
+  --lf-oak: #C98A00;
+  --lf-walnut: #A66A00;
+  --lf-red: #FFB020;
+}
+
+[data-tone="moss"] { color: var(--lf-moss); }
+[data-tone="sage"] { color: var(--lf-sage); }
+[data-tone="oak"] { color: var(--lf-oak); }
+[data-tone="walnut"] { color: var(--lf-walnut); }
+[data-tone="red"] { color: var(--lf-red); }
+
+/* Sections that host a canopy lift their own content above it */
+.canopy-host {
+  position: relative;
+}
+
+.canopy-host > :not(app-leaf-canopy):not(.contact-enso) {
+  position: relative;
+  z-index: 1;
+}
+
+app-leaf-canopy {
+  position: absolute;
+  left: 50%;
+  top: -175px;
+  width: 100vw;
+  height: 270px;
+  margin-left: -50vw;
+  pointer-events: none;
+  z-index: 0;
+  /* never cause sideways scrolling, but let leaves sway above and below */
+  overflow-x: clip;
+}
+
+.canopy {
+  position: absolute;
+  inset: 0;
+}
+
+.cluster {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: min(22vw, 320px);
+  transition: transform 1.6s cubic-bezier(.2, .8, .2, 1);
+}
+
+.cluster.left {
+  left: -20px;
+}
+
+.cluster.right {
+  right: -20px;
+}
+
+.leaf {
+  position: absolute;
+  height: auto;
+  aspect-ratio: 1;
+  overflow: visible;
+  opacity: 0.9;
+  transform: rotate(var(--r));
+  transition: transform 1.8s cubic-bezier(.2, .8, .2, 1) var(--d), opacity 1.2s ease var(--d);
+  filter: drop-shadow(0 6px 8px rgba(81, 61, 41, 0.12));
+}
+
+.leaf.far {
+  opacity: 0.38;
+  filter: blur(0.6px);
+}
+
+html.dark .leaf { opacity: 0.7; }
+html.dark .leaf.far { opacity: 0.28; }
+
+body.super-saiyan-mode .leaf {
+  opacity: 0.95;
+  filter: drop-shadow(0 0 6px rgba(255, 190, 0, 0.55));
+}
+
+body.super-saiyan-mode .leaf.far {
+  opacity: 0.45;
+}
+
+/* Closed: the two clusters meet over the section, leaves turned and larger */
+app-leaf-canopy.leaves-closed .cluster.left {
+  transform: translateX(min(30vw, 430px));
+}
+
+app-leaf-canopy.leaves-closed .cluster.right {
+  transform: translateX(max(-30vw, -430px));
+}
+
+app-leaf-canopy.leaves-closed .leaf {
+  transform: rotate(calc(var(--r) + 70deg)) scale(1.25);
+}
+
+app-leaf-canopy.leaves-closed .leaf:not(.far) {
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  app-leaf-canopy {
+    top: -150px;
+    height: 150px;
+  }
+
+  .leaf:not(.far) {
+    opacity: 0.75;
+  }
+
+  .cluster {
+    width: 38vw;
+  }
+
+  .leaf {
+    scale: 0.62;
+  }
+
+  .leaf.far {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Gentle sway once open (uses `rotate`, so it adds to the transform above) */
+  .leaf {
+    animation: leaf-sway var(--sway, 6s) ease-in-out infinite alternate;
+  }
+
+  body.super-saiyan-mode .leaf {
+    animation-duration: 0.9s;
+  }
+
+  /* Depth: near and far leaves drift at different speeds while scrolling */
+  @supports (animation-timeline: view()) {
+    .leaf {
+      animation: leaf-sway var(--sway, 6s) ease-in-out infinite alternate, leaf-depth linear both;
+      animation-timeline: auto, view();
+    }
+  }
+}
+
+@keyframes leaf-sway {
+  from { rotate: -5deg; }
+  to { rotate: 6deg; }
+}
+
+@keyframes leaf-depth {
+  from { translate: 0 calc(var(--z, 1) * 50px); }
+  to { translate: 0 calc(var(--z, 1) * -50px); }
+}
+
+/* A few leaves drifting down the page, behind the content */
+.leaf-fall {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.falling {
+  position: absolute;
+  top: -80px;
+  width: 34px;
+  opacity: 0;
+}
+
+.f1 { left: 12%; width: 38px; --fx: 160px; animation-duration: 26s; animation-delay: 2s; }
+.f2 { left: 78%; width: 44px; --fx: -200px; animation-duration: 31s; animation-delay: 9s; }
+.f3 { left: 46%; width: 26px; --fx: 120px; animation-duration: 23s; animation-delay: 16s; }
+.f4 { left: 88%; width: 30px; --fx: -140px; animation-duration: 34s; animation-delay: 5s; }
+.f5 { left: 30%; width: 40px; --fx: -110px; animation-duration: 29s; animation-delay: 21s; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .falling {
+    animation-name: leaf-fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes leaf-fall {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  6% { opacity: 0.55; }
+  25% { transform: translate(calc(var(--fx) * 0.4), 28vh) rotate(160deg); }
+  50% { transform: translate(calc(var(--fx) * -0.2), 55vh) rotate(320deg); }
+  75% { transform: translate(calc(var(--fx) * 0.7), 82vh) rotate(470deg); }
+  92% { opacity: 0.5; }
+  100% { opacity: 0; transform: translate(var(--fx), 108vh) rotate(620deg); }
+}
+
+/* Main content sits above the drifting leaves */
+main {
+  position: relative;
+  z-index: 1;
+}
+
 /* ---------- Scroll branch (desktop progress indicator) ---------- */
 .scroll-branch {
   position: fixed;
