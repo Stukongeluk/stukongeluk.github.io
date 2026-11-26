@@ -5,12 +5,13 @@ import { SeoService } from '../../services/seo.service';
 import { SuperSaiyanService } from '../../services/super-saiyan.service';
 import { RevealDirective } from '../../shared/reveal.directive';
 import { LeafCanopyComponent } from '../../leaves/leaf-canopy.component';
+import { TrunksComponent } from '../../leaves/trunks.component';
 import { WriteupBackdropComponent } from '../../shared/writeup-backdrop.component';
 
 @Component({
     selector: 'app-capy-drive-detail',
     standalone: true,
-    imports: [CommonModule, RouterModule, RevealDirective, WriteupBackdropComponent, LeafCanopyComponent],
+    imports: [CommonModule, RouterModule, RevealDirective, WriteupBackdropComponent, LeafCanopyComponent, TrunksComponent],
     templateUrl: './capy-drive-detail.component.html',
     styleUrl: './capy-drive-detail.component.css'
 })

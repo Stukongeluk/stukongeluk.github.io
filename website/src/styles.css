@@ -765,6 +765,91 @@ body.super-saiyan-mode {
   z-index: 1;
 }
 
+/* ---------- The grove: two bonsai trunks down the page edges ----------
+   Every section's branches grow out of these trunks. The trunk is a tileable
+   SVG used as a mask, so its colour follows the theme (wood, evening, gold). */
+.grove {
+  position: relative;
+}
+
+.grove > :not(app-trunks) {
+  position: relative;
+  z-index: 1;
+}
+
+app-trunks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow-x: clip;
+}
+
+.trunk {
+  position: absolute;
+  top: -120px;
+  bottom: 0;
+  width: 88px;
+  background: var(--branch);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='900' viewBox='0 0 88 900'%3E%3Cpath d='M13.7 -3 L14.8 10 L15.8 20 L16.5 30 L17.0 40 L17.2 50 L17.2 60 L17.1 70 L17.0 80 L16.8 90 L16.8 100 L17.0 110 L17.4 120 L18.1 130 L18.9 140 L20.0 150 L21.1 160 L22.1 170 L23.0 180 L23.6 190 L24.0 200 L23.9 210 L23.4 220 L22.5 230 L21.3 240 L19.9 250 L18.4 260 L17.0 270 L15.7 280 L14.6 290 L14.0 300 L13.8 310 L13.9 320 L14.5 330 L15.4 340 L16.6 350 L17.8 360 L19.0 370 L20.1 380 L20.9 390 L21.5 400 L21.7 410 L21.6 420 L21.3 430 L20.7 440 L19.9 450 L19.1 460 L18.2 470 L17.4 480 L16.6 490 L15.9 500 L15.2 510 L14.5 520 L13.7 530 L12.7 540 L11.5 550 L10.0 560 L8.2 570 L6.2 580 L3.9 590 L1.5 600 L-0.9 610 L-3.2 620 L-5.2 630 L-6.9 640 L-8.1 650 L-8.7 660 L-8.8 670 L-8.3 680 L-7.3 690 L-5.9 700 L-4.2 710 L-2.3 720 L-0.4 730 L1.3 740 L2.9 750 L4.2 760 L5.1 770 L5.8 780 L6.2 790 L6.5 800 L6.6 810 L6.8 820 L7.1 830 L7.5 840 L8.2 850 L9.0 860 L10.1 870 L11.2 880 L12.5 890 L13.7 903 L57.9 903 L55.5 890 L53.0 880 L50.5 870 L48.0 860 L45.8 850 L43.8 840 L42.2 830 L41.0 820 L40.1 810 L39.4 800 L39.0 790 L38.7 780 L38.4 770 L38.0 760 L37.6 750 L37.1 740 L36.5 730 L35.9 720 L35.3 710 L34.8 700 L34.4 690 L34.3 680 L34.5 670 L35.0 660 L35.8 650 L36.8 640 L38.0 630 L39.3 620 L40.5 610 L41.7 600 L42.6 590 L43.2 580 L43.5 570 L43.6 560 L43.4 550 L43.0 540 L42.6 530 L42.3 520 L42.1 510 L42.2 500 L42.6 490 L43.4 480 L44.5 470 L46.0 460 L47.8 450 L49.6 440 L51.5 430 L53.2 420 L54.7 410 L55.9 400 L56.6 390 L56.9 380 L56.8 370 L56.4 360 L55.6 350 L54.7 340 L53.7 330 L52.7 320 L51.9 310 L51.2 300 L50.8 290 L50.7 280 L50.8 270 L51.0 260 L51.3 250 L51.6 240 L51.9 230 L52.1 220 L52.1 210 L52.1 200 L51.9 190 L51.7 180 L51.6 170 L51.6 160 L51.8 150 L52.3 140 L53.1 130 L54.1 120 L55.4 110 L56.9 100 L58.5 90 L60.0 80 L61.3 70 L62.4 60 L62.9 50 L63.0 40 L62.5 30 L61.5 20 L59.9 10 L57.9 -3 Z'/%3E%3Cellipse cx='46.2' cy='230' rx='10' ry='7'/%3E%3Cellipse cx='11.8' cy='610' rx='9' ry='12'/%3E%3Cellipse cx='30.9' cy='820' rx='7' ry='6'/%3E%3C/svg%3E") repeat-y 0 0 / 88px 900px, linear-gradient(to bottom, transparent 0, #000 220px, #000 calc(100% - 160px), transparent 100%) no-repeat 0 0 / 100% 100%;
+  -webkit-mask-composite: source-in;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='900' viewBox='0 0 88 900'%3E%3Cpath d='M13.7 -3 L14.8 10 L15.8 20 L16.5 30 L17.0 40 L17.2 50 L17.2 60 L17.1 70 L17.0 80 L16.8 90 L16.8 100 L17.0 110 L17.4 120 L18.1 130 L18.9 140 L20.0 150 L21.1 160 L22.1 170 L23.0 180 L23.6 190 L24.0 200 L23.9 210 L23.4 220 L22.5 230 L21.3 240 L19.9 250 L18.4 260 L17.0 270 L15.7 280 L14.6 290 L14.0 300 L13.8 310 L13.9 320 L14.5 330 L15.4 340 L16.6 350 L17.8 360 L19.0 370 L20.1 380 L20.9 390 L21.5 400 L21.7 410 L21.6 420 L21.3 430 L20.7 440 L19.9 450 L19.1 460 L18.2 470 L17.4 480 L16.6 490 L15.9 500 L15.2 510 L14.5 520 L13.7 530 L12.7 540 L11.5 550 L10.0 560 L8.2 570 L6.2 580 L3.9 590 L1.5 600 L-0.9 610 L-3.2 620 L-5.2 630 L-6.9 640 L-8.1 650 L-8.7 660 L-8.8 670 L-8.3 680 L-7.3 690 L-5.9 700 L-4.2 710 L-2.3 720 L-0.4 730 L1.3 740 L2.9 750 L4.2 760 L5.1 770 L5.8 780 L6.2 790 L6.5 800 L6.6 810 L6.8 820 L7.1 830 L7.5 840 L8.2 850 L9.0 860 L10.1 870 L11.2 880 L12.5 890 L13.7 903 L57.9 903 L55.5 890 L53.0 880 L50.5 870 L48.0 860 L45.8 850 L43.8 840 L42.2 830 L41.0 820 L40.1 810 L39.4 800 L39.0 790 L38.7 780 L38.4 770 L38.0 760 L37.6 750 L37.1 740 L36.5 730 L35.9 720 L35.3 710 L34.8 700 L34.4 690 L34.3 680 L34.5 670 L35.0 660 L35.8 650 L36.8 640 L38.0 630 L39.3 620 L40.5 610 L41.7 600 L42.6 590 L43.2 580 L43.5 570 L43.6 560 L43.4 550 L43.0 540 L42.6 530 L42.3 520 L42.1 510 L42.2 500 L42.6 490 L43.4 480 L44.5 470 L46.0 460 L47.8 450 L49.6 440 L51.5 430 L53.2 420 L54.7 410 L55.9 400 L56.6 390 L56.9 380 L56.8 370 L56.4 360 L55.6 350 L54.7 340 L53.7 330 L52.7 320 L51.9 310 L51.2 300 L50.8 290 L50.7 280 L50.8 270 L51.0 260 L51.3 250 L51.6 240 L51.9 230 L52.1 220 L52.1 210 L52.1 200 L51.9 190 L51.7 180 L51.6 170 L51.6 160 L51.8 150 L52.3 140 L53.1 130 L54.1 120 L55.4 110 L56.9 100 L58.5 90 L60.0 80 L61.3 70 L62.4 60 L62.9 50 L63.0 40 L62.5 30 L61.5 20 L59.9 10 L57.9 -3 Z'/%3E%3Cellipse cx='46.2' cy='230' rx='10' ry='7'/%3E%3Cellipse cx='11.8' cy='610' rx='9' ry='12'/%3E%3Cellipse cx='30.9' cy='820' rx='7' ry='6'/%3E%3C/svg%3E") repeat-y 0 0 / 88px 900px, linear-gradient(to bottom, transparent 0, #000 220px, #000 calc(100% - 160px), transparent 100%) no-repeat 0 0 / 100% 100%;
+  mask-composite: intersect;
+  transition: background-color 0.6s;
+}
+
+.trunk::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 238, 210, 0.2);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='900' viewBox='0 0 88 900'%3E%3Cpath d='M22.5 0 L24.5 12 L26.1 24 L27.2 36 L27.7 48 L27.7 60 L27.2 72 L26.5 84 L25.7 96 L25.0 108 L24.6 120 L24.6 132 L24.9 144 L25.6 156 L26.5 168 L27.4 180 L28.1 192 L28.6 204 L28.7 216 L28.4 228 L27.7 240 L26.6 252 L25.5 264 L24.3 276 L23.4 288 L22.8 300 L22.6 312 L22.8 324 L23.4 336 L24.2 348 L25.1 360 L25.9 372 L26.6 384 L26.9 396 L27.0 408 L26.7 420 L26.1 432 L25.3 444 L24.5 456 L23.8 468 L23.1 480 L22.6 492 L22.1 504 L21.6 516 L21.0 528 L20.0 540 L18.6 552 L16.8 564 L14.5 576 L11.8 588 L8.9 600 L5.9 612 L3.3 624 L1.0 636 L-0.5 648 L-1.2 660 L-1.0 672 L-0.0 684 L1.7 696 L3.8 708 L6.1 720 L8.4 732 L10.4 744 L11.9 756 L13.0 768 L13.5 780 L13.6 792 L13.5 804 L13.4 816 L13.5 828 L13.9 840 L14.7 852 L16.0 864 L17.6 876 L19.5 888 L21.5 900 M38.1 0 L39.8 12 L40.9 24 L41.4 36 L41.2 48 L40.4 60 L39.3 72 L38.0 84 L36.7 96 L35.7 108 L35.1 120 L35.1 132 L35.5 144 L36.3 156 L37.3 168 L38.3 180 L39.2 192 L39.7 204 L39.8 216 L39.3 228 L38.4 240 L37.2 252 L35.8 264 L34.5 276 L33.4 288 L32.8 300 L32.7 312 L33.2 324 L34.1 336 L35.3 348 L36.6 360 L37.8 372 L38.7 384 L39.2 396 L39.2 408 L38.7 420 L37.8 432 L36.5 444 L35.0 456 L33.5 468 L32.1 480 L30.9 492 L29.9 504 L29.1 516 L28.4 528 L27.7 540 L26.9 552 L25.8 564 L24.5 576 L23.0 588 L21.3 600 L19.5 612 L17.8 624 L16.4 636 L15.4 648 L14.9 660 L14.9 672 L15.4 684 L16.3 696 L17.4 708 L18.6 720 L19.7 732 L20.6 744 L21.3 756 L21.7 768 L21.9 780 L22.1 792 L22.4 804 L23.0 816 L24.0 828 L25.5 840 L27.5 852 L29.9 864 L32.5 876 L35.3 888 L37.8 900 M48.2 0 L49.9 12 L51.1 24 L51.6 36 L51.6 48 L51.0 60 L50.1 72 L49.0 84 L47.8 96 L46.8 108 L46.1 120 L45.8 132 L45.8 144 L46.1 156 L46.4 168 L46.8 180 L47.0 192 L46.9 204 L46.5 216 L45.7 228 L44.7 240 L43.6 252 L42.6 264 L41.8 276 L41.5 288 L41.7 300 L42.4 312 L43.6 324 L45.1 336 L46.7 348 L48.2 360 L49.4 372 L50.0 384 L49.9 396 L49.1 408 L47.6 420 L45.7 432 L43.4 444 L41.1 456 L38.9 468 L37.2 480 L35.9 492 L35.1 504 L34.8 516 L34.8 528 L35.1 540 L35.3 552 L35.4 564 L35.1 576 L34.5 588 L33.5 600 L32.1 612 L30.6 624 L29.1 636 L27.7 648 L26.6 660 L25.9 672 L25.6 684 L25.7 696 L26.1 708 L26.7 720 L27.5 732 L28.2 744 L29.0 756 L29.6 768 L30.3 780 L31.0 792 L32.0 804 L33.2 816 L34.7 828 L36.7 840 L39.0 852 L41.6 864 L44.3 876 L46.9 888 L49.2 900' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-dasharray='60 26 120 40'/%3E%3Cellipse cx='46.2' cy='230' rx='7' ry='4' fill='none' stroke='black' stroke-width='1.4'/%3E%3Cellipse cx='11.8' cy='610' rx='6' ry='9' fill='none' stroke='black' stroke-width='1.4'/%3E%3C/svg%3E") repeat-y 0 0 / 88px 900px, linear-gradient(to bottom, transparent 0, #000 220px, #000 calc(100% - 160px), transparent 100%) no-repeat 0 0 / 100% 100%;
+  -webkit-mask-composite: source-in;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='900' viewBox='0 0 88 900'%3E%3Cpath d='M22.5 0 L24.5 12 L26.1 24 L27.2 36 L27.7 48 L27.7 60 L27.2 72 L26.5 84 L25.7 96 L25.0 108 L24.6 120 L24.6 132 L24.9 144 L25.6 156 L26.5 168 L27.4 180 L28.1 192 L28.6 204 L28.7 216 L28.4 228 L27.7 240 L26.6 252 L25.5 264 L24.3 276 L23.4 288 L22.8 300 L22.6 312 L22.8 324 L23.4 336 L24.2 348 L25.1 360 L25.9 372 L26.6 384 L26.9 396 L27.0 408 L26.7 420 L26.1 432 L25.3 444 L24.5 456 L23.8 468 L23.1 480 L22.6 492 L22.1 504 L21.6 516 L21.0 528 L20.0 540 L18.6 552 L16.8 564 L14.5 576 L11.8 588 L8.9 600 L5.9 612 L3.3 624 L1.0 636 L-0.5 648 L-1.2 660 L-1.0 672 L-0.0 684 L1.7 696 L3.8 708 L6.1 720 L8.4 732 L10.4 744 L11.9 756 L13.0 768 L13.5 780 L13.6 792 L13.5 804 L13.4 816 L13.5 828 L13.9 840 L14.7 852 L16.0 864 L17.6 876 L19.5 888 L21.5 900 M38.1 0 L39.8 12 L40.9 24 L41.4 36 L41.2 48 L40.4 60 L39.3 72 L38.0 84 L36.7 96 L35.7 108 L35.1 120 L35.1 132 L35.5 144 L36.3 156 L37.3 168 L38.3 180 L39.2 192 L39.7 204 L39.8 216 L39.3 228 L38.4 240 L37.2 252 L35.8 264 L34.5 276 L33.4 288 L32.8 300 L32.7 312 L33.2 324 L34.1 336 L35.3 348 L36.6 360 L37.8 372 L38.7 384 L39.2 396 L39.2 408 L38.7 420 L37.8 432 L36.5 444 L35.0 456 L33.5 468 L32.1 480 L30.9 492 L29.9 504 L29.1 516 L28.4 528 L27.7 540 L26.9 552 L25.8 564 L24.5 576 L23.0 588 L21.3 600 L19.5 612 L17.8 624 L16.4 636 L15.4 648 L14.9 660 L14.9 672 L15.4 684 L16.3 696 L17.4 708 L18.6 720 L19.7 732 L20.6 744 L21.3 756 L21.7 768 L21.9 780 L22.1 792 L22.4 804 L23.0 816 L24.0 828 L25.5 840 L27.5 852 L29.9 864 L32.5 876 L35.3 888 L37.8 900 M48.2 0 L49.9 12 L51.1 24 L51.6 36 L51.6 48 L51.0 60 L50.1 72 L49.0 84 L47.8 96 L46.8 108 L46.1 120 L45.8 132 L45.8 144 L46.1 156 L46.4 168 L46.8 180 L47.0 192 L46.9 204 L46.5 216 L45.7 228 L44.7 240 L43.6 252 L42.6 264 L41.8 276 L41.5 288 L41.7 300 L42.4 312 L43.6 324 L45.1 336 L46.7 348 L48.2 360 L49.4 372 L50.0 384 L49.9 396 L49.1 408 L47.6 420 L45.7 432 L43.4 444 L41.1 456 L38.9 468 L37.2 480 L35.9 492 L35.1 504 L34.8 516 L34.8 528 L35.1 540 L35.3 552 L35.4 564 L35.1 576 L34.5 588 L33.5 600 L32.1 612 L30.6 624 L29.1 636 L27.7 648 L26.6 660 L25.9 672 L25.6 684 L25.7 696 L26.1 708 L26.7 720 L27.5 732 L28.2 744 L29.0 756 L29.6 768 L30.3 780 L31.0 792 L32.0 804 L33.2 816 L34.7 828 L36.7 840 L39.0 852 L41.6 864 L44.3 876 L46.9 888 L49.2 900' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-dasharray='60 26 120 40'/%3E%3Cellipse cx='46.2' cy='230' rx='7' ry='4' fill='none' stroke='black' stroke-width='1.4'/%3E%3Cellipse cx='11.8' cy='610' rx='6' ry='9' fill='none' stroke='black' stroke-width='1.4'/%3E%3C/svg%3E") repeat-y 0 0 / 88px 900px, linear-gradient(to bottom, transparent 0, #000 220px, #000 calc(100% - 160px), transparent 100%) no-repeat 0 0 / 100% 100%;
+  mask-composite: intersect;
+}
+
+.trunk.left {
+  left: -14px;
+}
+
+.trunk.right {
+  right: -14px;
+  transform: scaleX(-1);
+  -webkit-mask-position: 0 -420px, 0 0;
+  mask-position: 0 -420px, 0 0;
+}
+
+.trunk.right::after {
+  -webkit-mask-position: 0 -420px, 0 0;
+  mask-position: 0 -420px, 0 0;
+}
+
+body.super-saiyan-mode .trunk::after {
+  background: rgba(255, 226, 122, 0.55);
+}
+
+@media (max-width: 767px) {
+  .trunk {
+    width: 60px;
+    -webkit-mask-size: 60px 614px, 100% 100%;
+    mask-size: 60px 614px, 100% 100%;
+  }
+
+  .trunk::after {
+    -webkit-mask-size: 60px 614px, 100% 100%;
+    mask-size: 60px 614px, 100% 100%;
+  }
+
+  .trunk.left {
+    left: -24px;
+  }
+
+  .trunk.right {
+    right: -24px;
+  }
+}
+
 /* ---------- Bonsai branches that swing away to reveal a section ---------- */
 :root {
   --branch: #5E422A;
@@ -857,13 +942,18 @@ body.super-saiyan-mode .bpad {
   filter: drop-shadow(0 0 6px var(--leaf-glow));
 }
 
+/* On the write-ups, start below the header's tag row */
+.blog-article app-leaf-canopy {
+  top: -40px;
+}
+
 /* Closed: branches reach across the section, pads swollen and leaning in */
 app-leaf-canopy.leaves-closed .branch {
-  transform: translateX(min(22vw, 330px)) rotate(7deg);
+  transform: rotate(24deg) scale(1.28);
 }
 
 app-leaf-canopy.leaves-closed .bpad {
-  transform: translateX(var(--px)) rotate(var(--pr)) scale(1.3);
+  transform: rotate(var(--pr)) scale(1.3);
 }
 
 /* Leaves shaken loose while the branch swings back */
@@ -932,7 +1022,7 @@ app-leaf-canopy.leaves-closed .bpad {
   }
 
   app-leaf-canopy.leaves-closed .branch {
-    transform: translateX(26vw) rotate(7deg);
+    transform: rotate(24deg) scale(1.2);
   }
 }
 
@@ -980,67 +1070,6 @@ app-leaf-canopy.leaves-closed .bpad {
 main {
   position: relative;
   z-index: 1;
-}
-
-/* ---------- Scroll branch (desktop progress indicator) ---------- */
-.scroll-branch {
-  position: fixed;
-  left: clamp(0.75rem, 2vw, 1.75rem);
-  top: 6rem;
-  bottom: 2rem;
-  width: 14px;
-  pointer-events: none;
-  z-index: 30;
-}
-
-.scroll-branch .stem {
-  position: absolute;
-  left: 6px;
-  top: 0;
-  width: 2px;
-  height: 100%;
-  border-radius: 2px;
-  background: rgb(var(--accent-500) / 0.85);
-  transform-origin: top;
-  transform: scaleY(var(--scroll, 0));
-}
-
-.scroll-branch .track {
-  position: absolute;
-  left: 6.5px;
-  top: 0;
-  width: 1px;
-  height: 100%;
-  background: var(--line);
-}
-
-.scroll-branch .bud {
-  position: absolute;
-  left: 7px;
-  width: 9px;
-  height: 5px;
-  border-radius: 9px 0;
-  background: var(--leaf-1);
-  box-shadow: 0 0 8px var(--leaf-glow);
-  transform-origin: left center;
-  transform: rotate(-30deg) scale(0);
-  transition: transform 0.6s var(--ease-out);
-}
-
-.scroll-branch .bud:nth-child(even) {
-  left: auto;
-  right: 7px;
-  border-radius: 0 9px;
-  transform-origin: right center;
-  transform: rotate(30deg) scale(0);
-}
-
-.scroll-branch .bud.on {
-  transform: rotate(-30deg) scale(1);
-}
-
-.scroll-branch .bud:nth-child(even).on {
-  transform: rotate(30deg) scale(1);
 }
 
 /* ---------- Kakejiku (hanging scroll) in the hero ---------- */
@@ -1200,11 +1229,7 @@ html.dark .kakejiku .silk {
   opacity: 1;
 }
 
-/* Hero ink-wash mountains (parallax via --scroll-px) */
-.ink-mountains {
-  transform: translate3d(0, calc(var(--scroll-px, 0px) * 0.25), 0);
-  will-change: transform;
-}
+
 
 /* Hero entrance */
 .hero-stagger>* {
@@ -1462,10 +1487,6 @@ body.super-saiyan-mode .social-icon:hover {
 }
 
 
-body.super-saiyan-mode .scroll-branch .stem {
-  background: linear-gradient(180deg, #FFE27A, #F59E0B);
-  box-shadow: 0 0 10px rgba(255, 190, 0, 0.8);
-}
 
 body.super-saiyan-mode .blog-article header {
   background: radial-gradient(circle at 70% 0%, rgba(255, 200, 40, 0.18), transparent 60%), var(--paper-deep) !important;

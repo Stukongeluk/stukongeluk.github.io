@@ -39,15 +39,6 @@
     </div>
 </nav>
 
-<!-- Growing branch that tracks scroll progress (decorative) -->
-<div class="scroll-branch hidden xl:block" aria-hidden="true">
-    <span class="track"></span>
-    <span class="stem"></span>
-    @for (bud of buds; track bud) {
-    <span class="bud" [style.top.%]="bud * 100"></span>
-    }
-</div>
-
 <app-leaf-defs></app-leaf-defs>
 
 <main id="main" class="pt-16">

@@ -5,16 +5,20 @@ import { AboutComponent } from '../about/about.component';
 import { ProjectsComponent } from '../projects/projects.component';
 import { ContactComponent } from '../contact/contact.component';
 import { SeoService } from '../services/seo.service';
+import { TrunksComponent } from '../leaves/trunks.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, AboutComponent, ProjectsComponent, ContactComponent],
+  imports: [HeroComponent, AboutComponent, ProjectsComponent, ContactComponent, TrunksComponent],
   template: `
     <app-hero></app-hero>
-    <app-about></app-about>
-    <app-projects></app-projects>
-    <app-contact></app-contact>
+    <div class="grove">
+      <app-trunks></app-trunks>
+      <app-about></app-about>
+      <app-projects></app-projects>
+      <app-contact></app-contact>
+    </div>
   `,
   styles: [`
     :host {

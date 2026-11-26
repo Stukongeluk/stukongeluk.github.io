@@ -47,8 +47,13 @@
 }
 
 .m3 {
-  /* front layer matches the page so the hero melts into the next section */
-  fill: var(--paper);
+  fill: rgba(110, 98, 84, 0.06);
+}
+
+/* The ridges fade out at the bottom, so the hero melts into the page */
+.ink-mountains {
+  -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
 }
 
 :host-context(html.dark) .m1,
