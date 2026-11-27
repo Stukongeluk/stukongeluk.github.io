@@ -209,9 +209,26 @@ export class SuperSaiyanService implements OnDestroy {
     // Audio is created on the first click only, so it never costs page load.
     private transformationSound: HTMLAudioElement | null = null;
     private backgroundMusic: HTMLAudioElement | null = null;
-    private fadeIntervalId: ReturnType<typeof setInterval> | null = null;
+    /** Music volume goes through Web Audio: iPhone/iPad Safari ignores `audio.volume`. */
+    private audioCtx: AudioContext | null = null;
+    private musicGain: GainNode | null = null;
+    private fadeTimer: ReturnType<typeof setTimeout> | null = null;
+    private static readonly MUSIC_VOLUME = 0.3;
+    private static readonly FADE_MS = 500;
     private timers: ReturnType<typeof setTimeout>[] = [];
     private readonly isBrowser: boolean;
+
+    /** Pause the music while the tab is hidden or the phone is locked; resume on return. */
+    private readonly onVisibilityChange = () => {
+        const music = this.backgroundMusic;
+        if (!music || !this.isTransformed()) return;
+        if (this.document.hidden) {
+            music.pause();
+        } else if (this.phase() !== 'reverting') {
+            this.audioCtx?.resume().catch(() => { /* needs a gesture */ });
+            music.play().catch(() => { /* autoplay policy */ });
+        }
+    };
 
     private readonly onKeyDown = (event: KeyboardEvent) => {
         if (event.key === 'Escape' && this.isTransformed() && !this.isAnimating()) {
@@ -227,12 +244,14 @@ export class SuperSaiyanService implements OnDestroy {
         this.isBrowser = isPlatformBrowser(platformId);
         if (this.isBrowser) {
             this.document.defaultView?.addEventListener('keydown', this.onKeyDown);
+            this.document.addEventListener('visibilitychange', this.onVisibilityChange);
         }
     }
 
     ngOnDestroy(): void {
         if (this.isBrowser) {
             this.document.defaultView?.removeEventListener('keydown', this.onKeyDown);
+            this.document.removeEventListener('visibilitychange', this.onVisibilityChange);
         }
         this.clearTimers();
         this.cancelFadeOut();
@@ -289,6 +308,8 @@ export class SuperSaiyanService implements OnDestroy {
             body.classList.add(`ss-charging-${target}`);
         }
         this.ensureAudio();
+        // Still inside the click/tap: browsers only start audio from a user gesture.
+        this.audioCtx?.resume().catch(() => { /* ignore */ });
 
         if (this.transformationSound) {
             this.transformationSound.playbackRate = SAIYAN_FORM_INFO[target].playbackRate;
@@ -316,7 +337,7 @@ export class SuperSaiyanService implements OnDestroy {
             this.isAnimating.set(false);
 
             if (this.backgroundMusic && this.backgroundMusic.paused) {
-                this.backgroundMusic.volume = 0.3;
+                this.setMusicVolume(SuperSaiyanService.MUSIC_VOLUME);
                 this.backgroundMusic.currentTime = 0;
                 this.backgroundMusic.play().catch(() => { /* autoplay policy */ });
             }
@@ -330,6 +351,8 @@ export class SuperSaiyanService implements OnDestroy {
         this.phase.set('reverting');
         body.classList.remove(...CHARGING_CLASSES);
 
+        // Cut the power-up scream if it is still going, and fade the music out.
+        this.transformationSound?.pause();
         if (this.backgroundMusic && !this.backgroundMusic.paused) {
             this.fadeOutAudio(this.backgroundMusic);
         }
@@ -365,8 +388,38 @@ export class SuperSaiyanService implements OnDestroy {
         this.transformationSound = new Audio('assets/super-sa-yan-1.wav');
         this.backgroundMusic = new Audio('assets/15. Solid State Scouter(Dynamite Battle).mp3');
         this.backgroundMusic.loop = true;
-        this.backgroundMusic.volume = 0.3;
+        this.backgroundMusic.volume = SuperSaiyanService.MUSIC_VOLUME;
         this.backgroundMusic.preload = 'auto';
+
+        // Route the music through a gain node so its volume (and fade) also works
+        // on iPhone and iPad, where setting `audio.volume` does nothing.
+        try {
+            const view = this.document.defaultView as unknown as
+                { AudioContext?: typeof AudioContext; webkitAudioContext?: typeof AudioContext } | null;
+            const Ctx = view?.AudioContext ?? view?.webkitAudioContext;
+            if (Ctx) {
+                const ctx = new Ctx();
+                const gain = ctx.createGain();
+                gain.gain.value = SuperSaiyanService.MUSIC_VOLUME;
+                ctx.createMediaElementSource(this.backgroundMusic).connect(gain).connect(ctx.destination);
+                this.audioCtx = ctx;
+                this.musicGain = gain;
+                this.backgroundMusic.volume = 1; // the gain node sets the level now
+            }
+        } catch {
+            this.audioCtx = null;
+            this.musicGain = null;
+        }
+    }
+
+    private setMusicVolume(volume: number): void {
+        if (this.musicGain && this.audioCtx) {
+            const g = this.musicGain.gain;
+            g.cancelScheduledValues(this.audioCtx.currentTime);
+            g.setValueAtTime(volume, this.audioCtx.currentTime);
+        } else if (this.backgroundMusic) {
+            this.backgroundMusic.volume = volume;
+        }
     }
 
     private resolveOrigin(event?: Event): { x: number; y: number } {
@@ -380,28 +433,47 @@ export class SuperSaiyanService implements OnDestroy {
     }
 
     private cancelFadeOut(): void {
-        if (this.fadeIntervalId) {
-            clearInterval(this.fadeIntervalId);
-            this.fadeIntervalId = null;
+        if (this.fadeTimer) {
+            clearTimeout(this.fadeTimer);
+            this.fadeTimer = null;
         }
-        if (this.backgroundMusic) {
-            this.backgroundMusic.volume = 0.3;
-        }
+        this.setMusicVolume(SuperSaiyanService.MUSIC_VOLUME);
     }
 
+    /**
+     * Fade the music out, then stop it. The stop is on a timer, so it always
+     * happens, even where the volume can't be changed (iPhone/iPad Safari).
+     */
     private fadeOutAudio(audio: HTMLAudioElement): void {
-        this.cancelFadeOut();
-        const fadeStep = 0.05;
-        this.fadeIntervalId = setInterval(() => {
-            if (audio.volume > fadeStep) {
-                audio.volume = Math.max(0, audio.volume - fadeStep);
-            } else {
-                audio.volume = 0;
-                audio.pause();
-                audio.volume = 0.3;
-                this.cancelFadeOut();
-            }
-        }, 50);
+        if (this.fadeTimer) {
+            clearTimeout(this.fadeTimer);
+            this.fadeTimer = null;
+        }
+        const fadeMs = SuperSaiyanService.FADE_MS;
+
+        if (this.musicGain && this.audioCtx) {
+            const g = this.musicGain.gain;
+            const now = this.audioCtx.currentTime;
+            g.cancelScheduledValues(now);
+            g.setValueAtTime(g.value, now);
+            g.linearRampToValueAtTime(0, now + fadeMs / 1000);
+        } else {
+            const start = audio.volume;
+            const t0 = performance.now();
+            const step = () => {
+                const k = Math.min(1, (performance.now() - t0) / fadeMs);
+                audio.volume = Math.max(0, start * (1 - k));
+                if (k < 1 && !audio.paused) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+        }
+
+        this.fadeTimer = setTimeout(() => {
+            this.fadeTimer = null;
+            audio.pause();
+            audio.currentTime = 0;
+            this.setMusicVolume(SuperSaiyanService.MUSIC_VOLUME);
+        }, fadeMs);
     }
 
     private clearTimers(): void {
