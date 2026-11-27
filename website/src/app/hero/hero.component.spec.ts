@@ -1,4 +1,6 @@
-import { ComponentFixture, TestBed, discardPeriodicTasks, fakeAsync, flush, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideZonelessChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
 
 import { HeroComponent } from './hero.component';
 
@@ -8,7 +10,8 @@ describe('HeroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeroComponent]
+      imports: [HeroComponent],
+      providers: [provideZonelessChangeDetection(), provideRouter([])],
     })
     .compileComponents();
     

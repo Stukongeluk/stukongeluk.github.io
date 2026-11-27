@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, Inject, NgZone, PLATFORM_ID, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, Inject, PLATFORM_ID, signal } from '@angular/core';
 import { NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { SaiyanForm, SuperSaiyanService } from '../services/super-saiyan.service';
@@ -22,16 +22,12 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   constructor(
     public superSaiyan: SuperSaiyanService,
-    private ngZone: NgZone,
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      // The typing loop never ends. Run it outside Angular's zone so the app can
-      // become stable: until it does, the router skips scrolling to #about,
-      // #projects and #contact on a page that was loaded directly.
-      this.ngZone.runOutsideAngular(() => this.scheduleUpdateDisplayedRole());
+      this.scheduleUpdateDisplayedRole();
     }
   }
 

@@ -74,4 +74,7 @@
     </div>
 </footer>
 
-<app-saiyan-fx></app-saiyan-fx>
+<!-- The effects overlay is only needed once someone powers up. -->
+@defer (on idle; when saiyan.phase() !== 'idle') {
+  <app-saiyan-fx></app-saiyan-fx>
+}

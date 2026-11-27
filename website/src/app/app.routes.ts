@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { CapyDriveDetailComponent } from './projects/capy-drive-detail/capy-drive-detail.component';
-import { HermesSynologyDetailComponent } from './projects/hermes-synology-detail/hermes-synology-detail.component';
 
 export const routes: Routes = [
     {
@@ -10,11 +8,13 @@ export const routes: Routes = [
     },
     {
         path: 'projects/capydrive',
-        component: CapyDriveDetailComponent
+        loadComponent: () => import('./projects/capy-drive-detail/capy-drive-detail.component')
+            .then(m => m.CapyDriveDetailComponent)
     },
     {
         path: 'projects/hermes-synology',
-        component: HermesSynologyDetailComponent
+        loadComponent: () => import('./projects/hermes-synology-detail/hermes-synology-detail.component')
+            .then(m => m.HermesSynologyDetailComponent)
     },
     {
         path: 'projects/the-human-c-suite',
